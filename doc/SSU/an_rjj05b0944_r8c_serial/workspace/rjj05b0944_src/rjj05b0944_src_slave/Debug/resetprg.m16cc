@@ -1,0 +1,5 @@
+-c
+-finfo
+-dir "C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug"
+-R8C
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\resetprg.c"

@@ -1,0 +1,12 @@
+-L "r8clib"
+-G
+-MS
+-O "C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\rjj05b0944_src_slave.x30"
+-ORDER data_SE=0400,bss_SE,data_SO,bss_SO,data_NE,bss_NE,data_NO,bss_NO,stack,istack,heap_NE,rom_NE=04000,rom_NO,data_SEI,data_SOI,data_NEI,data_NOI,switch_table,program,interrupt,vector=0FEDC
+-R8C
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\fvector.r30"
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\heap.r30"
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\initsct.r30"
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\intprg.r30"
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\resetprg.r30"
+"C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_slave\Debug\rjj05b0944_src_slave.r30"

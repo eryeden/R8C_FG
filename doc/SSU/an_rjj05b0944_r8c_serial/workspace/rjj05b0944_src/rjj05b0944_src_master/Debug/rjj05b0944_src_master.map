@@ -1,0 +1,290 @@
+##########################################
+# (1) LINK INFORMATION                   #
+##########################################
+c:\program files\renesas\hew_apn\tools\renesas\nc30wa\v545r01\bin\ln30.exe @C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\rjj05b0944_src_master.m16cl
+
+# ID CODE DATA
+.ID  "#FFFFFFFFFFFFFF"
+
+# OPTION FUNCTION SELECT REGISTER
+.OFSREG  FFH
+
+# LINK FILE INFORMATION
+fvector (C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\fvector.r30)
+	Jan  7 15:47:48 2011
+
+heap (C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\heap.r30)
+	Jan  7 15:47:49 2011
+
+initsct (C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\initsct.r30)
+	Jan  7 15:47:48 2011
+
+intprg (C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\intprg.r30)
+	Jan  7 15:47:49 2011
+
+resetprg (C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\resetprg.r30)
+	Jan  7 15:47:48 2011
+
+rjj05b0944_src_master (C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\rjj05b0944_src_master.r30)
+	Jan  7 15:54:35 2011
+
+
+##########################################
+# (2) SECTION INFORMATION                #
+##########################################
+# SECTION                        ATR TYPE    START  LENGTH ALIGN MODULENAME
+data_SE                          REL DATA    000400 000000 2     initsct
+bss_SE                           REL DATA    000400 000000 2     initsct
+data_SO                          REL DATA    000400 000000       initsct
+bss_SO                           REL DATA    000400 000000       initsct
+data_NE                          REL DATA    000400 000000 2     initsct
+bss_NE                           REL DATA    000400 000000 2     initsct
+data_NO                          REL DATA    000400 000000       initsct
+                                 REL DATA    000400 000003       rjj05b0944_src_master
+bss_NO                           REL DATA    000403 000000       initsct
+                                 REL DATA    000403 000003       rjj05b0944_src_master
+stack                            REL DATA    000406 000080       resetprg
+istack                           REL DATA    000486 000080       resetprg
+data_SEI                         REL ROMDATA 004000 000000       initsct
+data_SOI                         REL ROMDATA 004000 000000       initsct
+data_NEI                         REL ROMDATA 004000 000000       initsct
+data_NOI                         REL ROMDATA 004000 000000       initsct
+                                 REL ROMDATA 004000 000003       rjj05b0944_src_master
+program                          REL CODE    004004 000005 2     fvector
+                                 REL CODE    00400A 00008F 2     intprg
+                                 REL CODE    00409A 000135 2     rjj05b0944_src_master
+interrupt                        REL CODE    0041D0 000065 2     initsct
+                                 REL CODE    004236 000037 2     resetprg
+vector                           REL ROMDATA 00FEDC 000100       intprg
+fvector                          ABS ROMDATA 00FFDC 000024       fvector
+# Total -------------------------------------------------------------------
+                                     DATA           000106(0000262) Byte(s)
+                                     ROMDATA        000127(0000295) Byte(s)
+                                     CODE           000268(0000616) Byte(s)
+
+##########################################
+# VARIABLE VECTOR TABLE INFORMATION      #
+##########################################
+No.  Address               No.  Address               No.  Address
+0    __brk                 1    __dummy_int           2    __dummy_int           
+3    __dummy_int           4    __dummy_int           5    __dummy_int           
+6    __dummy_int           7    __timer_rc            8    __timer_rd0           
+9    __timer_rd1           10   __timer_re            11   __uart2_trance        
+12   __uart2_receive       13   __input_key           14   __dummy_int           
+15   __ssuic               16   __compare1            17   __uart0_trance        
+18   __uart0_receive       19   __uart1_trance        20   __uart1_receive       
+21   __int2                22   __timer_ra            23   __dummy_int           
+24   __timer_rb            25   __int1                26   __int3                
+27   __timer_rf            28   __compare0            29   __int0                
+30   __ad_converter        31   __capture             32   __dummy_int           
+33   __dummy_int           34   __dummy_int           35   __dummy_int           
+36   __dummy_int           37   __dummy_int           38   __dummy_int           
+39   __dummy_int           40   __dummy_int           41   __dummy_int           
+42   __dummy_int           43   __dummy_int           44   __dummy_int           
+45   __dummy_int           46   __dummy_int           47   __dummy_int           
+48   __dummy_int           49   __dummy_int           50   __dummy_int           
+51   __dummy_int           52   __dummy_int           53   __dummy_int           
+54   __dummy_int           55   __dummy_int           56   __dummy_int           
+57   __dummy_int           58   __dummy_int           59   __dummy_int           
+60   __dummy_int           61   __dummy_int           62   __dummy_int           
+63   __dummy_int           
+
+##########################################
+# (3) GLOBAL LABEL INFORMATION           #
+##########################################
+__ad_converter     00408e  __brk              00400a  __capture          004094
+__compare0         004082  __compare1         004040  __dummy_int        004004
+__input_key        004034  __int0             004088  __int1             004070
+__int2             00405e  __int3             004076  __istack_top       000506
+__ssuic            00403a  __stack_top        000486  __timer_ra         004064
+__timer_rb         00406a  __timer_rc         004010  __timer_rd0        004016
+__timer_rd1        00401c  __timer_re         004022  __timer_rf         00407c
+__uart0_receive    00404c  __uart0_trance     004046  __uart1_receive    004058
+__uart1_trance     004052  __uart2_receive    00402e  __uart2_trance     004028
+_cs_communicatio   004144  _data              000400  _data_store        000403
+_exit              004268  _initsct           0041d0  _main              00409a
+_sfr_init          004100  _start             004236  
+
+##########################################
+# (4) GLOBAL EQU SYMBOL INFORMATION      #
+##########################################
+__SB__           00000400  
+
+##########################################
+# (5) GLOBAL EQU BIT-SYMBOL INFORMATION  #
+##########################################
+
+##########################################
+# (6) LOCAL LABEL INFORMATION            #
+##########################################
+@ fvector ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\fvector.r30 )
+@ heap ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\heap.r30 )
+@ initsct ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\initsct.r30 )
+@ intprg ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\intprg.r30 )
+@ resetprg ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\resetprg.r30 )
+@ rjj05b0944_src_master ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\rjj05b0944_src_master.r30 )
+
+##########################################
+# (7) LOCAL EQU SYMBOL INFORMATION       #
+##########################################
+@ fvector ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\fvector.r30 )
+@ heap ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\heap.r30 )
+@ initsct ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\initsct.r30 )
+@ intprg ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\intprg.r30 )
+@ resetprg ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\resetprg.r30 )
+@ rjj05b0944_src_master ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\rjj05b0944_src_master.r30 )
+
+##########################################
+# (8) LOCAL EQU BIT-SYMBOL INFORMATION   #
+##########################################
+@ fvector ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\fvector.r30 )
+@ heap ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\heap.r30 )
+@ initsct ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\initsct.r30 )
+@ intprg ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\intprg.r30 )
+@ resetprg ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\resetprg.r30 )
+@ rjj05b0944_src_master ( C:\WorkSpace\rjj05b0944_src\rjj05b0944_src_master\Debug\rjj05b0944_src_master.r30 )
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+data_SE
+                                  00000400  00000400         0   2
+bss_SE
+                                  00000400  00000400         0   2
+data_SO
+                                  00000400  00000400         0   1
+bss_SO
+                                  00000400  00000400         0   1
+data_NE
+                                  00000400  00000400         0   2
+bss_NE
+                                  00000400  00000400         0   2
+data_NO
+                                  00000400  00000402         3   1
+bss_NO
+                                  00000403  00000405         3   1
+stack
+                                  00000406  00000485        80   1
+istack
+                                  00000486  00000505        80   1
+data_SEI
+                                  00004000  00004000         0   1
+data_SOI
+                                  00004000  00004000         0   1
+data_NEI
+                                  00004000  00004000         0   1
+data_NOI
+                                  00004000  00004002         3   1
+program
+                                  00004004  000041ce       1cb   2
+interrupt
+                                  000041d0  0000426c        9d   2
+vector
+                                  0000fedc  0000ffdb       100   1
+fvector
+                                  0000ffdc  0000ffff        24   1
+
+*** Symbol List ***
+
+SECTION=
+FILE=                               START        END    SIZE
+  SYMBOL                            ADDR        SIZE    INFO      COUNTS  OPT
+
+SECTION=data_NO
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/rjj05b0944_src_master
+                                  00000400  00000402         3
+  _data
+                                  00000400         3   data ,g         0
+  __SB__
+                                  00000400         0   none ,g         0
+
+SECTION=bss_NO
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/rjj05b0944_src_master
+                                  00000403  00000405         3
+  _data_store
+                                  00000403         3   data ,g         0
+
+SECTION=istack
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/resetprg
+                                  00000486  00000505        80
+  __stack_top
+                                  00000486         0   none ,g         0
+
+SECTION=program
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/fvector
+                                  00004004  00004008         5
+  __dummy_int
+                                  00004004         5   func ,g         0
+
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/intprg
+                                  0000400a  00004098        8f
+  __brk
+                                  0000400a         5   func ,g         0
+  __timer_rc
+                                  00004010         6   func ,g         0
+  __timer_rd0
+                                  00004016         6   func ,g         0
+  __timer_rd1
+                                  0000401c         6   func ,g         0
+  __timer_re
+                                  00004022         6   func ,g         0
+  __uart2_trance
+                                  00004028         6   func ,g         0
+  __uart2_receive
+                                  0000402e         6   func ,g         0
+  __input_key
+                                  00004034         6   func ,g         0
+  __ssuic
+                                  0000403a         6   func ,g         0
+  __compare1
+                                  00004040         6   func ,g         0
+  __uart0_trance
+                                  00004046         6   func ,g         0
+  __uart0_receive
+                                  0000404c         6   func ,g         0
+  __uart1_trance
+                                  00004052         6   func ,g         0
+  __uart1_receive
+                                  00004058         6   func ,g         0
+  __int2
+                                  0000405e         6   func ,g         0
+  __timer_ra
+                                  00004064         6   func ,g         0
+  __timer_rb
+                                  0000406a         6   func ,g         0
+  __int1
+                                  00004070         6   func ,g         0
+  __int3
+                                  00004076         6   func ,g         0
+  __timer_rf
+                                  0000407c         6   func ,g         0
+  __compare0
+                                  00004082         6   func ,g         0
+  __int0
+                                  00004088         6   func ,g         0
+  __ad_converter
+                                  0000408e         6   func ,g         0
+
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/rjj05b0944_src_master
+                                  0000409a  000041ce       135
+  _main
+                                  0000409a        66   func ,g         0
+  _sfr_init
+                                  00004100        44   func ,g         0
+  _cs_communication
+                                  00004144        8b   func ,g         0
+
+SECTION=interrupt
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/initsct
+                                  000041d0  00004234        65
+  _initsct
+                                  000041d0        65   func ,g         0
+
+FILE=C:/WorkSpace/rjj05b0944_src/rjj05b0944_src_master/resetprg
+                                  00004236  0000426c        37
+  _start
+                                  00004236        32   func ,g         0
+  _exit
+                                  00004268         5   func ,g         0
+
