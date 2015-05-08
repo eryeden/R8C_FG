@@ -130,10 +130,13 @@
 "Object file" "Renesas OptLinker" "Renesas M16C Assembler" 
 "Object file" "Renesas OptLinker" "Renesas M16C C/C++ Compiler" 
 [PROJECT_FILES]
+"C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\FG\FG.cpp" "User" "C++ source file" 2 
+"C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\FG\FG.hpp" "User" "C++ header file" 2 
 "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator\ncrt0.a30" "User" "Assembly source file" 2 
 [FOLDER]
 "Assembly source file" "Assembly source file" 
+"C++ header file" "C++ header file" 
 "C++ source file" "C++ source file" 
 [GENERAL_DATA_PROJECT]
 "USE_CUSTOM_LINKAGE_ORDER" "1" 
@@ -148,15 +151,16 @@
 [OPTIONS_Debug_Renesas M16C C/C++ Compiler]
 "C source file" "0342705959980d10" 2 
 "C++ source file" "0342705959980d10" 2 
+"C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\FG\FG.cpp" "0614289f59980d10" 2 
 "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "0342705959980d10" 2 
 [OPTIONS_Debug_Renesas M16C C/C++ Library Generator]
 "Single Shot" "0342705959980d10" 1 
 [OPTIONS_Debug_Renesas M16C Configurator]
-"Single Shot" "0342705959980d10" 5 
+"Single Shot" "0614289f59980d10" 5 
 [OPTIONS_Debug_Renesas M16C ConfiguratorR8C]
-"Single Shot" "0342705959980d10" 5 
+"Single Shot" "0614289f59980d10" 5 
 [OPTIONS_Debug_Renesas OptLinker]
-"Single Shot" "0342705959980d10" 4 
+"Single Shot" "0d25389f59980d10" 4 
 [OPTIONS_Debug]
 "" 0 
 "[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 5 
@@ -174,15 +178,16 @@
 [OPTIONS_Release_Renesas M16C C/C++ Compiler]
 "C source file" "0342705959980d10" 2 
 "C++ source file" "0342705959980d10" 2 
+"C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\FG\FG.cpp" "0614289f59980d10" 2 
 "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "0342705959980d10" 2 
 [OPTIONS_Release_Renesas M16C C/C++ Library Generator]
 "Single Shot" "0342705959980d10" 1 
 [OPTIONS_Release_Renesas M16C Configurator]
-"Single Shot" "0342705959980d10" 5 
+"Single Shot" "0614289f59980d10" 5 
 [OPTIONS_Release_Renesas M16C ConfiguratorR8C]
-"Single Shot" "0342705959980d10" 5 
+"Single Shot" "0614289f59980d10" 5 
 [OPTIONS_Release_Renesas OptLinker]
-"Single Shot" "0342705959980d10" 4 
+"Single Shot" "0d25389f59980d10" 4 
 [OPTIONS_Release]
 "" 0 
 "[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 5 
