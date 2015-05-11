@@ -12,7 +12,7 @@ private:
   unsigned int f;
   unsigned int k;
   float pha;
-
+  
 public:
   void set_freq(unsigned int fin);
   void set_dt(float dtin);
@@ -32,7 +32,6 @@ public:
 
   virtual unsigned int get_val_now();
   unsigned int Out();
-
   
   void Enable();
   void Disable();
@@ -50,31 +49,35 @@ public:
 class ATriangle : public Wave{
 
 public:
-  ATriangle(const unsigned int* stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
+  ATriangle(unsigned int freq, unsigned int phase, float gain);
 
   unsigned int Out();
 };
 class ASawtooth : public Wave{
 public:
-  ASawtooth(const unsigned int* stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
+  ASawtooth(unsigned int freq, unsigned int phase, float gain);
 
   unsigned int Out();
 };
 class ANoise : public Wave{
 public:
-  ANoise(const unsigned int* stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
+  ANoise(unsigned int freq, unsigned int phase, float gain);
 
   unsigned int Out();
 };
 class APWM : public Wave{
 public:
-  APWM(const unsigned int* stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
+  APWM(unsigned int freq, unsigned int phase, float gain);
 
   unsigned int Out();
 };
 
-class DPWM{};
-class DNoise{};
+class DPWM{
+  
+};
+class DNoise{
+  
+};
 
 class TIMER{
   
@@ -90,7 +93,7 @@ class ADC: public SSU{
 class FG : public ADC ,public TIMER{
 private:
   Wave slot[SLOT_SIZE_MAX];
-
+  unsigned int nos;
 public:
   FG();
   
