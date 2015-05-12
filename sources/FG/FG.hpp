@@ -3,6 +3,8 @@
 
 #define SLOT_SIZE_MAX 5
 
+
+
 class TIMER{
 private:
 
@@ -36,7 +38,7 @@ private:
   unsigned int f;
   unsigned int k;
   float pha;
-  
+
 public:
   void set_freq(unsigned int fin);
   void set_dt(float dtin);
@@ -44,7 +46,7 @@ public:
   void set_phase(unsigned int phain);
 
   unsigned int update();
-  
+
 };
 
 class Wave{
@@ -52,24 +54,24 @@ private:
   float A;
   Clock clk;
 public:
-  
+
   void set_gain(float gain);
   float get_gain();
-  
+
   void set_frequency(unsigned int fin);
   unsigned int get_frequency();
-  
+
   void set_phase(float phain);
   float set_phase();
 
   virtual unsigned int get_val_now();
   unsigned int Out();
-  
+
   void Enable();
   void Disable();
-  
+
   +virtual unsigned char get_id();
-  
+
 };
 
 
@@ -83,7 +85,7 @@ public:
 
 class ASine : public Wave{
 private:
-  
+
 public:
   ASine(const unsigned int* stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
 
@@ -117,7 +119,7 @@ public:
 
 
 class BWave{
-  
+
 public:
   void set_frequency(unsigned int fin);
   void set_duty(unsigned int duty);
@@ -146,21 +148,24 @@ private:
   BWave *bslot;
   unsigned int nos;
   void AUpdate();
-  void BUpdate(); 
+  void BUpdate();
+
+
+
 public:
   FG();
   void clear();
   volatile void Update();
-  
+
   FG& operator+=(Wave& w);
-  
+
   void insertwave(unsigned char idx, Wave& w);
   void insertwave(unsigned char idx, BWave& w);
   void deletewave(unsigned char idx);
-  
-}; 
+
+};
 
 
 
 
-#endif //__FG__ 
+#endif //__FG__
