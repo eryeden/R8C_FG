@@ -68,6 +68,8 @@ public:
   void Enable();
   void Disable();
   
+  +virtual unsigned char get_id();
+  
 };
 
 class ASine : public Wave{
@@ -129,6 +131,9 @@ public:
   volatile void Update();
   
   FG& operator+=(Wave& w);
+  
+  void insertwave(unsigned char idx, Wave& w);
+  void deletewave(unsigned char idx);
   
 }; 
 
