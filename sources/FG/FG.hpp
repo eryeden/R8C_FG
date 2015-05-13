@@ -205,9 +205,18 @@ private:
 
 
 public:
+	void initialize();
+	void write(unsigned char in);
+
+	void clear();
+};
+class UIUtils{
+private:
+
+public:
+	void show(FGManeger * fgm);
 
 };
-class UIUtils{};
 class FGManeger{
 private:
 
@@ -218,14 +227,22 @@ private:
 
 	unsigned char output_index_selected;
 	unsigned char generator_index_selected;
-public:
 
 	void move_generator(unsigned char idx);
 	void clear_output(unsigned char idx);
 	void clear_all_output();
 	void set_output_gain(unsigned char idx, float gain);
 	void set_output_frequency(unsigned char idx, unsigned int freq);
-	void set_output_pahse(unsigned char idx, float phase);
+	void set_output_phase(unsigned char idx, float phase);
+
+public:
+
+	void button_down_mode();
+	void button_down_up();
+	void button_down_down();
+	void button_down_select();
+
+	
 };
 
 
