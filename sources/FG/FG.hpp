@@ -1,6 +1,20 @@
 #ifndef __FG__
 #define __FG__
 
+class Settings{
+private:
+public:
+	static const unsigned char SLOT_SIZE_MAX = 5;
+
+	static const unsigned char WAVE_ID_ANONE = 0x01;
+	static const unsigned char WAVE_ID_ASINE = 0x02;
+	static const unsigned char WAVE_ID_ATRIANGLE = 0x03;
+	static const unsigned char WAVE_ID_ASAWTOOTH = 0x04;
+	static const unsigned char WAVE_ID_ANONE = 0x05;
+	static const unsigned char WAVE_ID_ANONE = 0x06;
+
+
+};
 
 
 class Timer{
@@ -86,6 +100,7 @@ class ANone : public AWave{
 
 public:
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 
 class ASine : public AWave{
@@ -95,6 +110,7 @@ public:
 	ASine(const unsigned int* stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
 
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 class ATriangle : public AWave{
 
@@ -102,24 +118,28 @@ public:
 	ATriangle(unsigned int freq, unsigned int phase, float gain);
 
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 class ASawtooth : public AWave{
 public:
 	ASawtooth(unsigned int freq, unsigned int phase, float gain);
 
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 class ANoise : public AWave{
 public:
 	ANoise(unsigned int freq, unsigned int phase, float gain);
 
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 class APWM : public AWave{
 public:
 	APWM(unsigned int freq, unsigned int phase, float gain);
 
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 
 
@@ -136,23 +156,26 @@ private:
 
 public:
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 class BNoise : public BWave{
 private:
 
 public:
 	unsigned int get_val_now();
+	unsigned char get_id();
 };
 
 
 
 class Functiongenerator{
 private:
-
 	static const unsigned char SLOT_SIZE_MAX = 5;
+
+
 	Dac dac;
 	Timer tim;
-	Wave slot[SLOT_SIZE_MAX];
+	Wave slot[Settings::SLOT_SIZE_MAX];
 	BWave *bslot;
 	void AUpdate();
 	void BUpdate();
@@ -161,6 +184,8 @@ private:
 
 public:
 	Functiongenerator(); //ここですべてのスロットにANone, BNoneを入れておく。
+	
+	
 	void clear();
 	void Update();
 
@@ -168,16 +193,39 @@ public:
 	void insertwave(unsigned char idx, BWave& w);
 	void deletewave(unsigned char idx);
 
+	const unsigned char get_id_index(unsigned char idx);
+
+	const unsigned char get_slotsize();
+
 };
 
 
-class LCD_Utils{};
-class UI_Utils{};
-class FGManeger{
+class LCDUtils{
 private:
+
 
 public:
 
+};
+class UIUtils{};
+class FGManeger{
+private:
+
+	static const unsigned char POOL_SIZE_GENERATOR = 5;
+	unsigned char mode;
+	unsigned char pool_output[Settings::SLOT_SIZE_MAX];
+	Wave * pool_generator[POOL_SIZE_GENERATOR];
+
+	unsigned char output_index_selected;
+	unsigned char generator_index_selected;
+public:
+
+	void move_generator(unsigned char idx);
+	void clear_output(unsigned char idx);
+	void clear_all_output();
+	void set_output_gain(unsigned char idx, float gain);
+	void set_output_frequency(unsigned char idx, unsigned int freq);
+	void set_output_pahse(unsigned char idx, float phase);
 };
 
 
