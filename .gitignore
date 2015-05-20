@@ -3,6 +3,9 @@
 *.o
 *.bin
 
+*.~ml
+
+
 # User-specific files
 *.suo
 *.user
