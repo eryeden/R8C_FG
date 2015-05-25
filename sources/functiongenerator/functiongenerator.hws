@@ -3,12 +3,12 @@
 [DATABASE_VERSION]
 "11.0" 
 [WORKSPACE_DETAILS]
-"functiongenerator" "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator" "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator.hws" "M16C" "Renesas M16C Standard" 
+"functiongenerator" "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator" "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator.hws" "M16C" "Renesas M16C Standard" 
 [SHARED_WORKSPACE_CONTROL_STATUS]
 "" "" "" 
 "" "" "" 
 [PROJECTS]
-"functiongenerator" "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator" "C:\Users\B4\Documents\local_devel\R8C_29_FG\sources\functiongenerator\functiongenerator\functiongenerator.hwp" 0 
+"functiongenerator" "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator" "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.hwp" 0 
 [INFORMATION]
 "ワークスペース情報がありません" 
 [SCRAP]

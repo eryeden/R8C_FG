@@ -9,6 +9,8 @@
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
 /***********************************************************************/
 
+#include "sfr_r829.h"
+
 void main(void);
 
 void main(void)

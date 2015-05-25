@@ -10,6 +10,57 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\sources\FG\classes\src\ANoise.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\ANone.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\APWM.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\ASawtooth.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\ASine.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\ATriangle.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\AWave.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\BNoise.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\BPWM.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\ButtonManager.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\BWave.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\Clock.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\Dac.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\FGManager.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\FGManager2.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\FunctionGenerator.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\LCDUtils.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\SSUbus.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\Super.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\Super_1.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\Timer.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\UIUtils.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\Wave.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\sources\FG\classes\inc\ANoise.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\ANone.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\APWM.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\ASawtooth.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\ASine.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\ATriangle.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\AWave.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\BNoise.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\BPWM.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\ButtonManager.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\BWave.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Clock.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Dac.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\FGManager.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\FGManager2.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\FunctionGenerator.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\LCDUtils.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Settings.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\SSUbus.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Super.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Super_1.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Timer.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\UIUtils.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\Wave.hpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C6FAF05B-F782-4135-9A30-B533A84351A2}</ProjectGuid>
     <RootNamespace>r8c_fg</RootNamespace>
@@ -44,6 +95,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -56,6 +108,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -63,12 +116,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\sources\FG\FG.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\sources\FG\FG.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
