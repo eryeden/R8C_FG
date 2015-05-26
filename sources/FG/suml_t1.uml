@@ -2724,7 +2724,6 @@
 <XPD:OBJ name="Operations[2]" type="UMLOperation" guid="gVc/w0hU8E+0tFsUEf+cPQAA">
 <XPD:ATTR name="Name" type="string">FunctionGenerator</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">create</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:REF name="Owner">ambSgPnQqEuQ1EfIpDp9GQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[3]" type="UMLOperation" guid="CaQwNQInZE+1sxAN3GZTGQAA">

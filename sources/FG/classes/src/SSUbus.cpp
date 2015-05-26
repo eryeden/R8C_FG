@@ -11,9 +11,15 @@
 
 
 #include "SSUbus.hpp"
+#include "sfr_r829.h"
 
 SSUbus::SSUbus(){
-	
+	//クロック同期式通信モードの設定を行う　使うのはP3_5, P3_7
+	//ピンの設定 使うのを入力にする
+	pd3_5 = 1;
+	pd3_7 = 1;
+
+
 }
 
 void SSUbus::WriteByte(unsigned char data) {
