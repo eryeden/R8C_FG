@@ -158,5 +158,8 @@
     <ClInclude Include="..\..\sources\FG\classes\inc\Wave.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\sources\FG\classes\inc\sfr_r829.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

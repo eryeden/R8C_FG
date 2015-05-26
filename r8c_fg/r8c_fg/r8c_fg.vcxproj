@@ -54,6 +54,7 @@
     <ClInclude Include="..\..\sources\FG\classes\inc\FunctionGenerator.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\LCDUtils.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\Settings.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\sfr_r829.h" />
     <ClInclude Include="..\..\sources\FG\classes\inc\SSUbus.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\Super.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\Super_1.hpp" />
