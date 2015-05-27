@@ -130,8 +130,11 @@
 "Object file" "Renesas OptLinker" "Renesas M16C Assembler" 
 "Object file" "Renesas OptLinker" "Renesas M16C C/C++ Compiler" 
 [PROJECT_FILES]
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" "User" "C++ source file" 2 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" "User" "C++ header file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" "User" "C++ header file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" "User" "C++ header file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" "User" "C++ header file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" "User" "C++ source file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" "User" "Assembly source file" 2 
 [FOLDER]
@@ -146,55 +149,63 @@
 "DefaultSession" "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\DefaultSession.hsf" 0 
 [GENERAL_DATA_SESSION_DefaultSession]
 [OPTIONS_Debug_Renesas M16C Assembler]
-"Assembly source file" "0342705959980d10" 3 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" "0342705959980d10" 3 
+"Assembly source file" "085e71afa9890d10" 4 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" "085e71afa9890d10" 4 
 [OPTIONS_Debug_Renesas M16C C/C++ Compiler]
-"C source file" "0342705959980d10" 2 
-"C++ source file" "0342705959980d10" 2 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" "0614289f59980d10" 2 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "0342705959980d10" 2 
+"C source file" "057ad923b9890d10" 2 
+"C++ source file" "057ad923b9890d10" 3 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" "057ad923b9890d10" 3 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" "057ad923b9890d10" 3 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "057ad923b9890d10" 3 
 [OPTIONS_Debug_Renesas M16C C/C++ Library Generator]
 "Single Shot" "0342705959980d10" 1 
 [OPTIONS_Debug_Renesas M16C Configurator]
-"Single Shot" "0614289f59980d10" 5 
+"Single Shot" "0f99d8e399890d10" 6 
 [OPTIONS_Debug_Renesas M16C ConfiguratorR8C]
-"Single Shot" "0614289f59980d10" 5 
+"Single Shot" "0f99d8e399890d10" 6 
 [OPTIONS_Debug_Renesas OptLinker]
-"Single Shot" "0d25389f59980d10" 4 
+"Single Shot" "0548e8e399890d10" 5 
 [OPTIONS_Debug]
 "" 0 
-"[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 5 
-"[V|VERSION|1] [S|LIST|LM] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DISABLES_MESSAGE|1] [S|CPU|R8C] " 3 
+"[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 6 
+"[V|VERSION|1] [S|INCLUDE|^"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc^"] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [S|LIST|L|M] [B|DISABLES_MESSAGE|1] [S|CPU|R8C]
+" 4 
+"[V|VERSION|1] [S|INCLUDE|^"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc^"] [S|LANG|CPP] [S|OUTPUT|OBJECTCODE] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [S|MISRA|ALL] [B|SILENT|1] [S|CPU|R8C]
+" 3 
+"[V|VERSION|1] [S|INCLUDE|^"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc^"] [S|LANG|C] [S|OUTPUT|OBJECTCODE] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [S|MISRA|ALL] [B|SILENT|1] [S|CPU|R8C]
+" 2 
 "[V|VERSION|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [S|CPU|R8C] [B|NOFLOAT|1] [S|MODE|BUILD/CHANGED]" 1 
-"[V|VERSION|1] [S|OUTPUT|OBJECTCODE] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|INSPECTOR|1] [B|SILENT|1] [S|CPU|R8C] " 2 
-"[V|VERSION|6] [B|OPTIMIZE|0] [B|DEBUG|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [S|OTHER|^"-change_message=information=1100,1322,1410^"] [S|FORM|STYPE] [B|TOTAL_SIZE|1] [B|STACK|1] [S|START|data_SE,bss_SE,data_SO,bss_SO,data_NE,bss_NE,data_NO,bss_NO,stack,istack,heap_NE(400)|interrupt,rom_NE,rom_NO,data_SEI,data_SOI,data_NEI,data_NOI,switch_table,C$VTBL,program(e000)|vector(fedc)]" 4 
+"[V|VERSION|6] [B|OPTIMIZE|0] [B|DEBUG|1] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [S|OTHER|^"-change_message=information=1100,1322,1410^"] [S|FORM|STYPE] [B|TOTAL_SIZE|1] [B|STACK|1] [S|START|data_SE,bss_SE,data_SO,bss_SO,data_NE,bss_NE,data_NO,bss_NO,stack,istack,heap_NE(400)|interrupt,rom_NE,rom_NO,data_SEI,data_SOI,data_NEI,data_NOI,switch_table,C$VTBL,program(e000)|vector(fedc)]" 5 
 [EXCLUDED_FILES_Debug]
 [LINKAGE_ORDER_Debug]
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\Debug\ncrt0.r30" 
 [GENERAL_DATA_CONFIGURATION_Debug]
 [OPTIONS_Release_Renesas M16C Assembler]
-"Assembly source file" "0342705959980d10" 3 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" "0342705959980d10" 3 
+"Assembly source file" "0342705959980d10" 4 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" "0342705959980d10" 4 
 [OPTIONS_Release_Renesas M16C C/C++ Compiler]
 "C source file" "0342705959980d10" 2 
-"C++ source file" "0342705959980d10" 2 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" "0614289f59980d10" 2 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "0342705959980d10" 2 
+"C++ source file" "085e71afa9890d10" 3 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" "085e71afa9890d10" 3 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" "085e71afa9890d10" 3 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" "085e71afa9890d10" 3 
 [OPTIONS_Release_Renesas M16C C/C++ Library Generator]
 "Single Shot" "0342705959980d10" 1 
 [OPTIONS_Release_Renesas M16C Configurator]
-"Single Shot" "0614289f59980d10" 5 
+"Single Shot" "0f99d8e399890d10" 6 
 [OPTIONS_Release_Renesas M16C ConfiguratorR8C]
-"Single Shot" "0614289f59980d10" 5 
+"Single Shot" "0f99d8e399890d10" 6 
 [OPTIONS_Release_Renesas OptLinker]
-"Single Shot" "0d25389f59980d10" 4 
+"Single Shot" "0f99d8e399890d10" 5 
 [OPTIONS_Release]
 "" 0 
-"[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 5 
-"[V|VERSION|1] [S|LIST|L|M] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DISABLES_MESSAGE|1] [S|CPU|R8C] " 3 
+"[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 6 
+"[V|VERSION|1] [S|LANG|CPP] [S|OUTPUT|OBJECTCODE] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [S|MISRA|ALL] [B|SILENT|1] [S|CPU|R8C]
+" 3 
+"[V|VERSION|1] [S|LIST|L|M] [B|INSPECTOR|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|DISABLES_MESSAGE|1] [S|CPU|R8C] " 4 
 "[V|VERSION|1] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(PROJECTNAME).lib^"] [S|CPU|R8C] [B|NOFLOAT|1] [S|MODE|BUILD/CHANGED]" 1 
 "[V|VERSION|1] [S|OUTPUT|OBJECTCODE] [S|OUTPUTPATH|^"$(CONFIGDIR)\$(FILELEAF).obj^"] [B|INSPECTOR|1] [B|SILENT|1] [S|CPU|R8C] " 2 
-"[V|VERSION|6] [B|OPTIMIZE|0] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [S|OTHER|^"-change_message=information=1100,1322,1410^"] [S|FORM|STYPE] [B|TOTAL_SIZE|1] [B|STACK|1] [S|START|data_SE,bss_SE,data_SO,bss_SO,data_NE,bss_NE,data_NO,bss_NO,stack,istack,heap_NE(400)|interrupt,rom_NE,rom_NO,data_SEI,data_SOI,data_NEI,data_NOI,switch_table,C$VTBL,program(e000)|vector(fedc)]" 4 
+"[V|VERSION|6] [B|OPTIMIZE|0] [S|OUTPUT|^"$(CONFIGDIR)\$(PROJECTNAME).mot^"] [B|LIST|1] [S|LIST|^"$(CONFIGDIR)\$(PROJECTNAME).map^"] [S|OTHER|^"-change_message=information=1100,1322,1410^"] [S|FORM|STYPE] [B|TOTAL_SIZE|1] [B|STACK|1] [S|START|data_SE,bss_SE,data_SO,bss_SO,data_NE,bss_NE,data_NO,bss_NO,stack,istack,heap_NE(400)|interrupt,rom_NE,rom_NO,data_SEI,data_SOI,data_NEI,data_NOI,switch_table,C$VTBL,program(e000)|vector(fedc)]" 5 
 [EXCLUDED_FILES_Release]
 [LINKAGE_ORDER_Release]
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\Release\ncrt0.r30" 

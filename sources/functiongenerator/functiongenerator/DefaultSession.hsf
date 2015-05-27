@@ -26,7 +26,7 @@
 [CONFIG_INFO_VD1]
 1 
 [CONFIG_INFO_VD2]
-0 
+1 
 [CONFIG_INFO_VD3]
 0 
 [CONFIG_INFO_VD4]
@@ -49,13 +49,34 @@
 "{WK_TB00000028_RTOSDEBUG}" "TOOLBAR 0" 59419 2 2 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
 "{WK_TB00000029_SYSTEMTOOL}" "TOOLBAR 0" 59419 2 3 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
 [WINDOW_POSITION_STATE_DATA_VD2]
+"{WK_00000001_OUTPUT}" "WINDOW" 59422 0 0 "1.00" 180 560 337 350 200 18 0 "36756|36757|36758|36759|<<separator>>|36746|36747|<<separator>>|39531|<<separator>>|39500|39534|<<separator>>|36687" "0.0" 
+"{WK_00000002_WORKSPACE}" "WINDOW" 59420 0 0 "1.00" 230 560 337 350 200 18 0 "" "0.0" 
+"{WK_TB00000001_STANDARD}" "TOOLBAR 0" 59419 0 2 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
+"{WK_TB00000002_EDITOR}" "TOOLBAR 0" 59419 0 0 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
+"{WK_TB00000003_BOOKMARKS}" "TOOLBAR 0" 59419 1 1 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000004_TEMPLATES}" "TOOLBAR 0" 59419 1 0 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000005_SEARCH}" "TOOLBAR 0" 59419 0 1 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
+"{WK_TB00000007_DEBUG}" "TOOLBAR 0" 59419 2 0 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000008_DEBUGRUN}" "TOOLBAR 0" 59419 2 1 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000009_VERSIONCONTROL}" "TOOLBAR 0" 59419 1 3 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000010_TOOLS}" "TOOLBAR 0" 59419 1 5 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000012_MAP}" "TOOLBAR 0" 59419 1 4 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000018_DEFAULTWINDOW}" "TOOLBAR 0" 59419 1 2 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000026_MACRO}" "TOOLBAR 0" 59419 1 6 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000028_RTOSDEBUG}" "TOOLBAR 0" 59419 2 2 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
+"{WK_TB00000029_SYSTEMTOOL}" "TOOLBAR 0" 59419 2 3 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 

@@ -36,8 +36,8 @@ SSUbus::SSUbus(unsigned char mode){
 void SSUbus::InitializeSynchronizedClockMode(){
 	//クロック同期式通信モードの設定を行う　使うのはP3_5, P3_7
 	//ピンの設定 使うのを入力にする
-	pd3_5 = 1;
-	pd3_7 = 1;
+	pd3_5 = 0;
+	pd3_7 = 0;
 
 	//SSUバス動作許可
 	//しなくていいらしい
@@ -91,12 +91,15 @@ void SSUbus::InitializeSynchronizedClockMode(){
 	tie_sser = 0; //送信データエンプティ割り込み禁止
 }
 
+
 void SSUbus::Initialize4WiresMode(){
 	//クロック同期式通信モードの設定を行う　使うのはP3_5, P3_7
 	//ピンの設定 使うのを入力にする
-	pd3_5 = 1;
-	pd3_7 = 1;
-	pd3_4 = 1; 
+	pd3_5 = 0;
+	pd3_7 = 0;
+	pd3_4 = 0;
+	
+	 
 
 	//SSUバス動作許可
 	//しなくていいらしい

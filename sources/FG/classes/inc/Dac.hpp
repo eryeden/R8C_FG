@@ -36,7 +36,7 @@ private:
 		unsigned int word;
 	};
 
-	unsigned int m_data_outs;
+	//unsigned int m_data_outs;
 	union m_dac_data_def m_data_outs; //ÀÛ‚É‘—‚ç‚ê‚éƒf[ƒ^
 
 	unsigned char m_dac_select;

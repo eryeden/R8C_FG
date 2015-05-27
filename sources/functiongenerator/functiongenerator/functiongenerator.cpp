@@ -10,10 +10,16 @@
 /***********************************************************************/
 
 #include "sfr_r829.h"
+#include "Dac.hpp"
 
 void main(void);
 
 void main(void)
 {
+	Dac dac;
+	
+	pd1_1 = 1;
+	p1drr1 = 1;
+	p1_1 = 1;
 	
 }
