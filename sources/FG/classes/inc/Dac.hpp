@@ -17,9 +17,45 @@
 
 class Dac {
 public:
-	void WriteVoltage(unsigned int vol);
+	Dac();
+	void WriteVoltageA(unsigned int vol);
+	void WriteVoltageB(unsigned int vol);
 private:
 	SSUbus m_ssu;
+
+	struct m_dac_bit_def{
+		unsigned char dac_select : 1;
+		unsigned char input_buffer_control : 1;
+		unsigned char gain_select : 1;
+		unsigned char power_down_control : 1;
+		unsigned int dac_data : 12;
+	};
+
+	union m_dac_data_def{
+		struct m_dac_bit_def bit;
+		unsigned int word;
+	};
+
+	unsigned int m_data_outs;
+	union m_dac_data_def m_data_outs; //é¿ç€Ç…ëóÇÁÇÍÇÈÉfÅ[É^
+
+	unsigned char m_dac_select;
+	unsigned char m_input_buffer_control;
+	unsigned char m_gain_select;
+	unsigned char m_power_down_control;
+
+	static const unsigned char DAC_SELECT_A = 0x01;
+	static const unsigned char DAC_SELECT_B = 0x00;
+
+	static const unsigned char DAC_INPUT_BUFFER_CONTROL_BUFFERED = 0x01;
+	static const unsigned char DAC_INPUT_BUFFER_CONTROL_UNBUFFERED =  0x00;
+	
+	static const unsigned char DAC_GAIN_1X = 0x01;
+	static const unsigned char DAC_GAIN_2X = 0x00;
+
+	static const unsigned char DAC_SHUTDOWN_POWER_ON = 0x01;
+	static const unsigned char DAC_SHUTDOWN_POWER_OFF = 0x00;
+
 };
 
 #endif  //_DAC_H

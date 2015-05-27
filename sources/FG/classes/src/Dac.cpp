@@ -12,7 +12,30 @@
 
 #include "Dac.hpp"
 
-void Dac::WriteVoltage(unsigned int vol) {
-
+//とりあえず4線モードを使ってみる そうするとチップセレクト処理が必要なくなる
+Dac::Dac()
+	: m_ssu(SSUbus::MODE_SYNCHRONIZED_CLOCK)
+{
+	m_data_outs.bit.dac_select = DAC_SELECT_A;
+	m_data_outs.bit.input_buffer_control = DAC_INPUT_BUFFER_CONTROL_BUFFERED;
+	m_data_outs.bit.gain_select = DAC_GAIN_1X;
+	m_data_outs.bit.power_down_control = DAC_SHUTDOWN_POWER_ON;
+	m_data_outs.bit.dac_data = 0;
 }
+
+void Dac::WriteVoltageA(unsigned int vol) {
+	m_data_outs.bit.dac_select = DAC_SELECT_A;
+	m_data_outs.bit.dac_data = (vol & 0x3F);
+}
+
+void Dac::WriteVoltageB(unsigned int vol) {
+	m_data_outs.bit.dac_select = DAC_SELECT_B;
+	m_data_outs.bit.dac_data = (vol & 0x3F);
+}
+
+
+
+
+
+
 
