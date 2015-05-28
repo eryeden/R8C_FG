@@ -7,6 +7,7 @@
 [INFORMATION]
 "" 
 [GENERAL_DATA]
+"RESET_CPU_AFTER_DOWNLOAD_TAG" "VARIANT_FALSE_STORE_TAG" 
 "{0CE21862-D122-40C7-8480-3B1EC1503AF0}ZipcCtrlViews" "0" 
 "{287A8023-99B5-49E1-A54E-4DDCA43D7959}MapCtrlECX_MAP_FIND_SYMBOL_LIST" "" 
 "{287A8023-99B5-49E1-A54E-4DDCA43D7959}MapCtrlViews" "0" 
@@ -81,7 +82,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
 [TARGET_NAME]
-"" "" 1632504443 
+"" "" 1 
 [STATUSBAR_STATEINFO_VD1]
 "MasterShowState" 1 
 "ApplicationShowState" 1 
@@ -121,7 +122,7 @@
 "1" 
 [COMMAND_FILES]
 [DEFAULT_DEBUG_FORMAT]
-"" 
+"<none>" 
 [FLASH_DETAILS]
 "" 0 0 "" 0 "" 0 0 "" 0 0 0 0 0 0 0 "" "" "" "" "" 
 [BREAKPOINTS]

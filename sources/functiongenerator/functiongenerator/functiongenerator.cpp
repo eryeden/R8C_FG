@@ -20,6 +20,15 @@ void main(void)
 	
 	pd1_1 = 1;
 	p1drr1 = 1;
-	p1_1 = 1;
+	p1_1 = 0;
+	
+	dac.WriteVoltageA(3000);
+	
+	
+	while(1){
+		for(long i = 0; i < 50000; ++i);
+			p1_1 = !p1_1;
+
+	}
 	
 }
