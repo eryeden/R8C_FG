@@ -23,6 +23,7 @@
     <ClCompile Include="..\..\sources\FG\classes\src\ButtonManager.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\BWave.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\Clock.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\ClockSettings.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\Dac.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\FGManager.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\FGManager2.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="..\..\sources\FG\classes\inc\ButtonManager.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\BWave.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\Clock.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\ClockSettings.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\Dac.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\FGManager.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\FGManager2.hpp" />

@@ -11,24 +11,56 @@
 
 #include "sfr_r829.h"
 #include "Dac.hpp"
+#include "ClockSettings.hpp"
+#include "SSUbus.hpp"
 
 void main(void);
 
+
+void write(unsigned int data, SSUbus &ssu){
+	p3_4 = 0;
+	asm("nop");
+	asm("nop");
+	asm("nop");
+	ssu.Write((unsigned char *) &data, 2);
+	asm("nop");
+	asm("nop");
+	asm("nop");
+	p3_4 = 1;
+}
+
+void write2(unsigned char * data, SSUbus &ssu){
+	p3_4 = 0;
+	asm("nop");
+	asm("nop");
+	asm("nop");
+	ssu.Write(data, 2);
+	asm("nop");
+	asm("nop");
+	asm("nop");
+	p3_4 = 1;
+}
+
 void main(void)
 {
-	Dac dac;
 	
+	ClockSettings clkstg;
+	clkstg.Initialize();
+
+	Dac dac;
+
+
 	pd1_1 = 1;
 	p1drr1 = 1;
 	p1_1 = 0;
-	
-	dac.WriteVoltageA(3000);
-	
-	
-	while(1){
-		for(long i = 0; i < 50000; ++i);
-			p1_1 = !p1_1;
 
+	int j = 0;
+
+	while(1){
+		for(unsigned int i = 0; i < 1; ++i);
+			p1_1 = !p1_1;
+			dac.WriteVoltageA(j);
+			j = (j > (0x0FFF - 1)) ? 0 : j + 500;
 	}
 	
 }

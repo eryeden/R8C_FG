@@ -17,10 +17,12 @@
 class SSUbus {
 public:
 	SSUbus(unsigned char mode);
+	SSUbus();
 	void InitializeSynchronizedClockMode();
 	void Initialize4WiresMode();
 	void WriteByte(unsigned char data);
 	void Write(unsigned char * data, unsigned char bytes);
+	void WriteSync(unsigned int word);
 
 	static const unsigned char MODE_SYNCHRONIZED_CLOCK = 0x01;
 	static const unsigned char MODE_4WIRES = 0x02;

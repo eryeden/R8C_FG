@@ -54,7 +54,7 @@
 <XPD:REF name="DiagramOwner">8trUSlq9zkuHZqgv0mKS+gAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="8sT+MwMgrEWuQccWelgWEgAA">
 <XPD:REF name="Diagram">1EFYdVbucUGNwClCJ04FMgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">38</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">39</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="MDp7XaRsdUO6oXD8gYyugAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -1648,9 +1648,41 @@
 <XPD:REF name="Model">WFWRRHinP0OnxhSxWM4zcgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+<XPD:OBJ name="OwnedViews[38]" type="UMLClassView" guid="SLHLuO2440Ohxs3N1WVCegAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">188</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">472</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">218</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">95</XPD:ATTR>
+<XPD:ATTR name="ShowProperty" type="boolean">True</XPD:ATTR>
+<XPD:REF name="Model">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="MLSrxhwmvEGBpHJIjG9auwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="NAcvkAGMuECOdPS6dsZoGwAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">ClockSettings</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="m23+8ZOoc0WZ/jZJDzh/vAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="ciTd4kXDf0uNKJX3RG34gwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">47</XPD:ATTR>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="OIsCdFInPkKekqPMJNHC1wAA">
+<XPD:REF name="Model">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="pDtLpqoJME2GenghV/28NAAA">
+<XPD:REF name="Model">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="CXaHJ0833k6bqt21bcYZCgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">48</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="LMCTxAZun0yD3Vsq6nadPgAA">
 <XPD:ATTR name="Name" type="string">Super</XPD:ATTR>
 <XPD:REF name="Namespace">8trUSlq9zkuHZqgv0mKS+gAA</XPD:REF>
@@ -2724,7 +2756,6 @@
 <XPD:OBJ name="Operations[2]" type="UMLOperation" guid="gVc/w0hU8E+0tFsUEf+cPQAA">
 <XPD:ATTR name="Name" type="string">FunctionGenerator</XPD:ATTR>
 <XPD:ATTR name="StereotypeName" type="string">create</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkPrivate</XPD:ATTR>
 <XPD:REF name="Owner">ambSgPnQqEuQ1EfIpDp9GQAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Operations[3]" type="UMLOperation" guid="CaQwNQInZE+1sxAN3GZTGQAA">
@@ -3799,6 +3830,33 @@
 <XPD:REF name="Views[1]">Z4cAqNAtW0uNePgMYwmLjwAA</XPD:REF>
 <XPD:REF name="Views[2]">HaUVZ4iQ/066TJdv4Xm+CQAA</XPD:REF>
 <XPD:REF name="Views[3]">Xn6lvIQA9kW+bvTUe+ARrAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[47]" type="UMLClass" guid="89JjWdkk0kewWJgZ3iBGSwAA">
+<XPD:ATTR name="Name" type="string">ClockSettings</XPD:ATTR>
+<XPD:REF name="Namespace">8trUSlq9zkuHZqgv0mKS+gAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">SLHLuO2440Ohxs3N1WVCegAA</XPD:REF>
+<XPD:REF name="Views[1]">OIsCdFInPkKekqPMJNHC1wAA</XPD:REF>
+<XPD:REF name="Views[2]">pDtLpqoJME2GenghV/28NAAA</XPD:REF>
+<XPD:REF name="Views[3]">CXaHJ0833k6bqt21bcYZCgAA</XPD:REF>
+<XPD:ATTR name="#Operations" type="integer">3</XPD:ATTR>
+<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="K5v23qqBeES0aXsXI4+Y5QAA">
+<XPD:ATTR name="Name" type="string">&lt;&lt;create&gt;&gt;+ClockSettings</XPD:ATTR>
+<XPD:REF name="Owner">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="4kQZayGyD0C2On+MOKVSfgAA">
+<XPD:ATTR name="Name" type="string">SetClock(freqency :unsigned long): void</XPD:ATTR>
+<XPD:REF name="Owner">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="+VW1k5w230eOZ/WX0QEoFwAA">
+<XPD:ATTR name="Name" type="string">GetClock() : unsigned long</XPD:ATTR>
+<XPD:REF name="Owner">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="ABQGIoUUdUisDH4BKd/QWgAA">
+<XPD:ATTR name="Name" type="string">m_clock : unsigned long</XPD:ATTR>
+<XPD:REF name="Owner">89JjWdkk0kewWJgZ3iBGSwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
