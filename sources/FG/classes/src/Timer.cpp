@@ -14,7 +14,10 @@
 #include "Settings.hpp"
 #include "sfr_r829.h"
 
-Timer::Timer(){
+Timer::Timer()
+	: m_dac(),
+	  m_tmp(0)
+{
 	//Š„‚èž‚Ý‹ÖŽ~
 	asm("FCLR I");
 
@@ -101,3 +104,7 @@ void Timer::Disable() {
 	while (tcstf_trbcr != 0);
 }
 
+volatile void Timer::IntrTB(){
+	m_tmp = (m_tmp > (0x0FFF - 1)) ? 0 : m_tmp + 500;
+	m_dac.WriteVoltageA(m_tmp);
+}

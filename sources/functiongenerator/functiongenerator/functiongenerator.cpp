@@ -13,33 +13,10 @@
 #include "Dac.hpp"
 #include "ClockSettings.hpp"
 #include "SSUbus.hpp"
+#include "Timer.hpp"
 
 void main(void);
 
-
-void write(unsigned int data, SSUbus &ssu){
-	p3_4 = 0;
-	asm("nop");
-	asm("nop");
-	asm("nop");
-	ssu.Write((unsigned char *) &data, 2);
-	asm("nop");
-	asm("nop");
-	asm("nop");
-	p3_4 = 1;
-}
-
-void write2(unsigned char * data, SSUbus &ssu){
-	p3_4 = 0;
-	asm("nop");
-	asm("nop");
-	asm("nop");
-	ssu.Write(data, 2);
-	asm("nop");
-	asm("nop");
-	asm("nop");
-	p3_4 = 1;
-}
 
 void main(void)
 {
@@ -49,6 +26,9 @@ void main(void)
 
 	Dac dac;
 
+	Timer tim;
+	tim.SetDt(1);
+
 
 	pd1_1 = 1;
 	p1drr1 = 1;
@@ -57,10 +37,10 @@ void main(void)
 	int j = 0;
 
 	while(1){
-		for(unsigned int i = 0; i < 1; ++i);
-			p1_1 = !p1_1;
-			dac.WriteVoltageA(j);
-			j = (j > (0x0FFF - 1)) ? 0 : j + 500;
+		//for(unsigned int i = 0; i < 1; ++i);
+		//	p1_1 = !p1_1;
+		//	dac.WriteVoltageA(j);
+		//	j = (j > (0x0FFF - 1)) ? 0 : j + 500;
 	}
 	
 }

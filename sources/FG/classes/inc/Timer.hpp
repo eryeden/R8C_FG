@@ -13,6 +13,7 @@
 #if !defined(_TIMER_H)
 #define _TIMER_H
 
+#include "Dac.hpp"
 
 class Timer {
 public:
@@ -22,6 +23,13 @@ public:
 	void Disable();
 	void SetDt(float dt_ms);
 	float GetDt();
+
+	volatile void IntrTB();
+
+private:
+	Dac m_dac;
+
+	unsigned int m_tmp;
 
 };
 

@@ -42,29 +42,19 @@ Dac::Dac()
 }
 
 void Dac::WriteVoltageA(unsigned int vol) {
-	m_data_outs.bit.dac_select = DAC_SELECT_A;
-	m_data_outs.bit.dac_data = (vol & 0x3F);
-
 	m_send |= (DAC_SELECT_A << 15);
 	m_send &= 0xF000;
 	m_send |= (vol & 0x0FFF);
 
-	//m_ssu.Write((unsigned char *)&(m_data_outs.word), 2);
-	//m_ssu.WriteSync(m_data_outs.word);
 	m_ssu.WriteSync(m_send);
 
 }
 
 void Dac::WriteVoltageB(unsigned int vol) {
-	m_data_outs.bit.dac_select = DAC_SELECT_B;
-	m_data_outs.bit.dac_data = (vol & 0x3F);
-
 	m_send |= (DAC_SELECT_B << 15);
 	m_send &= 0xF000;
 	m_send |= (vol & 0x0FFF);
 
-	//m_ssu.Write((unsigned char *) &(m_data_outs.word), 2);
-	//m_ssu.WriteSync(m_data_outs.word);
 	m_ssu.WriteSync(m_send);
 
 }
