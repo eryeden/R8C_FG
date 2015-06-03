@@ -20,6 +20,13 @@ public:
 	Dac();
 	void WriteVoltageA(unsigned int vol);
 	void WriteVoltageB(unsigned int vol);
+
+	static void SInitialize();
+	static void SWriteVoltageA(unsigned int vol);
+	static void SWriteVoltageB(unsigned int vol);
+
+	//static unsigned int sm_send;
+
 private:
 	SSUbus m_ssu;
 
@@ -59,5 +66,6 @@ private:
 	static const unsigned char DAC_SHUTDOWN_POWER_OFF = 0x00;
 
 };
+
 
 #endif  //_DAC_H

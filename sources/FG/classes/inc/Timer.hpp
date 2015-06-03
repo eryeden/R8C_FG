@@ -10,6 +10,9 @@
 //
 
 
+//Š„‚è‚İŠÔŠu‚Í5us‚ªÅ¬‚¾‚Á‚½
+//8bitƒJƒEƒ“ƒ^‚¾‚Æ12.8us‚ªÅ‘å
+
 #if !defined(_TIMER_H)
 #define _TIMER_H
 
@@ -23,13 +26,18 @@ public:
 	void Disable();
 	void SetDt(float dt_ms);
 	float GetDt();
+	static float SGetDt();
 
-	volatile void IntrTB();
+	//volatile void IntrTB();
 
 private:
-	Dac m_dac;
+	//Dac m_dac;
 
 	unsigned int m_tmp;
+
+	unsigned int m_tmp_count;
+	unsigned char m_tmp_pr;
+	unsigned char m_tmp_pre;
 
 };
 

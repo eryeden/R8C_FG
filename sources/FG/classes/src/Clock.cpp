@@ -11,6 +11,7 @@
 
 
 #include "Clock.hpp"
+#include "Timer.hpp"
 
 Clock::Clock()
 	: m_nop(0)
@@ -31,6 +32,7 @@ void Clock::SetFreq(unsigned int fin) {
 
 void Clock::SetDt() {
 	//m_dt = dtin;
+	m_dt = Timer::SGetDt();
 }
 
 void Clock::SetNop(unsigned int nopin) {

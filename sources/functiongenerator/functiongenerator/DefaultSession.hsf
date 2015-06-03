@@ -25,7 +25,7 @@
 [LANGUAGE]
 "Japanese" 
 [CONFIG_INFO_VD1]
-1 
+0 
 [CONFIG_INFO_VD2]
 1 
 [CONFIG_INFO_VD3]
@@ -69,19 +69,20 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
 [TARGET_NAME]
 "" "" 1 
 [STATUSBAR_STATEINFO_VD1]

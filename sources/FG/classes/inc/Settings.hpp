@@ -30,7 +30,7 @@ public:
 	static const unsigned char FG_MAX_SLOT = 5;
 	static const unsigned char FG_MAX_POOL = 6;
 
-	static const unsigned long CLOCK_MAIN_HZ = 200000;
+	static const unsigned long CLOCK_MAIN_HZ = 20000000;
 };
 
 #endif  //_SETTINGS_H

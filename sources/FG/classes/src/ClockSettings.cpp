@@ -26,18 +26,28 @@ void ClockSettings::Initialize(){
 	cm14 = 0;
 
 	//高速オンチップオシレータ分周比設定  二分周モード
-	fra20 = 0;
-	fra21 = 0;
-	fra22 = 0;
+	//fra20 = 0;
+	//fra21 = 0;
+	//fra22 = 0;
+
+	//XINクロック有効化
+	cm01 = 0;
+	cm13 = 1;
+	//XINクロック発振開始
+	cm05 = 0;
+
 
 	//高速オンチップオシレータ発振開始
-	fra00 = 1;
+	//fra00 = 1;
 
 	//発振安定まで待機
-	for (int i = 0; i < 30; ++i){;}
+	for (int i = 0; i < 30; ++i){asm("nop");}
 
 	//高速オンチップオシレータを選択
-	fra01 = 1;
+	//fra01 = 1;
+
+	//XINクロックを選択
+	ocd2 = 0;
 
 	//システムクロック分周比選択　分周なし
 	cm16 = 0;
@@ -49,6 +59,10 @@ void ClockSettings::Initialize(){
 	//レジスタプロテクトON
 	prc0 = 0;
 
+}
+
+void ClockSettings::InitializeC(){
+	
 }
 
 void ClockSettings::SetClock(unsigned long freqency) {

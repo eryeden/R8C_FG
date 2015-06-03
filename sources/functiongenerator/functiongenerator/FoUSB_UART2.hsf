@@ -96,6 +96,10 @@
 0 
 [WINDOW_POSITION_STATE_DATA_VD1]
 "{WK_00000001_OUTPUT}" "WINDOW" 59422 0 0 "1.00" 180 560 337 350 200 18 0 "36756|36757|36758|36759|<<separator>>|36746|36747|<<separator>>|39531|<<separator>>|39500|39534|<<separator>>|36687" "0.0" 
+"{WK_00000001_RAMMONITOR}functiongeneratorFoUSB_UART20" "WINDOW" 59422 0 0 "0.50" 180 0 0 350 200 2065 0 "45930|45931|<<separator>>|42302|42303|42300|<<separator>>|42202|42203|42204|42233|<<separator>>|42206|42205|42230|42229|42207|<<separator>>|42208|42209|42210|42227|42228|42231|42232|<<separator>>" "0.0" 
+"{WK_00000001_RAMMONITOR}functiongeneratorFoUSB_UART21" "WINDOW" 59422 0 0 "0.50" 180 0 0 350 200 2065 0 "45930|45931|<<separator>>|42302|42303|42300|<<separator>>|42202|42203|42204|42233|<<separator>>|42206|42205|42230|42229|42207|<<separator>>|42208|42209|42210|42227|42228|42231|42232|<<separator>>" "0.0" 
+"{WK_00000001_RAMMONITOR}functiongeneratorFoUSB_UART2" "WINDOW" 59422 0 0 "0.50" 180 0 0 350 200 2065 0 "45930|45931|<<separator>>|42302|42303|42300|<<separator>>|42202|42203|42204|42233|<<separator>>|42206|42205|42230|42229|42207|<<separator>>|42208|42209|42210|42227|42228|42231|42232|<<separator>>" "0.0" 
+"{WK_00000001_REGISTERS}functiongeneratorFoUSB_UART2" "WINDOW" 59421 0 0 "1.00" 180 0 0 350 200 2065 0 "" "0.0" 
 "{WK_00000002_WORKSPACE}" "WINDOW" 59420 0 0 "1.00" 230 560 337 350 200 18 0 "" "0.0" 
 "{WK_TB00000001_STANDARD}" "TOOLBAR 0" 59419 0 2 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
 "{WK_TB00000002_EDITOR}" "TOOLBAR 0" 59419 0 0 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
@@ -108,7 +112,7 @@
 "{WK_TB00000010_TOOLS}" "TOOLBAR 0" 59419 1 5 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
 "{WK_TB00000011_CPU}" "TOOLBAR 0" 59419 2 3 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
 "{WK_TB00000012_MAP}" "TOOLBAR 0" 59419 1 4 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
-"{WK_TB00000013_SYMBOL}" "TOOLBAR 0" 59419 2 4 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
+"{WK_TB00000013_SYMBOL}" "TOOLBAR 0" 59419 2 5 "0.00" 0 0 0 0 0 18 0 "" "0.0" 
 "{WK_TB00000014_CODE}" "TOOLBAR 0" 59419 2 9 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
 "{WK_TB00000016_GRAPHIC}" "TOOLBAR 0" 59419 2 6 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
 "{WK_TB00000018_DEFAULTWINDOW}" "TOOLBAR 0" 59419 1 2 "0.00" 0 0 0 0 0 17 0 "" "0.0" 
@@ -123,17 +127,18 @@
 [WINDOW_Z_ORDER]
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
 [TARGET_NAME]
 "M16C R8C FoUSB/UART" "" 0 
 [STATUSBAR_STATEINFO_VD1]

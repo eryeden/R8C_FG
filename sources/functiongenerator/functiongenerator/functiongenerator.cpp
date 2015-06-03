@@ -16,7 +16,24 @@
 #include "Timer.hpp"
 
 void main(void);
+void intr(void);
 
+//static Dac dac;
+//static Timer tim;
+
+volatile unsigned int j = 0;
+
+//#pragma INTERRUPT intr (vect=24)
+void intr(){
+	//static Dac dac;
+	j = (j > (0x0FFF - 1)) ? 0 : j + 100;
+	Dac::SWriteVoltageA(j);
+	Dac::SWriteVoltageB(j);
+	//p1_1 = !p1_1;
+}
+
+
+//Dac dac;
 
 void main(void)
 {
@@ -24,23 +41,25 @@ void main(void)
 	ClockSettings clkstg;
 	clkstg.Initialize();
 
-	Dac dac;
+	//static Dac dac;
+	Dac::SInitialize();
+
 
 	Timer tim;
-	tim.SetDt(1);
+	tim.SetDt(45);
+	tim.Enable();
 
 
 	pd1_1 = 1;
 	p1drr1 = 1;
 	p1_1 = 0;
 
-	int j = 0;
-
 	while(1){
-		//for(unsigned int i = 0; i < 1; ++i);
-		//	p1_1 = !p1_1;
+		for(unsigned int i = 0; i < 5000; ++i);
+			p1_1 = !p1_1;
 		//	dac.WriteVoltageA(j);
-		//	j = (j > (0x0FFF - 1)) ? 0 : j + 500;
+		//	Dac::SWriteVoltageA(j);
+		//	j = (j > (0x0FFF)) ? 0 : j + 500;
 	}
 	
 }

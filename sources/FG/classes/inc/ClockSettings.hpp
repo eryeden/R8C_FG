@@ -21,6 +21,7 @@ public:
 	ClockSettings();
 	
 	void Initialize();
+	void InitializeC();
 	void SetClock(unsigned long freqency);
 	unsigned long GetClock();
 

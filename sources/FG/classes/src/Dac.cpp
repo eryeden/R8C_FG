@@ -60,8 +60,23 @@ void Dac::WriteVoltageB(unsigned int vol) {
 }
 
 
+void Dac::SInitialize(){
+	//sm_send = 0x7000;
+	SSUbus::SInitializeSynchronizedClockMode();
+}
 
+void Dac::SWriteVoltageA(unsigned int vol) {
+	unsigned int tmp_send = 0x7000;
+	tmp_send |= (vol & 0x0FFF);
+	SSUbus::SWriteSync(tmp_send);
 
+}
+
+void Dac::SWriteVoltageB(unsigned int vol) {
+	unsigned int tmp_send = 0xF000;
+	tmp_send |= (vol & 0x0FFF);
+	SSUbus::SWriteSync(tmp_send);
+}
 
 
 

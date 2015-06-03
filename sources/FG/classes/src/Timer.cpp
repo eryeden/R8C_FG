@@ -15,8 +15,7 @@
 #include "sfr_r829.h"
 
 Timer::Timer()
-	: m_dac(),
-	  m_tmp(0)
+	:m_tmp(0)
 {
 	//割り込み禁止
 	asm("FCLR I");
@@ -49,24 +48,64 @@ Timer::Timer()
 	tckcut_trbmr = 0;
 
 }
-
+//割り込み間隔は5usが最小だった
+//8bitカウンタだと12.8usが最大
 void Timer::SetDt(float dt_us) {
 	float dt_count_soruce;
+	float dt_count_source_inv;
+	unsigned char clksrc_div_coeff = 0;
+
+	//float dt_max = 12.8;
+	//float dt_div_coeff = dt_us % dt_max;
+
 	if ((tck0_trbmr == 0) && (tck1_trbmr == 0)){
 		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ;
 	}
 	else if ((tck0_trbmr == 0) && (tck1_trbmr == 1)){
 		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 8.0;
+		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ / 8.0;
 	}
 	else if ((tck0_trbmr == 1) && (tck1_trbmr == 1)){
 		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 2.0;
+		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ / 2.0;
 	}
 	else{
 		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ;
 	}
+
+	//ちょうどいい分周比を見つける
+	//普通にあまりを見つける実装でいいと思う
+
+	while (1){
+		m_tmp_count = (unsigned int) 
+			((dt_us * dt_count_source_inv / (float)(clksrc_div_coeff + 1)) / 1000000.0);
+		if ((unsigned int)m_tmp_count < 256){
+			break;
+		}
+		clksrc_div_coeff++;
+	}
+
+	//m_tmp_count = (unsigned int) ((dt_us * dt_count_source_inv) / 1000000.0);
+	//m_tmp_pre = (unsigned char)((m_tmp_count & 0xFF00) >> 7);
+	//m_tmp_pr = (unsigned char) (m_tmp_count & 0x00FF);
+
+	m_tmp_pre = clksrc_div_coeff;
+	m_tmp_pr = (unsigned char)m_tmp_count;
+
+
+	//trbprが０だと割り込みが起きないので０のときは１にしておく
+	if (m_tmp_pr == 0){
+		m_tmp_pr = 1;
+	}
+
 	//プリスケーラ
-	trbpre = 0;
-	trbpr = dt_us / 1000000.0 / dt_count_soruce;
+	trbpre = m_tmp_pre;
+	//trbpr = (unsigned char)(dt_us / 1000000.0 / dt_count_soruce);
+	trbpr = m_tmp_pr;//(unsigned char) ((dt_us * dt_count_source_inv) / 1000000.0);
+
+	
 
 }
 
@@ -86,6 +125,25 @@ float Timer::GetDt(){
 
 }
 
+float Timer::SGetDt(){
+	float dt_count_soruce;
+	if ((tck0_trbmr == 0) && (tck1_trbmr == 0)){
+		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+	}
+	else if ((tck0_trbmr == 0) && (tck1_trbmr == 1)){
+		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 8.0;
+	}
+	else if ((tck0_trbmr == 1) && (tck1_trbmr == 1)){
+		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 2.0;
+	}
+	else{
+		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+	}
+
+	return (float) (trbpre + 1) * (float) (trbpr + 1) * dt_count_soruce;
+}
+
+
 void Timer::Enable() {
 	//割り込み許可 マスカブル最上位権限
 	ilvl0_trbic = 1;
@@ -104,7 +162,7 @@ void Timer::Disable() {
 	while (tcstf_trbcr != 0);
 }
 
-volatile void Timer::IntrTB(){
-	m_tmp = (m_tmp > (0x0FFF - 1)) ? 0 : m_tmp + 500;
-	m_dac.WriteVoltageA(m_tmp);
-}
+//volatile void Timer::IntrTB(){
+//	m_tmp = (m_tmp > (0x0FFF - 1)) ? 0 : m_tmp + 500;
+//	m_dac.WriteVoltageA(m_tmp);
+//}

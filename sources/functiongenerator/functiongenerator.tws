@@ -13,6 +13,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 
@@ -29,11 +30,12 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 75 75 1193 460 0 12 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 0 0 1193 460 0 10 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 0 0 1434 723 0 11 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 100 100 1218 455 0 13 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 0 0 858 707 0 3 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 25 25 1189 456 0 0 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 0 0 1434 693 0 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 50 50 1193 460 0 1 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" -8 -30 1434 723 1 6 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 0 0 1434 723 0 6 
 [LOADED_PROJECTS]
 "functiongenerator" 
 [END]
