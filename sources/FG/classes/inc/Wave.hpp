@@ -18,13 +18,14 @@ class Wave {
 public:
 	Wave();
 	unsigned char m_is_inserted;
-	virtual void SetFrequency(unsigned int fin);
-	virtual unsigned int GetFrequency();
-	virtual unsigned int GetValueNow();
+	virtual void SetFrequency(unsigned int fin) = 0;
+	virtual unsigned int GetFrequency() = 0;
+	virtual unsigned int GetValueNow() = 0;
+	virtual unsigned char GetId() = 0;
 	unsigned int Out();
 	void Enable();
 	void Disable();
-	virtual unsigned char GetId();
+	
 private:
 	bool m_is_enabled;
 

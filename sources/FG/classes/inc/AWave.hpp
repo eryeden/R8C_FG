@@ -27,6 +27,8 @@ public:
 	float GetPhase();
 	unsigned int GetValueNow();
 	unsigned char GetId();
+
+
 protected:
 	Clock m_clk;
 private:

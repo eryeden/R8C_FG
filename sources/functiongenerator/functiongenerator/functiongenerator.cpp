@@ -14,18 +14,10 @@
 #include "ClockSettings.hpp"
 #include "SSUbus.hpp"
 #include "Timer.hpp"
+#include "ASawtooth.hpp"
 
 void main(void);
-void intr(void);
 
-//static Dac dac;
-//static Timer tim;
-
-
-
-
-
-//#pragma INTRRUPT INTRtest::intr (vect=24)
 class INTRtest : public INTRbase{
 public:
 	unsigned int j;
@@ -38,35 +30,25 @@ public:
 		j = (j > (0x0FFF - 1)) ? 0 : j + 100;
 		dac.WriteVoltageA(j);
 	}
-	void op();
+	void op(){
+		intr1();
+	}
 };
 
-void INTRtest::op(){
-	intr1();
-}
+class INTRsawave : public ASawtooth, public INTRbase{
+public:
+	INTRsawave(unsigned int freq, unsigned int phase, float gain)
+		: ASawtooth(freq, phase, gain){};
+	unsigned int j;
+	Dac dac;
+	void op(){
+		j = Out();
+		dac.WriteVoltageA(j);
+	}
+};
 
 
-//#pragma INTERRUPT intr (vect=24)
-void intr(){
-	
 
-	//static Dac dac;
-	//j = (j > (0x0FFF - 1)) ? 0 : j + 100;
-	//ptr_dac->WriteVoltageA(j);
-	
-	//Dac::SWriteVoltageA(j);
-	//Dac::SWriteVoltageB(j);
-	//p1_1 = !p1_1;
-	//INTRtest::intr();
-	//itt.intr1();
-}
-
-void intr1(){
-	p1_0 = !p1_0;
-}
-
-
-//Dac dac;
 
 void main(void)
 {
@@ -78,7 +60,10 @@ void main(void)
 	//Dac::SInitialize();
 	//Dac dac;
 
-	INTRtest intr;
+	//INTRtest intr;
+
+	INTRsawave intsawave(500, 0, 1);
+	intsawave.Enable();
 
 	pd1_1 = 1;
 	p1drr1 = 1;
@@ -88,18 +73,14 @@ void main(void)
 	p1_0 = 0;
 
 	Timer tim;
-	tim.SetDt(60);
-	//tim.SetInterrupter();
-	tim.SetClassInterrupter(&intr);
+	tim.SetDt(10);
+	tim.SetClassInterrupter(&intsawave);
+	//tim.SetClassInterrupter(&intr);
 	tim.Enable();
 
 	while(1){
 		for(unsigned int i = 0; i < 5000; ++i);
 			p1_1 = !p1_1;
-			//p1_0 = !p1_0;
-		//	dac.WriteVoltageA(j);
-		//	Dac::SWriteVoltageA(j);
-		//	j = (j > (0x0FFF)) ? 0 : j + 500;
 	}
 	
 }

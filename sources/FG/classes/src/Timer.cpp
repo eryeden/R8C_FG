@@ -18,10 +18,8 @@
 
 class INTRclass{
 public:
-	void(*op)();
 	INTRbase *ib;
 	void run(){
-		//op();
 		ib->op();
 	}
 };
@@ -177,7 +175,7 @@ void Timer::Disable() {
 }
 
 void Timer::SetInterrupter(void (*op)()){
-	intrcls.op  = op;
+	//intrcls.op  = op;
 }
 
 void Timer::SetClassInterrupter(INTRbase * pib){
@@ -186,8 +184,6 @@ void Timer::SetClassInterrupter(INTRbase * pib){
 
 #pragma INTERRUPT t_intr_test (vect=24)
 void t_intr_test(){
-	//p1_0 = !p1_0;
-	//Timer::TINTR_t();
 	intrcls.run();
 }
 

@@ -15,11 +15,12 @@
 
 ASawtooth::ASawtooth(unsigned int freq, unsigned int phase, float gain) {
 	SetGain(gain);
-	m_clk.Set(freq, 4096, phase);
+	m_clk.Set(freq, 64, phase);
+	m_dv = (float) 0xFFF / (float)m_clk.GetNop();
 }
 
 unsigned int ASawtooth::GetValueNow() {
-	return (unsigned int)( m_clk.Update());
+	return (unsigned int)(m_clk.Update() * );
 }
 
 unsigned char ASawtooth::GetId() {
