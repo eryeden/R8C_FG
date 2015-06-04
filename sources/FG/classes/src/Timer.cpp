@@ -14,6 +14,20 @@
 #include "Settings.hpp"
 #include "sfr_r829.h"
 
+
+
+class INTRclass{
+public:
+	void(*op)();
+	INTRbase *ib;
+	void run(){
+		//op();
+		ib->op();
+	}
+};
+
+INTRclass intrcls;
+
 Timer::Timer()
 	:m_tmp(0)
 {
@@ -162,7 +176,18 @@ void Timer::Disable() {
 	while (tcstf_trbcr != 0);
 }
 
-//volatile void Timer::IntrTB(){
-//	m_tmp = (m_tmp > (0x0FFF - 1)) ? 0 : m_tmp + 500;
-//	m_dac.WriteVoltageA(m_tmp);
-//}
+void Timer::SetInterrupter(void (*op)()){
+	intrcls.op  = op;
+}
+
+void Timer::SetClassInterrupter(INTRbase * pib){
+	intrcls.ib = pib;
+}
+
+#pragma INTERRUPT t_intr_test (vect=24)
+void t_intr_test(){
+	//p1_0 = !p1_0;
+	//Timer::TINTR_t();
+	intrcls.run();
+}
+

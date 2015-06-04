@@ -21,15 +21,48 @@ void intr(void);
 //static Dac dac;
 //static Timer tim;
 
-volatile unsigned int j = 0;
+
+
+
+
+//#pragma INTRRUPT INTRtest::intr (vect=24)
+class INTRtest : public INTRbase{
+public:
+	unsigned int j;
+	Dac dac;
+	INTRtest(){
+		j = 0;
+	}
+	void intr1(){
+		p1_0 = !p1_0;
+		j = (j > (0x0FFF - 1)) ? 0 : j + 100;
+		dac.WriteVoltageA(j);
+	}
+	void op();
+};
+
+void INTRtest::op(){
+	intr1();
+}
+
 
 //#pragma INTERRUPT intr (vect=24)
 void intr(){
+	
+
 	//static Dac dac;
-	j = (j > (0x0FFF - 1)) ? 0 : j + 100;
-	Dac::SWriteVoltageA(j);
-	Dac::SWriteVoltageB(j);
+	//j = (j > (0x0FFF - 1)) ? 0 : j + 100;
+	//ptr_dac->WriteVoltageA(j);
+	
+	//Dac::SWriteVoltageA(j);
+	//Dac::SWriteVoltageB(j);
 	//p1_1 = !p1_1;
+	//INTRtest::intr();
+	//itt.intr1();
+}
+
+void intr1(){
+	p1_0 = !p1_0;
 }
 
 
@@ -42,21 +75,28 @@ void main(void)
 	clkstg.Initialize();
 
 	//static Dac dac;
-	Dac::SInitialize();
+	//Dac::SInitialize();
+	//Dac dac;
 
-
-	Timer tim;
-	tim.SetDt(45);
-	tim.Enable();
-
+	INTRtest intr;
 
 	pd1_1 = 1;
 	p1drr1 = 1;
 	p1_1 = 0;
 
+	pd1_0 = 1;
+	p1_0 = 0;
+
+	Timer tim;
+	tim.SetDt(60);
+	//tim.SetInterrupter();
+	tim.SetClassInterrupter(&intr);
+	tim.Enable();
+
 	while(1){
 		for(unsigned int i = 0; i < 5000; ++i);
 			p1_1 = !p1_1;
+			//p1_0 = !p1_0;
 		//	dac.WriteVoltageA(j);
 		//	Dac::SWriteVoltageA(j);
 		//	j = (j > (0x0FFF)) ? 0 : j + 500;

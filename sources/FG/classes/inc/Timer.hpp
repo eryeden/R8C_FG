@@ -18,6 +18,12 @@
 
 #include "Dac.hpp"
 
+
+class INTRbase{
+public:
+	virtual void op() = 0;
+};
+
 class Timer {
 public:
 	Timer();
@@ -29,6 +35,8 @@ public:
 	static float SGetDt();
 
 	//volatile void IntrTB();
+	void SetInterrupter(void (*op)());
+	void SetClassInterrupter(INTRbase * pib);
 
 private:
 	//Dac m_dac;
@@ -40,5 +48,6 @@ private:
 	unsigned char m_tmp_pre;
 
 };
+
 
 #endif  //_TIMER_H
