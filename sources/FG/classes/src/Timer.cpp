@@ -26,6 +26,9 @@ public:
 
 INTRclass intrcls;
 
+
+float m_dt_us;
+
 Timer::Timer()
 	:m_tmp(0)
 {
@@ -55,6 +58,7 @@ Timer::Timer()
 	twrc_trbmr = 0;
 	//クロックソースF１選択
 	tck0_trbmr = 0;
+
 	tck1_trbmr = 0;
 	//タイマへカウントソースを供給
 	tckcut_trbmr = 0;
@@ -66,6 +70,8 @@ void Timer::SetDt(float dt_us) {
 	float dt_count_soruce;
 	float dt_count_source_inv;
 	unsigned char clksrc_div_coeff = 0;
+
+	m_dt_us = dt_us;
 
 	//float dt_max = 12.8;
 	//float dt_div_coeff = dt_us % dt_max;
@@ -121,20 +127,23 @@ void Timer::SetDt(float dt_us) {
 
 }
 
+
+
+
 float Timer::GetDt(){
-	float dt_count_soruce;
-	if ((tck0_trbmr == 0) && (tck1_trbmr == 0)){
-		dt_count_soruce = 1.0 / (float)Settings::CLOCK_MAIN_HZ;
-	}else if ((tck0_trbmr == 0) && (tck1_trbmr == 1)){
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 8.0;
-	}else if ((tck0_trbmr == 1) && (tck1_trbmr == 1)){
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 2.0;
-	} else{
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
-	}
+	//float dt_count_soruce;
+	//if ((tck0_trbmr == 0) && (tck1_trbmr == 0)){
+	//	dt_count_soruce = 1.0 / (float)Settings::CLOCK_MAIN_HZ;
+	//}else if ((tck0_trbmr == 0) && (tck1_trbmr == 1)){
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 8.0;
+	//}else if ((tck0_trbmr == 1) && (tck1_trbmr == 1)){
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 2.0;
+	//} else{
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+	//}
 
-	return (float)(trbpre + 1) * (float)(trbpr + 1) * dt_count_soruce;
-
+	//return (float)(trbpre) * (float)(trbpr) * dt_count_soruce;
+	return m_dt_us / 1000000.0;
 }
 
 float Timer::SGetDt(){
@@ -152,7 +161,9 @@ float Timer::SGetDt(){
 		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
 	}
 
-	return (float) (trbpre + 1) * (float) (trbpr + 1) * dt_count_soruce;
+	return (float) (trbpre) * (float) (trbpr) * dt_count_soruce;
+
+	//return m_dt_us / 1000000.0;
 }
 
 

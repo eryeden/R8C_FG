@@ -15,6 +15,7 @@
 #include "SSUbus.hpp"
 #include "Timer.hpp"
 #include "ASawtooth.hpp"
+//#include "Clock.hpp"
 
 void main(void);
 
@@ -42,7 +43,8 @@ public:
 	unsigned int j;
 	Dac dac;
 	void op(){
-		j = Out();
+		//j = Out();
+		j = GetValueNow();
 		dac.WriteVoltageA(j);
 	}
 };
@@ -62,8 +64,7 @@ void main(void)
 
 	//INTRtest intr;
 
-	INTRsawave intsawave(500, 0, 1);
-	intsawave.Enable();
+
 
 	pd1_1 = 1;
 	p1drr1 = 1;
@@ -73,14 +74,24 @@ void main(void)
 	p1_0 = 0;
 
 	Timer tim;
-	tim.SetDt(10);
+	tim.SetDt(500);
+
+	INTRsawave intsawave(200, 0, 1);
+	intsawave.Enable();
+
 	tim.SetClassInterrupter(&intsawave);
 	//tim.SetClassInterrupter(&intr);
 	tim.Enable();
 
+
+	//Clock clk;
+	//clk.Set(500, 100, 0);
+
+
 	while(1){
 		for(unsigned int i = 0; i < 5000; ++i);
 			p1_1 = !p1_1;
+		//	clk.Update();
 	}
 	
 }

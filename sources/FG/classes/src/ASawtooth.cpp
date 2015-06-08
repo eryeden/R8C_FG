@@ -20,7 +20,7 @@ ASawtooth::ASawtooth(unsigned int freq, unsigned int phase, float gain) {
 }
 
 unsigned int ASawtooth::GetValueNow() {
-	return (unsigned int)(m_clk.Update() * );
+	return (unsigned int)((float)m_clk.Update() * m_dv);
 }
 
 unsigned char ASawtooth::GetId() {

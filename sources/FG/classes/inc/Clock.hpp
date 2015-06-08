@@ -21,7 +21,7 @@ public:
 	void SetFreq(unsigned int fin);
 	void SetDt();
 	void SetNop(unsigned int nopin);
-	void SetPhase(unsigned int phain);
+	void SetPhase(float phain);
 	void Set(unsigned int fin, unsigned int nopin, unsigned int phain);
 	unsigned int GetFreq();
 	float GetDt();
@@ -33,9 +33,22 @@ private:
 	float m_dt;
 	float m_pinv;
 	unsigned int m_f;
-	unsigned int m_k;
+	//unsigned int m_k;
+	float m_k_f;
 	float m_phase;
 	unsigned int m_phase_shift_point;
+
+	unsigned char m_scale;
+	//unsigned int m_fp_nop;
+	//unsigned int m_fp_pinv;
+	//unsigned int m_fp_dt;
+	//unsigned int m_fp_dt_us;
+	//unsigned int m_fp_f;
+	//unsigned int m_fp_k;
+	//unsigned int m_fp_phase;
+	//unsigned int m_fp_phase_shift_point;
+	
+
 };
 
 #endif  //_CLOCK_H
