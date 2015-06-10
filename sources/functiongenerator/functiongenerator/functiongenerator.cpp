@@ -9,37 +9,121 @@
 /*  NOTE:THIS IS A TYPICAL EXAMPLE.                                    */
 /***********************************************************************/
 
+//#pragma section rom FLASH_DATA
+//static const unsigned int sines[64] = {
+//	2048,
+//	2252,
+//	2454,
+//	2652,
+//	2844,
+//	3027,
+//	3202,
+//	3364,
+//	3514,
+//	3649,
+//	3768,
+//	3870,
+//	3954,
+//	4019,
+//	4065,
+//	4090,
+//	4095,
+//	4080,
+//	4045,
+//	3989,
+//	3915,
+//	3822,
+//	3711,
+//	3584,
+//	3441,
+//	3285,
+//	3116,
+//	2937,
+//	2748,
+//	2553,
+//	2353,
+//	2150,
+//	1946,
+//	1743,
+//	1543,
+//	1348,
+//	1159,
+//	980,
+//	811,
+//	655,
+//	512,
+//	385,
+//	274,
+//	181,
+//	107,
+//	51,
+//	16,
+//	1,
+//	6,
+//	31,
+//	77,
+//	142,
+//	226,
+//	328,
+//	447,
+//	582,
+//	732,
+//	894,
+//	1069,
+//	1252,
+//	1444,
+//	1642,
+//	1844,
+//	2048
+//};
+//
+//#pragma section rom rom
+
 #include "sfr_r829.h"
 #include "Dac.hpp"
 #include "ClockSettings.hpp"
 #include "SSUbus.hpp"
 #include "Timer.hpp"
-#include "ASawtooth.hpp"
+//#include "ASawtooth.hpp"
+#include "ASine.hpp"
 //#include "Clock.hpp"
 
 void main(void);
 
-class INTRtest : public INTRbase{
-public:
-	unsigned int j;
-	Dac dac;
-	INTRtest(){
-		j = 0;
-	}
-	void intr1(){
-		p1_0 = !p1_0;
-		j = (j > (0x0FFF - 1)) ? 0 : j + 100;
-		dac.WriteVoltageA(j);
-	}
-	void op(){
-		intr1();
-	}
-};
+//class INTRtest : public INTRbase{
+//public:
+//	unsigned int j;
+//	Dac dac;
+//	INTRtest(){
+//		j = 0;
+//	}
+//	void intr1(){
+//		p1_0 = !p1_0;
+//		j = (j > (0x0FFF - 1)) ? 0 : j + 100;
+//		dac.WriteVoltageA(j);
+//	}
+//	void op(){
+//		intr1();
+//	}
+//};
 
-class INTRsawave : public ASawtooth, public INTRbase{
+//class INTRsawave : public ASawtooth, public INTRbase{
+//public:
+//	INTRsawave(unsigned int freq, unsigned int phase, float gain)
+//		: ASawtooth(freq, phase, gain){};
+//	unsigned int j;
+//	Dac dac;
+//	void op(){
+//		//j = Out();
+//		j = GetValueNow();
+//		dac.WriteVoltageA(j);
+//	}
+//};
+
+class INTRsinewave : public ASine, public INTRbase{
 public:
-	INTRsawave(unsigned int freq, unsigned int phase, float gain)
-		: ASawtooth(freq, phase, gain){};
+	INTRsinewave(unsigned int freq, unsigned int phase, float gain)
+		: ASine(freq, phase, gain){};
 	unsigned int j;
 	Dac dac;
 	void op(){
@@ -48,7 +132,6 @@ public:
 		dac.WriteVoltageA(j);
 	}
 };
-
 
 
 
@@ -74,12 +157,15 @@ void main(void)
 	p1_0 = 0;
 
 	Timer tim;
-	tim.SetDt(500);
+	tim.SetDt(300);
 
-	INTRsawave intsawave(200, 0, 1);
-	intsawave.Enable();
+	//INTRsawave intsawave(200, 0, 1);
+	//intsawave.Enable();
 
-	tim.SetClassInterrupter(&intsawave);
+	INTRsinewave swave(100, 0, 1);
+	swave.Enable();
+
+	tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
 	tim.Enable();
 
@@ -89,7 +175,7 @@ void main(void)
 
 
 	while(1){
-		for(unsigned int i = 0; i < 5000; ++i);
+		for(unsigned int i = 0; i < 50000; ++i);
 			p1_1 = !p1_1;
 		//	clk.Update();
 	}

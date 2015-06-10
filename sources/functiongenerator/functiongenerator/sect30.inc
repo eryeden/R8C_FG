@@ -133,6 +133,10 @@ RESET:
 ;		.section	data_FEI,ROMDATA
 ;		.section	data_FOI,ROMDATA
 
+;.section FLASH_DATA_NE , ROMDATA
+;.org 02400H
+;.section FLASH_DATA_NO , ROMDATA
+
 ;=====================================================================
 ; Initialize Macro declaration
 ;---------------------------------------------------------------------
@@ -150,3 +154,9 @@ N_BCOPY .macro		FROM_,TO_,SECT_
 		mov.w		#sizeof SECT_ , R3
 		smovf.b
 		.endm
+
+
+;vector section address 0x0000FEDC
+;VECTORセクションをC000Hに移動した。もろもろのセクション（データ等）がE000Hからなので、おそらくC000HからVectorセクションを配置すれば、いいだろう
+;また、R8C/29の16kBROM仕様ならユーザーセクションがアドレスC000Hからなので、これより前に配置することはできない　できてもエラーか
+

@@ -13,7 +13,7 @@
 #include "ASine.hpp"
 #include "Settings.hpp"
 
-static const unsigned int sines[64] = {
+const unsigned int sines[64] = {
 	2048,
 	2252,
 	2454,
@@ -80,13 +80,83 @@ static const unsigned int sines[64] = {
 	2048
 };
 
-ASine::ASine(const unsigned int *stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain) {
+//#pragma section rom FLASH_DATA
+//static const unsigned int sines[64] = {
+//	2048,
+//	2252,
+//	2454,
+//	2652,
+//	2844,
+//	3027,
+//	3202,
+//	3364,
+//	3514,
+//	3649,
+//	3768,
+//	3870,
+//	3954,
+//	4019,
+//	4065,
+//	4090,
+//	4095,
+//	4080,
+//	4045,
+//	3989,
+//	3915,
+//	3822,
+//	3711,
+//	3584,
+//	3441,
+//	3285,
+//	3116,
+//	2937,
+//	2748,
+//	2553,
+//	2353,
+//	2150,
+//	1946,
+//	1743,
+//	1543,
+//	1348,
+//	1159,
+//	980,
+//	811,
+//	655,
+//	512,
+//	385,
+//	274,
+//	181,
+//	107,
+//	51,
+//	16,
+//	1,
+//	6,
+//	31,
+//	77,
+//	142,
+//	226,
+//	328,
+//	447,
+//	582,
+//	732,
+//	894,
+//	1069,
+//	1252,
+//	1444,
+//	1642,
+//	1844,
+//	2048
+//};
+//
+//#pragma section rom rom
+
+ASine::ASine(unsigned int freq, unsigned int phase, float gain) {
 	SetGain(gain);
 	m_clk.Set(freq, 64, phase);
 }
 
 unsigned int ASine::GetValueNow() {
-	return (float)sines[m_clk.Update()] * GetGain();
+	return sines[m_clk.Update()];
 }
 
 unsigned char ASine::GetId() {

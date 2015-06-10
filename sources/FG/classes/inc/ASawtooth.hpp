@@ -21,7 +21,9 @@ public:
 	unsigned int GetValueNow();
 	unsigned char GetId();
 private:
-	float m_dv;
+	//float m_dv;
+
+	unsigned long m_dv_fp;
 	
 };
 

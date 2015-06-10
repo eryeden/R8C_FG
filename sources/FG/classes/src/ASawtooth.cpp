@@ -13,14 +13,26 @@
 #include "ASawtooth.hpp"
 #include "Settings.hpp"
 
+#define SCL_AS 10
+
 ASawtooth::ASawtooth(unsigned int freq, unsigned int phase, float gain) {
 	SetGain(gain);
 	m_clk.Set(freq, 64, phase);
-	m_dv = (float) 0xFFF / (float)m_clk.GetNop();
+
+
+	unsigned int tmp = 1;
+	for (int i = 0; i < SCL_AS; i++){
+		tmp *= 2;
+	}
+
+	//m_dv = (float) 0xFFF / (float)m_clk.GetNop();
+	//m_dv_fp = ((unsigned long) (0xFFF << SCL_AS) / ((unsigned long)m_clk.GetNop()));
+	m_dv_fp = (unsigned long) ((double) 0xFFF / (double) m_clk.GetNop() * (double)tmp);
 }
 
 unsigned int ASawtooth::GetValueNow() {
-	return (unsigned int)((float)m_clk.Update() * m_dv);
+	//return (unsigned int)((float)m_clk.Update() * m_dv);
+	return (unsigned int) ((((unsigned long)(m_clk.Update())) * m_dv_fp) >> SCL_AS);
 }
 
 unsigned char ASawtooth::GetId() {

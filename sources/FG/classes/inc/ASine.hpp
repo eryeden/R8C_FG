@@ -15,9 +15,11 @@
 
 #include "AWave.hpp"
 
+
+
 class ASine : public AWave {
 public:
-	ASine(const unsigned int *stale, unsigned int nop, unsigned int freq, unsigned int phase, float gain);
+	ASine(unsigned int freq, unsigned int phase, float gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
 
