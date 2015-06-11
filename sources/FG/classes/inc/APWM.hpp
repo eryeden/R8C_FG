@@ -17,12 +17,12 @@
 
 class APWM : public AWave {
 public:
-	APWM(unsigned int freq, unsigned int phase, float gain);
+	APWM(unsigned int freq, float phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
 	void SetDuty(float d);
 private:
-	float m_thre_point;
+	unsigned int m_thre_point;
 };
 
 #endif  //_APWM_H

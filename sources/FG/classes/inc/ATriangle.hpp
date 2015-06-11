@@ -17,11 +17,11 @@
 
 class ATriangle : public AWave {
 public:
-	ATriangle(unsigned int freq, unsigned int phase, float gain);
+	ATriangle(unsigned int freq, float phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
 private:
-	bool m_is_countup;
+	unsigned long m_dv_fp;
 };
 
 #endif  //_ATRIANGLE_H

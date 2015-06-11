@@ -22,11 +22,11 @@ public:
 	virtual unsigned int GetFrequency() = 0;
 	virtual unsigned int GetValueNow() = 0;
 	virtual unsigned char GetId() = 0;
-	unsigned int Out();
+	virtual unsigned int Out();
 	void Enable();
 	void Disable();
 	
-private:
+protected:
 	bool m_is_enabled;
 
 };

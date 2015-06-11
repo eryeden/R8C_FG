@@ -17,11 +17,11 @@
 
 class ANoise : public AWave {
 public:
-	ANoise(unsigned int freq, unsigned int phase, float gain);
+	ANoise(unsigned int freq, unsigned int phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
 private:
-	unsigned int count;
+	unsigned int lfsr;
 };
 
 #endif  //_ANOISE_H

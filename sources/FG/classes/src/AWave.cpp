@@ -11,6 +11,7 @@
 
 
 #include "AWave.hpp"
+#define GAIN_SCL 8
 
 AWave::AWave()
 	: m_A(1.0)
@@ -19,13 +20,17 @@ AWave::AWave()
 
 }
 
-
-void AWave::SetGain(float gain) {
-	m_A = gain;
+// 0 ~ 100
+void AWave::SetGain(unsigned char gain) {
+	if (gain > 100){
+		m_A = 1 << GAIN_SCL;
+	} else{
+		m_A = (gain << GAIN_SCL) / 100;
+	}
 }
 
-float AWave::GetGain() {
-	return m_A;
+unsigned int AWave::GetGain() {
+	return ((m_A * 100) >> GAIN_SCL);
 }
 
 void AWave::SetPhase(float phain) {
@@ -52,3 +57,8 @@ unsigned char AWave::GetId() {
 	;
 }
 
+unsigned int AWave::Out() {
+	return (m_is_enabled) ? 
+		(((unsigned long)GetValueNow() * (unsigned long)m_A) >> GAIN_SCL)
+		: 0;
+}

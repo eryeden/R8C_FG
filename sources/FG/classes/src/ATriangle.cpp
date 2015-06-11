@@ -13,15 +13,30 @@
 #include "ATriangle.hpp"
 #include "Settings.hpp"
 
-ATriangle::ATriangle(unsigned int freq, unsigned int phase, float gain)
-	: m_is_countup(true)
+#define SCL_TR 10
+
+ATriangle::ATriangle(unsigned int freq, float phase, unsigned int gain)
 {
+
 	SetGain(gain);
-	m_clk.Set(freq, 4096, phase);
+	m_clk.Set(freq, 64, phase);
+
+	unsigned int tmp = 1;
+	for (int i = 0; i < SCL_TR; i++){
+		tmp *= 2;
+	}
+
+	m_dv_fp = (unsigned long) ((double) 0xFFF / ((double) m_clk.GetNop() / 2.0) * (double) tmp);
+
 }
 
 unsigned int ATriangle::GetValueNow() {
-	return (m_is_countup) ? m_clk.Update() : (4096 - m_clk.Update());
+	unsigned int out = (unsigned int) ((((unsigned long) (m_clk.Update())) * m_dv_fp) >> SCL_TR);
+	if (out < 0xFFF){
+		return out;
+	} else{
+		return (unsigned int) (0x1FFF - out);
+	}
 }
 
 unsigned char ATriangle::GetId() {

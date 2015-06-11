@@ -21,18 +21,20 @@ public:
 	AWave();
 	void SetFrequency(unsigned int fin);
 	unsigned int GetFrequency();
-	void SetGain(float gain);
-	float GetGain();
+	void SetGain(unsigned char gain);
+	unsigned int GetGain();
 	void SetPhase(float phain);
 	float GetPhase();
 	unsigned int GetValueNow();
 	unsigned char GetId();
 
+	unsigned int Out();
+
 
 protected:
 	Clock m_clk;
 private:
-	float m_A;
+	unsigned int m_A;
 };
 
 #endif  //_AWAVE_H

@@ -13,19 +13,19 @@
 #include "APWM.hpp"
 #include "Settings.hpp"
 
-APWM::APWM(unsigned int freq, unsigned int phase, float gain) 
+APWM::APWM(unsigned int freq, float phase, unsigned int gain) 
 	: m_thre_point(0)
 {
 	SetGain(gain);
-	m_clk.Set(freq, 256, phase);
+	m_clk.Set(freq, 100, phase);
 }
 
 void APWM::SetDuty(float d){
-	m_thre_point = (d * (float) m_clk.GetNop());
+	m_thre_point = (unsigned int)(d * (float) m_clk.GetNop());
 }
 
 unsigned int APWM::GetValueNow() {
-	return (m_clk.Update() < m_thre_point) ? 4096 : 0;
+	return (m_clk.Update() < m_thre_point) ? 0xFFE : 0;
 }
 
 unsigned char APWM::GetId() {

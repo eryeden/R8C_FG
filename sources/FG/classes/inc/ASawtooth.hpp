@@ -17,7 +17,7 @@
 
 class ASawtooth : public AWave {
 public:
-	ASawtooth(unsigned int freq, unsigned int phase, float gain);
+	ASawtooth(unsigned int freq, unsigned int phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
 private:

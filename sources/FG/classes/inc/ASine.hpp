@@ -19,7 +19,7 @@
 
 class ASine : public AWave {
 public:
-	ASine(unsigned int freq, unsigned int phase, float gain);
+	ASine(unsigned int freq, unsigned int phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
 

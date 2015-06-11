@@ -69,6 +69,8 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\AWave.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\ASine.hpp" 
@@ -76,7 +78,6 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Clock.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 

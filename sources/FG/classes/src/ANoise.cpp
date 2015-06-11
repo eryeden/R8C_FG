@@ -13,14 +13,24 @@
 #include "ANoise.hpp"
 #include "Settings.hpp"
 
-ANoise::ANoise(unsigned int freq, unsigned int phase, float gain)
-	:count(0)
+#define TAPPING_LOCATION 0xB400 
+#define LFSR_OUT_NOB 12 
+ANoise::ANoise(unsigned int freq, unsigned int phase, unsigned int gain)
+	:lfsr(0)
 {
-	
+	SetGain(gain);
+	//‰Šú’l
+	lfsr = 0xACE1;
 }
 
 unsigned int ANoise::GetValueNow() {
-	
+	//MŒn—ñ‚ğ‚P‚Q‰ñ‚Ü‚í‚µ‚ÄA12bit‚Ì—”‚ğ¶¬‚·‚éB
+	unsigned int out = 0;
+	for (int i = 0; i < LFSR_OUT_NOB; ++i){
+		lfsr = (lfsr >> 1) ^ ((-(int)(lfsr & 0x01)) & TAPPING_LOCATION);
+		out |= ((lfsr & 0x01) << i);
+	}
+	return out;
 }
 
 unsigned char ANoise::GetId() {

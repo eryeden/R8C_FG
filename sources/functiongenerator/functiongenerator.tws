@@ -14,6 +14,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\AWave.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Clock.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
@@ -36,6 +37,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 125 125 1193 460 0 14 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 0 0 1434 723 0 15 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 200 200 1193 460 0 18 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\AWave.cpp" -8 -30 1434 723 1 19 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Clock.cpp" 0 0 1434 723 0 16 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 75 75 1193 460 0 12 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 0 0 1193 460 0 10 
@@ -44,7 +46,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 0 0 1434 723 0 3 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 25 25 1189 456 0 0 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 0 0 1434 693 0 2 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" -8 -30 1434 723 1 1 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 0 0 1434 723 0 1 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 0 0 1434 723 0 6 
 [LOADED_PROJECTS]
 "functiongenerator" 

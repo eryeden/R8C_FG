@@ -17,7 +17,7 @@
 
 
 FunctionGenerator::FunctionGenerator() {
-
+	
 }
 
 
@@ -107,16 +107,39 @@ unsigned char FunctionGenerator::GetBWaveSlotSize() {
 	return 1;
 }
 
+#define MIX_SCL 15
 void FunctionGenerator::AUpdate() {
 	char i;
+	unsigned long out = 0;
+	unsigned char now = 0;
 	for (i = 0; i < Settings::FG_MAX_SLOT; i++){
 		if (m_aslot[i]->GetId() != Settings::WAVE_ID_ANONE){
-			m_dac.WriteVoltage(m_aslot[i]->GetValueNow());
+			//m_dac.WriteVoltageA(m_aslot[i]->GetValueNow());
+			out += m_aslot[i]->Out();
+			now++;
 		}
 	}
+
+	out << MIX_SCL;
+	out /= now;
+	m_dac.WriteVoltageA((unsigned int)(out >> MIX_SCL));
 
 }
 
 void FunctionGenerator::BUpdate() {
 	m_bslot->GetValueNow();
 }
+
+//ANONEˆÈŠO‚Ì—LŒø‚È”g‚Ì”
+unsigned char FunctionGenerator::GetNoW(){
+	unsigned char tmp = 0;
+	for (int i = 0; i < Settings::FG_MAX_SLOT; i++){
+		if (m_aslot[i]->GetId() != Settings::WAVE_ID_ANONE){
+			tmp++;
+		}
+	}
+	return tmp;
+}
+
+
+

@@ -15,7 +15,7 @@
 
 #define SCL_AS 10
 
-ASawtooth::ASawtooth(unsigned int freq, unsigned int phase, float gain) {
+ASawtooth::ASawtooth(unsigned int freq, unsigned int phase, unsigned int gain) {
 	SetGain(gain);
 	m_clk.Set(freq, 64, phase);
 

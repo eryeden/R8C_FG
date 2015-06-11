@@ -19,6 +19,12 @@
 #include "Timer.hpp"
 #include "Settings.hpp"
 
+#include "ASawtooth.hpp"
+#include "ASine.hpp"
+#include "ATriangle.hpp"
+#include "APWM.hpp"
+#include "ANoise.hpp"
+
 class FunctionGenerator {
 public:
 	FunctionGenerator();
@@ -39,6 +45,7 @@ private:
 	Wave* m_pool_wave[Settings::FG_MAX_POOL];
 	void AUpdate();
 	void BUpdate();
+	unsigned char GetNoW();
 	
 };
 
