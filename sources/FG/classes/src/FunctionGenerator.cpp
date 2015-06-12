@@ -16,15 +16,49 @@
 #include "Settings.hpp"
 
 
-FunctionGenerator::FunctionGenerator() {
-	
+FunctionGenerator::FunctionGenerator()
+	: m_anone()
+	  
+	, m_asawtooth(100, 0, 100)
+	, m_asine(100, 0, 100)
+	, m_atriangle(100, 0, 100)
+	, m_apwm(100, 0, 100)
+	, m_anoise(100, 0, 100)
+	//, m_dac()
+{
+	m_apwm.SetDuty(0.5);
+
+	m_pool_wave[0] = &m_anone;
+	m_pool_wave[1] = &m_anone;
+	m_pool_wave[2] = &m_anone;
+	m_pool_wave[3] = &m_anone;
+	m_pool_wave[4] = &m_anone;
+	m_pool_wave[5] = &m_anone;
+
+	m_pool_wave[1] = &m_asawtooth;
+	m_pool_wave[2] = &m_asine;
+	m_pool_wave[3] = &m_atriangle;
+	m_pool_wave[4] = &m_apwm;
+	m_pool_wave[5] = &m_anoise;
+
+	m_aslot[0] = (AWave *) m_pool_wave[0];
+	m_aslot[1] = (AWave *) m_pool_wave[0];
+	m_aslot[2] = (AWave *) m_pool_wave[0];
+	m_aslot[3] = (AWave *) m_pool_wave[0];
+	m_aslot[4] = (AWave *) m_pool_wave[0];
+
+	for (int i = 0; i < Settings::FG_MAX_POOL; ++i){
+		m_pool_wave[i]->Enable();
+	}
+
+
 }
 
 
 
 void FunctionGenerator::Update() {
 	AUpdate();
-	BUpdate();
+	//BUpdate();
 }
 
 void FunctionGenerator::InsertWave(unsigned char idx, AWave* w) {
@@ -95,7 +129,7 @@ Wave* FunctionGenerator::GetWaveFromSlotMasterIndex(unsigned char idx) {
 			return m_aslot[idx];
 		}
 	} else{
-		return nullptr;
+		return 0;
 	}
 }
 
@@ -120,9 +154,12 @@ void FunctionGenerator::AUpdate() {
 		}
 	}
 
-	out << MIX_SCL;
-	out /= now;
-	m_dac.WriteVoltageA((unsigned int)(out >> MIX_SCL));
+	//out << MIX_SCL;
+	//out /= now;
+	//m_dac.WriteVoltageA((unsigned int)(out >> MIX_SCL));
+	
+	
+	//m_dac.WriteVoltageA((unsigned int) (out));
 
 }
 

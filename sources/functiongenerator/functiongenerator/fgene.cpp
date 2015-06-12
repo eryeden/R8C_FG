@@ -19,6 +19,7 @@
 #include "ATriangle.hpp"
 #include "APWM.hpp"
 #include "ANoise.hpp"
+#include "FunctionGenerator.hpp"
 
 //#include "Clock.hpp"
 
@@ -41,68 +42,78 @@ void main(void);
 //	}
 //};
 
-class INTRsawave : public ASawtooth, public INTRbase{
-public:
-	INTRsawave(unsigned int freq, unsigned int phase, float gain)
-		: ASawtooth(freq, phase, gain){};
-	unsigned int j;
-	Dac dac;
-	void op(){
-		//j = Out();
-		j = GetValueNow();
-		dac.WriteVoltageA(j);
-	}
-};
+//class INTRsawave : public ASawtooth, public INTRbase{
+//public:
+//	INTRsawave(unsigned int freq, unsigned int phase, float gain)
+//		: ASawtooth(freq, phase, gain){};
+//	unsigned int j;
+//	Dac dac;
+//	void op(){
+//		//j = Out();
+//		j = GetValueNow();
+//		dac.WriteVoltageA(j);
+//	}
+//};
+//
+//class INTRsinewave : public ASine, public INTRbase{
+//public:
+//	INTRsinewave(unsigned int freq, unsigned int phase, float gain)
+//		: ASine(freq, phase, gain){};
+//	unsigned int j;
+//	Dac dac;
+//	void op(){
+//		j = Out();
+//		//j = GetValueNow();
+//		dac.WriteVoltageA(j);
+//	}
+//};
+//
+//class INTRtriwave : public ATriangle, public INTRbase{
+//public:
+//	INTRtriwave(unsigned int freq, unsigned int phase, float gain)
+//		: ATriangle(freq, phase, gain){};
+//	unsigned int j;
+//	Dac dac;
+//	void op(){
+//		//j = Out();
+//		j = GetValueNow();
+//		dac.WriteVoltageA(j);
+//	}
+//};
+//
+//class INTRpwmwave : public APWM, public INTRbase{
+//public:
+//	INTRpwmwave(unsigned int freq, unsigned int phase, float gain)
+//		: APWM(freq, phase, gain){};
+//	unsigned int j;
+//	Dac dac;
+//	void op(){
+//		//j = Out();
+//		j = GetValueNow();
+//		dac.WriteVoltageA(j);
+//	}
+//};
+//
+//class INTRnoisewave : public ANoise, public INTRbase{
+//public:
+//	INTRnoisewave(unsigned int freq, unsigned int phase, float gain)
+//		: ANoise(freq, phase, gain){};
+//	unsigned int j;
+//	Dac dac;
+//	void op(){
+//		j = Out();
+//		//j = GetValueNow();
+//		dac.WriteVoltageA(j);
+//	}
+//};
 
-class INTRsinewave : public ASine, public INTRbase{
+class INTRfg : public FunctionGenerator, public INTRbase{
 public:
-	INTRsinewave(unsigned int freq, unsigned int phase, float gain)
-		: ASine(freq, phase, gain){};
-	unsigned int j;
-	Dac dac;
-	void op(){
-		j = Out();
-		//j = GetValueNow();
-		dac.WriteVoltageA(j);
-	}
-};
+	INTRfg(): FunctionGenerator(){};
 
-class INTRtriwave : public ATriangle, public INTRbase{
-public:
-	INTRtriwave(unsigned int freq, unsigned int phase, float gain)
-		: ATriangle(freq, phase, gain){};
-	unsigned int j;
-	Dac dac;
 	void op(){
-		//j = Out();
-		j = GetValueNow();
-		dac.WriteVoltageA(j);
-	}
-};
-
-class INTRpwmwave : public APWM, public INTRbase{
-public:
-	INTRpwmwave(unsigned int freq, unsigned int phase, float gain)
-		: APWM(freq, phase, gain){};
-	unsigned int j;
-	Dac dac;
-	void op(){
-		//j = Out();
-		j = GetValueNow();
-		dac.WriteVoltageA(j);
-	}
-};
-
-class INTRnoisewave : public ANoise, public INTRbase{
-public:
-	INTRnoisewave(unsigned int freq, unsigned int phase, float gain)
-		: ANoise(freq, phase, gain){};
-	unsigned int j;
-	Dac dac;
-	void op(){
-		j = Out();
-		//j = GetValueNow();
-		dac.WriteVoltageA(j);
+		Update();
+		p1_0 = !p1_0;
 	}
 };
 
@@ -134,8 +145,8 @@ void main(void)
 	//INTRsawave intsawave(200, 0, 1);
 	//intsawave.Enable();
 
-	INTRsinewave swave(100, 0, 50);
-	swave.Enable();
+	//INTRsinewave swave(100, 0, 50);
+	//swave.Enable();
 
 	//INTRtriwave trwave(100, 0, 1);
 	//trwave.Enable();
@@ -147,9 +158,22 @@ void main(void)
 	//INTRnoisewave nwave(100, 0, 10);
 	//nwave.Enable();
 
-	tim.SetClassInterrupter(&swave);
+
+	//ASawtooth m_asawtooth(100, 0, 10);
+	//ASine m_asine(100, 0, 10);
+
+
+
+	INTRfg fg;
+
+	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
+	tim.SetClassInterrupter(&fg);
 	tim.Enable();
+
+	fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+	
+
 
 
 	//Clock clk;
@@ -157,9 +181,11 @@ void main(void)
 
 
 	while(1){
-		for(unsigned int i = 0; i < 50000; ++i);
+		for(unsigned int i = 0; i < 5000; ++i);
 			p1_1 = !p1_1;
+			
 		//	clk.Update();
+			//fg.op();
 	}
 	
 }

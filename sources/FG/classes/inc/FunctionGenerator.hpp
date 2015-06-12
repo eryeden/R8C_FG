@@ -24,6 +24,7 @@
 #include "ATriangle.hpp"
 #include "APWM.hpp"
 #include "ANoise.hpp"
+#include "ANone.hpp"
 
 class FunctionGenerator {
 public:
@@ -38,8 +39,17 @@ public:
 	unsigned char GetAWaveSlotSize();
 	unsigned char GetBWaveSlotSize();
 private:
-	Dac m_dac;
-	Timer m_tim;
+
+	ANone m_anone;
+	ASawtooth m_asawtooth;
+	ASine m_asine;
+	ATriangle m_atriangle;
+	APWM m_apwm;
+	ANoise m_anoise;
+
+
+	//Dac m_dac;
+	//Timer m_tim;
 	AWave* m_aslot[Settings::FG_MAX_SLOT];
 	BWave* m_bslot;
 	Wave* m_pool_wave[Settings::FG_MAX_POOL];

@@ -19,7 +19,6 @@ class BWave : public Wave {
 public:
 	void SetFrequency(unsigned int fin);
 	void SetDuty(unsigned int duty);
-	void SetFrequency(unsigned int fin);
 	unsigned int GetFrequency();
 	unsigned int GetValueNow();
 	unsigned char GetId();

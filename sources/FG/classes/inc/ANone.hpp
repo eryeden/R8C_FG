@@ -17,6 +17,7 @@
 
 class ANone : public AWave {
 public:
+	ANone();
 	unsigned int GetValueNow();
 	unsigned char GetId();
 };

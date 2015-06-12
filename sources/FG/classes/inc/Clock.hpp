@@ -39,7 +39,6 @@ private:
 
 	unsigned int m_fp_nop;
 	unsigned int m_fp_pinv;
-	unsigned int m_fp_dt;
 	unsigned long m_fp_dt_us;
 	unsigned int m_fp_f;
 	unsigned int m_fp_k;

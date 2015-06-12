@@ -13,6 +13,10 @@
 #include "ANone.hpp"
 #include "Settings.hpp"
 
+ANone::ANone(){
+	;
+}
+
 unsigned int ANone::GetValueNow() {
 	return 0;
 }

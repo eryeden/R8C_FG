@@ -36,7 +36,7 @@
     <ClCompile Include="..\..\sources\FG\classes\src\Timer.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\UIUtils.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\Wave.cpp" />
-    <ClCompile Include="..\..\sources\functiongenerator\functiongenerator\functiongenerator.cpp" />
+    <ClCompile Include="..\..\sources\functiongenerator\functiongenerator\fgene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\sources\FG\classes\inc\ANoise.hpp" />

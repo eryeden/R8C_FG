@@ -14,7 +14,7 @@
 #define GAIN_SCL 8
 
 AWave::AWave()
-	: m_A(1.0)
+	: m_A(100)
 
 {
 

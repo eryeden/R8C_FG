@@ -21,7 +21,6 @@ Clock::Clock()
 	m_scale = 8;
 	m_fp_nop = 0;
 	m_fp_pinv = 0;
-	m_fp_dt = 0;
 	m_fp_dt_us = 0;
 	m_fp_f = 0;
 	m_fp_k = 0;
@@ -77,7 +76,6 @@ void Clock::SetDt() {
 	for (int i = 0; i < m_scale; i++){
 		tmp *= 2;
 	}
-	m_fp_dt = (unsigned long) (Timer::SGetDt() * (float) tmp);
 	m_fp_dt_us = (unsigned long) (Timer::SGetDt() * 1000000.0 * (float) tmp);
 
 #else
@@ -190,7 +188,7 @@ float Clock::GetDt(){
 	for (int i = 0; i < m_scale; i++){
 		tmp *= 2;
 	}
-	return ((float)m_fp_dt / (float)tmp);
+	return ((float)m_fp_dt_us / (float)tmp / 1000000.0);
 
 #else
 
