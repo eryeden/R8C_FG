@@ -125,10 +125,14 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\AWave.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ANone.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\AWave.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Clock.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\ASine.hpp" 
@@ -190,8 +194,7 @@
 [FLASH_DETAILS]
 "" 0 0 "" 0 "" 0 0 "" 0 0 0 0 0 0 0 "" "" "" "" "" 
 [BREAKPOINTS]
-"c:\users\b4\source\repos\r8c_29_fg\sources\fg\classes\src\functiongenerator.cpp" 72 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 166 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 83 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 167 52921 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 83 53694 1 "{00000000-0000-0000-C000-000000000046}" "" 
 "c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 90 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
 [END]

@@ -48,7 +48,7 @@ private:
 	ANoise m_anoise;
 
 
-	//Dac m_dac;
+	Dac m_dac;
 	//Timer m_tim;
 	AWave* m_aslot[Settings::FG_MAX_SLOT];
 	BWave* m_bslot;

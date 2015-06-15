@@ -17,14 +17,14 @@
 
 
 FunctionGenerator::FunctionGenerator()
-	: m_anone()
-	  
+	: m_dac()
+	, m_anone()
 	, m_asawtooth(100, 0, 100)
 	, m_asine(100, 0, 100)
 	, m_atriangle(100, 0, 100)
 	, m_apwm(100, 0, 100)
 	, m_anoise(100, 0, 100)
-	//, m_dac()
+
 {
 	m_apwm.SetDuty(0.5);
 
@@ -145,12 +145,12 @@ unsigned char FunctionGenerator::GetBWaveSlotSize() {
 void FunctionGenerator::AUpdate() {
 	char i;
 	unsigned long out = 0;
-	unsigned char now = 0;
+	//unsigned char now = 0;
 	for (i = 0; i < Settings::FG_MAX_SLOT; i++){
 		if (m_aslot[i]->GetId() != Settings::WAVE_ID_ANONE){
 			//m_dac.WriteVoltageA(m_aslot[i]->GetValueNow());
-			out += m_aslot[i]->Out();
-			now++;
+			out += (unsigned int)(m_aslot[i]->Out());
+			//now++;
 		}
 	}
 
@@ -158,8 +158,9 @@ void FunctionGenerator::AUpdate() {
 	//out /= now;
 	//m_dac.WriteVoltageA((unsigned int)(out >> MIX_SCL));
 	
+	out = (out > 0xFFF) ? 0xFFF : out;
 	
-	//m_dac.WriteVoltageA((unsigned int) (out));
+	m_dac.WriteVoltageA((unsigned int) (out));
 
 }
 

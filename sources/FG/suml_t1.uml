@@ -90,8 +90,8 @@
 <XPD:OBJ name="OwnedViews[1]" type="UMLClassView" guid="hL897q4G60yOQy9HgCVjkAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Left" type="integer">2468</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">408</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">2556</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">520</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">200</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">82</XPD:ATTR>
 <XPD:ATTR name="ShowProperty" type="boolean">True</XPD:ATTR>
@@ -123,7 +123,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">2180</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">512</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">524</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">283</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
 <XPD:ATTR name="ShowProperty" type="boolean">True</XPD:ATTR>
@@ -1021,7 +1021,7 @@
 <XPD:OBJ name="OwnedViews[30]" type="UMLAssociationView" guid="XU9lHsUsJkWseW+0Nh4X2AAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2316,512;2308,452</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2317,524;2308,452</XPD:ATTR>
 <XPD:ATTR name="ShowProperty" type="boolean">True</XPD:ATTR>
 <XPD:REF name="Model">akPlyX5OaESmwqD5gOMWdQAA</XPD:REF>
 <XPD:REF name="Head">VhMdrgORlUug+SuvfhBuCAAA</XPD:REF>
@@ -1191,7 +1191,7 @@
 <XPD:OBJ name="OwnedViews[32]" type="UMLAssociationView" guid="lDRHI5fJ2ECbB3DSLpa8qwAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
-<XPD:ATTR name="Points" type="Points">2552,408;2525,336</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">2635,520;2543,336</XPD:ATTR>
 <XPD:ATTR name="ShowProperty" type="boolean">True</XPD:ATTR>
 <XPD:REF name="Model">rAG/7o+OlkSxdGMF0+zbrgAA</XPD:REF>
 <XPD:REF name="Head">FMPOOiec1E6ZXWKI93efFwAA</XPD:REF>
