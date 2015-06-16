@@ -37,22 +37,21 @@ private:
 
 	unsigned char m_scale;
 
-	unsigned int m_fp_nop;
-	unsigned int m_fp_pinv;
-	unsigned long m_fp_dt_us;
-	unsigned int m_fp_f;
-	unsigned int m_fp_k;
-	unsigned int m_fp_phase;
-	unsigned int m_fp_phase_shift_point;
-
-	//unsigned long m_fp_nop;
-	//unsigned long m_fp_pinv;
-	//unsigned long m_fp_dt;
+	//unsigned int m_fp_nop;
+	//unsigned int m_fp_pinv;
 	//unsigned long m_fp_dt_us;
-	//unsigned long m_fp_f;
-	//unsigned long m_fp_k;
-	//unsigned long m_fp_phase;
-	//unsigned long m_fp_phase_shift_point;
+	//unsigned int m_fp_f;
+	//unsigned int m_fp_k;
+	//unsigned int m_fp_phase;
+	//unsigned int m_fp_phase_shift_point;
+
+	unsigned long m_fp_nop;
+	unsigned long m_fp_pinv;
+	unsigned long m_fp_dt_us;
+	unsigned long m_fp_f;
+	unsigned long m_fp_k;
+	unsigned long m_fp_phase;
+	unsigned long m_fp_phase_shift_point;
 
 #else
 

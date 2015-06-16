@@ -19,11 +19,11 @@
 FunctionGenerator::FunctionGenerator()
 	: m_dac()
 	, m_anone()
-	, m_asawtooth(100, 0, 100)
-	, m_asine(100, 0, 100)
-	, m_atriangle(100, 0, 100)
-	, m_apwm(100, 0, 100)
-	, m_anoise(100, 0, 100)
+	, m_asawtooth(100, 0, 50)
+	, m_asine(100, 0, 50)
+	, m_atriangle(200, 0, 10)
+	, m_apwm(100, 0, 50)
+	, m_anoise(100, 0, 10)
 
 {
 	m_apwm.SetDuty(0.5);
@@ -160,7 +160,7 @@ void FunctionGenerator::AUpdate() {
 	
 	out = (out > 0xFFF) ? 0xFFF : out;
 	
-	m_dac.WriteVoltageA((unsigned int) (out));
+	m_dac.WriteVoltageA((unsigned int)out);
 
 }
 

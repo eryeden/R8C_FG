@@ -13,7 +13,7 @@
 #include "ASine.hpp"
 #include "Settings.hpp"
 
-const unsigned int sines[64] = {
+static const unsigned int sines[64] = {
 	2048,
 	2252,
 	2454,
@@ -86,7 +86,9 @@ ASine::ASine(unsigned int freq, unsigned int phase, unsigned int gain) {
 }
 
 unsigned int ASine::GetValueNow() {
-	return sines[m_clk.Update()];
+	unsigned int j = m_clk.Update();
+	//j = j % 64;
+	return sines[j];
 }
 
 unsigned char ASine::GetId() {

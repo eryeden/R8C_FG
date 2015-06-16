@@ -60,7 +60,7 @@ void Clock::SetFreq(unsigned int fin) {
 	m_fp_f = fin << m_scale;
 	//m_fp_pinv = (((m_fp_f * m_fp_nop) >> m_scale) * m_fp_dt) >> m_scale;
 	//m_fp_pinv = (((m_fp_f * m_fp_nop) >> m_scale) * m_fp_dt_us) >> m_scale / (1000000);
-	m_fp_pinv = (unsigned int)((unsigned long)fin * (unsigned long)(m_fp_nop >> m_scale) * m_fp_dt_us / 1000000);
+	m_fp_pinv = (unsigned long)((unsigned long)fin * (unsigned long)(m_fp_nop >> m_scale) * m_fp_dt_us / 1000000);
 #else
 	m_f = fin;
 	m_pinv = (float) (m_f * m_nop) * m_dt;

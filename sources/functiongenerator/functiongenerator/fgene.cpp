@@ -164,15 +164,15 @@ void main(void)
 
 
 
-	INTRfg fg;
+	static INTRfg fg;
 
 	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
 	tim.SetClassInterrupter(&fg);
 	tim.Enable();
 
-	fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
-	
+	fg.InsertWaveFromPoolToSlotMasterIndex(0, 1);
+	fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
 
 
 
@@ -185,7 +185,7 @@ void main(void)
 			p1_1 = !p1_1;
 			
 		//	clk.Update();
-			//fg.op();
+		//	fg.op();
 	}
 	
 }
