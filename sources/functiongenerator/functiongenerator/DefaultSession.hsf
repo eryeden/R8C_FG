@@ -70,6 +70,7 @@
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 

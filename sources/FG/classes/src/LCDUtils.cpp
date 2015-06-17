@@ -11,8 +11,91 @@
 
 
 #include "LCDUtils.hpp"
+#include "sfr_r829.h"
+
+#define P_E p1_4
+#define P_RS p1_5
+
+void wait_us(unsigned int us){
+	unsigned int tm = us * 20;
+	for (int i = 0; i < tm; ++i){
+		asm("nop");
+	}
+}
+
+void wait_ms(unsigned int ms){
+	for (int i = 0; i < ms; ++i){
+		wait_us(1000);
+	}
+}
+
+
+LCDUtils::LCDUtils(){
+
+}
 
 void LCDUtils::Initialize() {
+	//pd1 = 1;
+
+	pd1_0 = 1;
+	pd1_1 = 1;
+	pd1_2 = 1;
+	pd1_3 = 1;
+
+	pd1_4 = 1;
+	pd1_5 = 1;
+
+	//p1 = 0;
+
+	p1_0 = 0;
+	p1_1 = 0;
+	p1_2 = 0;
+	p1_3 = 0;
+
+	p1_4 = 0;
+	p1_5 = 0;
+
+	//wait 15ms
+	wait_ms(15);
+
+	//8bitモードに設定する
+	WriteInit(0x30);
+	//wait 4.1ms
+	wait_ms(5);
+
+	WriteInit(0x30);
+	//wait 100us
+	wait_us(100);
+
+	WriteInit(0x30);
+	//wait 40us
+	wait_us(40);
+
+	//4bitモードに設定する
+	WriteInit(0x20);
+	//wait 40us
+	wait_us(40);
+
+	//二行表示モードに設定
+	WriteCommand(0x28);
+	//wait 40us
+	wait_us(40);
+
+	//ディスプレイON、カーソルOFF、ブリンクOFF 丸パクリはだめだぞ！！！！
+	WriteCommand(0x0C);
+	//wait 40us
+	wait_us(40);
+
+	//ディスプレイクリア
+	WriteCommand(0x01);
+	//wait 1.52ms
+	wait_ms(2);
+
+	//エントリモード設定　カーソル右移動、表示内容シフトなし
+	WriteCommand(0x06);
+	//wait 40us
+	wait_us(40);
+
 
 }
 
@@ -21,6 +104,147 @@ void LCDUtils::Write(unsigned char ) {
 }
 
 void LCDUtils::Clear() {
+	//ディスプレイクリア
+	WriteCommand(0x01);
+	//wait 1.52ms
+	wait_us(1520);
+}
+
+void LCDUtils::WriteData(unsigned char in){
+	P_RS = 1;
+
+	p1 &= 0xF0;
+	p1 |= ((in >> 4) & 0x0F);
+	P_E = 1;
+	asm("nop");
+	P_E = 0;
+
+	p1 &= 0xF0;
+	p1 |= ((in) & 0x0F);
+	P_E = 1;
+	asm("nop");
+	P_E = 0;
+
+	//unsigned char tmp = 0;
+	//P_RS = 0;
+
+	//tmp |= (1 << 5);
+	//tmp |= ((in >> 4));
+
+	////p1 &= 0xF0;
+	////p1 |= ((in >> 4) & 0x0F);
+
+	//p1 = tmp;
+
+	//P_E = 1;
+	//asm("nop");
+	//P_E = 0;
+
+	////p1 &= 0xF0;
+	////p1 |= ((in) & 0x0F);
+	//tmp = 0;
+
+	//tmp |= (1 << 5);
+	//tmp |= (in & 0x0F);
+
+	//p1 = tmp;
+
+	//P_E = 1;
+	//asm("nop");
+	//P_E = 0;
+
+
 
 }
 
+void LCDUtils::WriteCommand(unsigned char in){
+	//unsigned char tmp = 0;
+	P_RS = 0;
+
+	//tmp |= (0 << 5);
+	//tmp |= (((in & 0xF0) >> 4));
+	//p1 = tmp;
+
+	p1 &= 0xF0;
+	p1 |= ((in >> 4) & 0x0F);
+
+	P_E = 1;
+	asm("nop");
+	P_E = 0;
+
+	p1 &= 0xF0;
+	p1 |= ((in) & 0x0F);
+	//tmp = 0;
+
+	//tmp |= (0 << 5);
+	//tmp |= (in & 0x0F);
+
+	//p1 = tmp;
+
+	P_E = 1;
+	asm("nop");
+	P_E = 0;
+}
+
+void LCDUtils::WriteInit(unsigned char in){
+	P_RS = 0;
+
+	p1 &= 0xF0;
+	p1 |= ((in >> 4) & 0x0F);
+	P_E = 1;
+	asm("nop");
+	P_E = 0;
+
+	//unsigned char tmp = 0;
+	//P_RS = 0;
+
+	//tmp |= (0 << 5);
+	//tmp |= ((in >> 4));
+
+	////p1 &= 0xF0;
+	////p1 |= ((in >> 4) & 0x0F);
+
+	//p1 = tmp;
+
+	//P_E = 1;
+	//asm("nop");
+	//P_E = 0;
+
+}
+
+void LCDUtils::WriteLineUp(char src[16]){
+	WriteCommand(0x80);
+	wait_us(40);
+	for (int i = 0; i < 16; ++i){
+		if (src[i] == '\0') break;
+		WriteData(src[i]);
+		wait_us(40);
+	}
+}
+
+void LCDUtils::WriteLineDown(char src[16]){
+	WriteCommand(0xC0);
+	wait_us(40);
+	for (int i = 0; i < 16; ++i){
+		if (src[i] == '\0') break;
+		WriteData(src[i]);
+		wait_us(40);
+	}
+}
+
+void LCDUtils::Test(){
+	WriteCommand(0x80);
+	wait_us(40);
+	WriteData(0x31);
+	wait_us(40);
+	WriteData(0x32);
+	wait_us(40);
+
+	WriteCommand(0xC0);
+	wait_us(40);
+	WriteData(0x32);
+	wait_us(40);
+	WriteData(0x33);
+	wait_us(40);
+
+}

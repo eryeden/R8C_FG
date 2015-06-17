@@ -10,6 +10,7 @@
 /***********************************************************************/
 
 #include "sfr_r829.h"
+#include "LCDUtils.hpp"
 #include "Dac.hpp"
 #include "ClockSettings.hpp"
 #include "SSUbus.hpp"
@@ -107,15 +108,15 @@ void main(void);
 //	}
 //};
 
-class INTRfg : public FunctionGenerator, public INTRbase{
-public:
-	INTRfg(): FunctionGenerator(){};
-
-	void op(){
-		Update();
-		p1_0 = !p1_0;
-	}
-};
+//class INTRfg : public FunctionGenerator, public INTRbase{
+//public:
+//	INTRfg(): FunctionGenerator(){};
+//
+//	void op(){
+//		Update();
+//		//p1_0 = !p1_0;
+//	}
+//};
 
 
 void main(void)
@@ -131,16 +132,25 @@ void main(void)
 	//INTRtest intr;
 
 
+	//pd1_1 = 1;
+	//p1drr1 = 1;
+	//p1_1 = 0;
 
-	pd1_1 = 1;
-	p1drr1 = 1;
-	p1_1 = 0;
+	//pd1_0 = 1;
+	//p1_0 = 0;
 
-	pd1_0 = 1;
-	p1_0 = 0;
+	LCDUtils lcd;
+	lcd.Initialize();
 
-	Timer tim;
-	tim.SetDt(300);
+	lcd.Clear();
+
+	lcd.WriteLineUp("KIKUTI1111111111");
+	lcd.WriteLineDown("KIKUTI2222");
+
+	//lcd.Test();
+
+	//Timer tim;
+	//tim.SetDt(300);
 
 	//INTRsawave intsawave(200, 0, 1);
 	//intsawave.Enable();
@@ -164,26 +174,34 @@ void main(void)
 
 
 
-	static INTRfg fg;
+	//static INTRfg fg;
 
 	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
-	tim.SetClassInterrupter(&fg);
-	tim.Enable();
+	//tim.SetClassInterrupter(&fg);
+	//tim.Enable();
 
-	fg.InsertWaveFromPoolToSlotMasterIndex(0, 1);
-	fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
+	//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+	//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
 
 
 
 	//Clock clk;
 	//clk.Set(500, 100, 0);
+	unsigned char _j = 0;
 
+	char tmpp[16];
+	
 
 	while(1){
-		for(unsigned int i = 0; i < 5000; ++i);
-			p1_1 = !p1_1;
-			
+		for(unsigned long i = 0; i < 100000; ++i);
+			//p1_1 = !p1_1;
+		for (int i = 0; i < 16; ++i){
+			tmpp[i] = _j;
+		}
+		_j++;
+		
+		lcd.WriteLineDown(tmpp);
 		//	clk.Update();
 		//	fg.op();
 	}

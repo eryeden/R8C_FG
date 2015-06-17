@@ -141,6 +141,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\ClockSettings.hpp" "User" "C++ header file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" "User" "C++ header file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\FunctionGenerator.hpp" "User" "C++ header file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\LCDUtils.hpp" "User" "C++ header file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" "User" "C++ header file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" "User" "C++ header file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" "User" "C++ header file" 2 
@@ -156,6 +157,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" "User" "C++ source file" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" "User" "C++ source file" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" "User" "C++ source file" 2 
@@ -195,6 +197,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" "07d5ca6761a90d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" "057ad923b9890d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" "05332d03615a0d10" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" "0b0cbd13f19a0d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" "057ad923b9890d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" "01d41f20eed90d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" "0c4842fdbee90d10" 2 
@@ -202,11 +205,11 @@
 [OPTIONS_Debug_Renesas M16C C/C++ Library Generator]
 "Single Shot" "0342705959980d10" 1 
 [OPTIONS_Debug_Renesas M16C Configurator]
-"Single Shot" "02240fec615a0d10" 6 
+"Single Shot" "0b0cbd13f19a0d10" 6 
 [OPTIONS_Debug_Renesas M16C ConfiguratorR8C]
-"Single Shot" "02240fec615a0d10" 6 
+"Single Shot" "0b0cbd13f19a0d10" 6 
 [OPTIONS_Debug_Renesas OptLinker]
-"Single Shot" "09e1a220715a0d10" 5 
+"Single Shot" "08cbdd13f19a0d10" 5 
 [OPTIONS_Debug]
 "" 0 
 "[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 6 
@@ -240,6 +243,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" "07d5ca6761a90d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" "085e71afa9890d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" "05332d03615a0d10" 2 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" "0b0cbd13f19a0d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" "085e71afa9890d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" "01d41f20eed90d10" 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" "0c4842fdbee90d10" 2 
@@ -247,11 +251,11 @@
 [OPTIONS_Release_Renesas M16C C/C++ Library Generator]
 "Single Shot" "0342705959980d10" 1 
 [OPTIONS_Release_Renesas M16C Configurator]
-"Single Shot" "02240fec615a0d10" 6 
+"Single Shot" "0b0cbd13f19a0d10" 6 
 [OPTIONS_Release_Renesas M16C ConfiguratorR8C]
-"Single Shot" "02240fec615a0d10" 6 
+"Single Shot" "0b0cbd13f19a0d10" 6 
 [OPTIONS_Release_Renesas OptLinker]
-"Single Shot" "0dfe1fec615a0d10" 5 
+"Single Shot" "08cbdd13f19a0d10" 5 
 [OPTIONS_Release]
 "" 0 
 "[V|VERSION|1] [B|COMMAND|1] [S|SPEC|UITRON4] " 6 

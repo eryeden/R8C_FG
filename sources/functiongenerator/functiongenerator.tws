@@ -20,6 +20,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" 
@@ -46,6 +47,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 75 75 1193 460 0 11 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 0 0 1193 460 0 9 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" 225 225 1193 460 0 19 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 125 125 1218 455 0 23 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 0 0 1434 723 0 10 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 100 100 1218 455 0 12 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" 100 100 1218 455 0 22 
