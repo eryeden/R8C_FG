@@ -13,6 +13,39 @@
 #include "LCDUtils.hpp"
 #include "sfr_r829.h"
 
+#include <string.h>
+
+/* reverse:  reverse string s in place */
+void reverse(char s [])
+{
+	int i, j;
+	char c;
+
+	for (i = 0, j = strlen(s) - 1; i<j; i++, j--) {
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+	}
+}
+/* itoa:  convert n to characters in s */
+void itoa(int n, char s [])
+{
+	int i, sign;
+
+	if ((sign = n) < 0)  /* record sign */
+		n = -n;          /* make n positive */
+	i = 0;
+	do {       /* generate digits in reverse order */
+		s[i++] = n % 10 + '0';   /* get next digit */
+	} while ((n /= 10) > 0);     /* delete it */
+	if (sign < 0)
+		s[i++] = '-';
+	s[i] = '\0';
+	reverse(s);
+}
+
+
+
 #define P_E p1_4
 #define P_RS p1_5
 
@@ -99,8 +132,9 @@ void LCDUtils::Initialize() {
 
 }
 
-void LCDUtils::Write(unsigned char ) {
-
+void LCDUtils::Write(unsigned char in) {
+	WriteData(in);
+	wait_us(40);
 }
 
 void LCDUtils::Clear() {
@@ -231,6 +265,35 @@ void LCDUtils::WriteLineDown(char src[16]){
 		wait_us(40);
 	}
 }
+
+
+void LCDUtils::SetCursor(unsigned char x, unsigned char y){
+	unsigned char cmd = 0;
+	cmd = x + y* (0x40);
+	cmd |= 0x80;
+	WriteCommand(cmd);
+	wait_us(40);
+}
+
+
+void LCDUtils::WriteNumber(unsigned int num){
+	char buff[10];
+	itoa(num, buff);
+	unsigned char i = 0;
+	while (buff[i] != '\0'){
+		WriteData(buff[i++]);
+		wait_us(40);
+	}
+}
+
+void LCDUtils::WriteString(const char *in){
+	unsigned int i = 0;
+	while (in[i] != '\0'){
+		WriteData(in[i++]); 
+		wait_us(40);
+	}
+}
+
 
 void LCDUtils::Test(){
 	WriteCommand(0x80);

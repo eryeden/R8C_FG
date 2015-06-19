@@ -12,8 +12,197 @@
 
 #include "UIUtils.hpp"
 #include "FGManager.hpp"
+#include "Settings.hpp"
+
+
+UIUtils::UIUtils()
+	: WAVE_TEXT_ANONE("NONE")
+	, WAVE_TEXT_ASINE("SINE")
+	, WAVE_TEXT_ATRIANGLE("TRIA")
+	, WAVE_TEXT_ASAWTOOTH("SAWT")
+	, WAVE_TEXT_APWM("PWM ")
+	, WAVE_TEXT_ANOISE("NOIS")
+	, WAVE_TEXT_GAIN("GAIN")
+	, WAVE_TEXT_FREQ("FREQ")
+	, WAVE_TEXT_POOL("POOL")
+	, WAVE_TEXT_SLOT("SLOT")
+	, WAVE_TEXT_SET("SET")
+{
+	lcd.Initialize();
+	
+}
 
 void UIUtils::Show(FGManager fgm) {
 
 }
+
+
+
+
+void UIUtils::Output(UIView * ui){
+
+	//VIEWモードで出力
+	lcd.SetCursor(0, 0);
+	
+	//スロット番号の表示
+	//lcd.WriteString("S");
+	lcd.WriteNumber(ui->GetSlotNumber());
+	lcd.WriteString(" ");
+
+	//波名表示
+	lcd.WriteString(GetTextFromID(ui->GetWave()->GetId()));
+
+	//ゲイン表示
+	lcd.SetCursor(11, 0);
+	lcd.WriteString("G:");
+	lcd.WriteNumber(ui->GetWave()->GetGain());
+
+	//周波数表示
+	lcd.SetCursor(0, 1);
+	lcd.WriteString("F:");
+	unsigned int ff = ui->GetWave()->GetFrequency();
+	//WriteFrequency(ui->GetWave()->GetFrequency());
+	WriteFrequency(ff);
+}
+
+void UIUtils::Output(UISet * ui){
+	//設定sモードで出力
+	lcd.SetCursor(0, 0);
+
+	//スロット番号の表示
+	//lcd.WriteString("S");
+	lcd.WriteNumber(ui->GetSlotNumber());
+	lcd.WriteString(" ");
+
+	//波名表示
+	lcd.WriteString(GetTextFromID(ui->GetWave()->GetId()));
+
+	lcd.SetCursor(0, 1);
+
+	switch (ui->GetMode())
+	{
+	case UI_MODE_GAIN:
+		//ゲイン表示
+		lcd.WriteString("G:");
+		lcd.WriteNumber(ui->GetWave()->GetGain());
+		break;
+	case UI_MODE_FREQUENCY:
+		//周波数表示
+		lcd.WriteString("F:");
+		WriteFrequency(ui->GetWave()->GetFrequency());
+		break;
+	case UI_MODE_INSERTION:
+		break;
+	case UI_MODE_UNDEFINED:
+		break;
+	default:
+		break;
+	}
+}
+
+void UIUtils::Output(UIInsertion * ui){
+	//POOL表示
+	lcd.SetCursor(0, 0);
+	lcd.Write(0xFF);
+	lcd.WriteString(" ");
+	lcd.WriteString(GetTextFromID(ui->GetWaveSelected()->GetId()));
+	lcd.WriteString(" ");
+	lcd.SetCursor(15, 0);
+	lcd.Write(0xFF);
+
+	lcd.SetCursor(0, 1);
+	lcd.WriteString("  ");
+	lcd.WriteString(GetTextFromID(ui->GetWave()->GetId()));
+}
+
+const char * UIUtils::GetTextFromID(unsigned char ID){
+	switch (ID)
+	{
+	case Settings::WAVE_ID_ANOISE:
+		return WAVE_TEXT_ANOISE;
+		break;
+	case Settings::WAVE_ID_ANONE:
+		return WAVE_TEXT_ANONE;
+		break;
+	case Settings::WAVE_ID_APWM:
+		return WAVE_TEXT_APWM;
+		break;
+	case Settings::WAVE_ID_ASAWTOOTH:
+		return WAVE_TEXT_ASAWTOOTH;
+		break;
+	case Settings::WAVE_ID_ASINE:
+		return WAVE_TEXT_ASINE;
+		break;
+	case Settings::WAVE_ID_ATRIANGLE:
+		return WAVE_TEXT_ATRIANGLE;
+		break;
+	default:
+		return WAVE_TEXT_ANONE;
+		break;
+	}
+}
+
+
+void UIUtils::WriteFrequency(unsigned int f){
+	if (f < 1000){
+		lcd.WriteNumber(f); lcd.WriteString("Hz");
+		return;
+	} else if (f < 1000000){
+		lcd.WriteNumber(f / 1000); 
+		lcd.WriteString(".");
+		lcd.WriteNumber((f - ((f/1000) * 1000)));
+		lcd.WriteString("kHz");
+		return;
+	} else if (f < 1000000000){
+		lcd.WriteNumber(f / 1000000); lcd.WriteString("MHz");
+		return;
+	} else{
+		lcd.WriteString("UND");
+		return;
+	}
+}
+
+void UIView::Set(AWave *w, unsigned char slotnum){
+	m_awave = w; m_slotnum = slotnum;
+}
+
+unsigned char UIView::GetSlotNumber(){
+	return m_slotnum;
+}
+
+AWave * UIView::GetWave(){
+	return m_awave;
+}
+
+
+void UISet::Set(AWave *w, unsigned char slotnum, unsigned char ui_mode){
+	m_awave = w; m_slotnum = slotnum; m_ui_mode = ui_mode;
+}
+
+unsigned char UISet::GetSlotNumber(){
+	return m_slotnum;
+}
+
+unsigned char UISet::GetMode(){
+	return m_ui_mode;
+}
+
+AWave * UISet::GetWave(){
+	return m_awave;
+}
+
+void UIInsertion::Set(AWave *w_selected, AWave *w){
+	m_w_selected = w_selected;
+	m_w = w;
+}
+
+AWave * UIInsertion::GetWave(){
+	return m_w;
+}
+
+AWave * UIInsertion::GetWaveSelected(){
+	return m_w_selected;
+}
+
+
 

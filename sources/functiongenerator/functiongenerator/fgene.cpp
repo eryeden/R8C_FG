@@ -21,6 +21,8 @@
 #include "APWM.hpp"
 #include "ANoise.hpp"
 #include "FunctionGenerator.hpp"
+#include "UIUtils.hpp"
+
 
 //#include "Clock.hpp"
 
@@ -108,15 +110,15 @@ void main(void);
 //	}
 //};
 
-//class INTRfg : public FunctionGenerator, public INTRbase{
-//public:
-//	INTRfg(): FunctionGenerator(){};
-//
-//	void op(){
-//		Update();
-//		//p1_0 = !p1_0;
-//	}
-//};
+class INTRfg : public FunctionGenerator, public INTRbase{
+public:
+	INTRfg(): FunctionGenerator(){};
+
+	void op(){
+		Update();
+		//p1_0 = !p1_0;
+	}
+};
 
 
 void main(void)
@@ -131,6 +133,17 @@ void main(void)
 
 	//INTRtest intr;
 
+	//UIUtils uiu;
+	//
+	//UIView uiv;
+	//UISet uis;
+	//UIInsertion uii;
+
+	//ASine anoise(1233, 0, 100);
+	//ATriangle atr(3245, 0, 50);
+	//uiv.Set(&anoise, 3);
+	//uis.Set(&anoise, 4, UIUtils::UI_MODE_GAIN);
+	//uii.Set(&anoise, &atr);
 
 	//pd1_1 = 1;
 	//p1drr1 = 1;
@@ -142,15 +155,29 @@ void main(void)
 	LCDUtils lcd;
 	lcd.Initialize();
 
-	lcd.Clear();
+	//lcd.Clear();
 
-	lcd.WriteLineUp("KIKUTI1111111111");
-	lcd.WriteLineDown("KIKUTI2222");
+	//lcd.WriteLineUp("KIKUTI1111111111");
+	//lcd.WriteLineDown("KIKUTI2222");
+
 
 	//lcd.Test();
 
-	//Timer tim;
-	//tim.SetDt(300);
+	Timer tim;
+	tim.SetDt(300);
+
+	//UIUtils uiu;
+
+	//UIView uiv;
+	//UISet uis;
+	//UIInsertion uii;
+
+	//ASine anoise(1233, 0, 100);
+	//ATriangle atr(3245, 0, 50);
+	//uiv.Set(&anoise, 3);
+	//uis.Set(&anoise, 4, UIUtils::UI_MODE_GAIN);
+	//uii.Set(&anoise, &atr);
+
 
 	//INTRsawave intsawave(200, 0, 1);
 	//intsawave.Enable();
@@ -172,17 +199,17 @@ void main(void)
 	//ASawtooth m_asawtooth(100, 0, 10);
 	//ASine m_asine(100, 0, 10);
 
+	
 
-
-	//static INTRfg fg;
+	static INTRfg fg;
 
 	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
-	//tim.SetClassInterrupter(&fg);
-	//tim.Enable();
+	tim.SetClassInterrupter(&fg);
+	tim.Enable();
 
-	//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
-	//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
+	fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+	fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
 
 
 
@@ -190,20 +217,29 @@ void main(void)
 	//clk.Set(500, 100, 0);
 	unsigned char _j = 0;
 
-	char tmpp[16];
-	
+	//char tmpp[16];
+	//
+	//lcd.SetCursor(0,0);
+	//lcd.WriteNumber(123456);
+
+	//uiu.Output(&uiv);
+	//uiu.Output(&uis);
+	//uiu.Output(&uii);
 
 	while(1){
-		for(unsigned long i = 0; i < 100000; ++i);
-			//p1_1 = !p1_1;
-		for (int i = 0; i < 16; ++i){
-			tmpp[i] = _j;
-		}
-		_j++;
+		for(unsigned long i = 0; i < 1000; ++i);
 		
-		lcd.WriteLineDown(tmpp);
+		lcd.SetCursor(0,0);
+		lcd.WriteNumber(_j++);
+
+		//sprintf(tmpp, "aa%d", _j);
+
+		//lcd.WriteLineDown(tmpp);
 		//	clk.Update();
 		//	fg.op();
 	}
+
+
+
 	
 }

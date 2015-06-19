@@ -67,7 +67,6 @@ Timer::Timer()
 //äÑÇËçûÇ›ä‘äuÇÕ5usÇ™ç≈è¨ÇæÇ¡ÇΩ
 //8bitÉJÉEÉìÉ^ÇæÇ∆12.8usÇ™ç≈ëÂ
 void Timer::SetDt(float dt_us) {
-	float dt_count_soruce;
 	float dt_count_source_inv;
 	unsigned char clksrc_div_coeff = 0;
 
@@ -77,19 +76,19 @@ void Timer::SetDt(float dt_us) {
 	//float dt_div_coeff = dt_us % dt_max;
 
 	if ((tck0_trbmr == 0) && (tck1_trbmr == 0)){
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
 		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ;
 	}
 	else if ((tck0_trbmr == 0) && (tck1_trbmr == 1)){
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 8.0;
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 8.0;
 		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ / 8.0;
 	}
 	else if ((tck0_trbmr == 1) && (tck1_trbmr == 1)){
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 2.0;
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ * 2.0;
 		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ / 2.0;
 	}
 	else{
-		dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
+	//	dt_count_soruce = 1.0 / (float) Settings::CLOCK_MAIN_HZ;
 		dt_count_source_inv = (float) Settings::CLOCK_MAIN_HZ;
 	}
 

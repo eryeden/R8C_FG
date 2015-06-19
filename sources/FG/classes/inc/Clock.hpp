@@ -36,6 +36,7 @@ private:
 #ifdef FIXED_POINT
 
 	unsigned char m_scale;
+	unsigned int m_f;
 
 	//unsigned int m_fp_nop;
 	//unsigned int m_fp_pinv;

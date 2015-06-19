@@ -26,6 +26,11 @@ public:
 	void ButtonPresseMode();
 	void Up();
 	void Down();
+
+private:
+	
+
+
 };
 
 #endif  //_FGMANAGER_H

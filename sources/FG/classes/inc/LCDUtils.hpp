@@ -36,11 +36,14 @@ class LCDUtils {
 public:
 	LCDUtils();
 	void Initialize();
-	void Write(unsigned char );
+	void Write(unsigned char in);
 	void WriteLineUp(char src[16]);
 	void WriteLineDown(char src[16]);
 	void Clear();
 	void Test();
+	void SetCursor(unsigned char x, unsigned char y);
+	void WriteNumber(unsigned int num);
+	void WriteString(const char *in);
 private:
 
 	void WriteData(unsigned char in);

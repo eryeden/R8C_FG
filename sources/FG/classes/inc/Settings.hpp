@@ -31,6 +31,10 @@ public:
 	static const unsigned char FG_MAX_POOL = 6;
 
 	static const unsigned long CLOCK_MAIN_HZ = 20000000;
+	
+		
+	
+	
 };
 
 #endif  //_SETTINGS_H

@@ -57,6 +57,7 @@ void Clock::SetFreq(unsigned int fin) {
 
 
 #ifdef FIXED_POINT
+	m_f = fin;
 	m_fp_f = fin << m_scale;
 	//m_fp_pinv = (((m_fp_f * m_fp_nop) >> m_scale) * m_fp_dt) >> m_scale;
 	//m_fp_pinv = (((m_fp_f * m_fp_nop) >> m_scale) * m_fp_dt_us) >> m_scale / (1000000);
@@ -170,8 +171,8 @@ unsigned int Clock::GetFreq(){
 	
 
 #ifdef FIXED_POINT
-
-	return (m_fp_f >> m_scale);
+	return m_f;
+	//return (unsigned int)(m_fp_f >> m_scale);
 
 #else
 
