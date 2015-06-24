@@ -54,7 +54,7 @@
 <XPD:REF name="DiagramOwner">8trUSlq9zkuHZqgv0mKS+gAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="8sT+MwMgrEWuQccWelgWEgAA">
 <XPD:REF name="Diagram">1EFYdVbucUGNwClCJ04FMgAA</XPD:REF>
-<XPD:ATTR name="#OwnedViews" type="integer">40</XPD:ATTR>
+<XPD:ATTR name="#OwnedViews" type="integer">41</XPD:ATTR>
 <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="MDp7XaRsdUO6oXD8gYyugAAA">
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
@@ -1712,9 +1712,41 @@
 <XPD:REF name="Model">Fe0icho2AkaDDvSQvTwQBwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+<XPD:OBJ name="OwnedViews[40]" type="UMLClassView" guid="+qi+jXPQQEWrm/YYLGya6gAA">
+<XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">328</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">68</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">101</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">43</XPD:ATTR>
+<XPD:ATTR name="ShowProperty" type="boolean">True</XPD:ATTR>
+<XPD:REF name="Model">5e8c9XRnH0ah187c4Cr7XAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="2KGCJydVDkidG07NgDnRXQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="3RLpX1pW7kKDedxN7tiZMQAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">KeyInterruption</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="KClcW7D1F0aOfcjT/qul8AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="/E6F/xJ9skCXumHU/7VAjwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">49</XPD:ATTR>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="Z401erRMiESKODPEFqHTCAAA">
+<XPD:REF name="Model">5e8c9XRnH0ah187c4Cr7XAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="LL6fs+fbDEqTJtTVReBDiAAA">
+<XPD:REF name="Model">5e8c9XRnH0ah187c4Cr7XAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="e9k+qfrVGkmVMm9GnO4q1wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">5e8c9XRnH0ah187c4Cr7XAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">50</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="LMCTxAZun0yD3Vsq6nadPgAA">
 <XPD:ATTR name="Name" type="string">Super</XPD:ATTR>
 <XPD:REF name="Namespace">8trUSlq9zkuHZqgv0mKS+gAA</XPD:REF>
@@ -3917,6 +3949,15 @@
 <XPD:REF name="BehavioralFeature">IRtiQOE6kUKklPqKdXEkvgAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[49]" type="UMLClass" guid="5e8c9XRnH0ah187c4Cr7XAAA">
+<XPD:ATTR name="Name" type="string">KeyInterruption</XPD:ATTR>
+<XPD:REF name="Namespace">8trUSlq9zkuHZqgv0mKS+gAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">+qi+jXPQQEWrm/YYLGya6gAA</XPD:REF>
+<XPD:REF name="Views[1]">Z401erRMiESKODPEFqHTCAAA</XPD:REF>
+<XPD:REF name="Views[2]">LL6fs+fbDEqTJtTVReBDiAAA</XPD:REF>
+<XPD:REF name="Views[3]">e9k+qfrVGkmVMm9GnO4q1wAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[3]" type="UMLModel" guid="yMtAPtkxkkaank/B6A0UsAAA">
