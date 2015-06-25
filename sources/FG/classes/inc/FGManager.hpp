@@ -13,22 +13,40 @@
 #if !defined(_FGMANAGER_H)
 #define _FGMANAGER_H
 
+#include "UIUtils.hpp"
+#include "FunctionGenerator.hpp"
 
 class FGManager {
 public:
-	unsigned char m_mode;
+	FGManager();
 	void InsertWaveFromPoolToSlot(unsigned char slot_idx, unsigned char pool_idx);
 	void ConfigureWaveGain(unsigned char slot_idx, float gain_in);
 	void ConfigureWaveFrequencyOrDuty(unsigned char slot_idx, unsigned int freq_in);
 	void ConfigureWavePhase(unsigned char slot_idx, float pahse_in);
 	void DeleteWave(unsigned char slot_idx);
 	void GetWaveStatus(unsigned char slot_idx);
-	void ButtonPresseMode();
+
+	void Mode();
+	void Select();
 	void Up();
 	void Down();
 
+	void SetFunctionGenerator(FunctionGenerator *pfg);
+
+
+
+
 private:
-	
+	FunctionGenerator *fg;
+	unsigned char m_mode;
+	unsigned char m_slot;
+	unsigned char m_pool;
+	unsigned char m_scale;
+
+	void IncrementGain(unsigned char is_increment);
+	void IncrementFrequency(unsigned char is_increment);
+	void ChangeScaleGain();
+	void ChangeScaleFrequency();
 
 
 };

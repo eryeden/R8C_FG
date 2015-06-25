@@ -13,16 +13,20 @@
 #if !defined(_KEYINTERRUPTION_H)
 #define _KEYINTERRUPTION_H
 
-#include "Timer.hpp"
+class BtnEvent{
+public:
+	virtual void mode() = 0;
+	virtual void select() = 0;
+	virtual void up() = 0;
+	virtual void down() = 0;
+};
 
 class KeyInterruption {
 public:
 	KeyInterruption();
 	void Initialize();
-	void SetEventMode(INTRbase * pib);
-	void SetEventSelect(INTRbase * pib);
-	void SetEventUp(INTRbase * pib);
-	void SetEventDown(INTRbase * pib);
+
+	void SetEvent(BtnEvent * be);
 
 	void Enable();
 };

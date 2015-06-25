@@ -22,6 +22,7 @@
 #include "ANoise.hpp"
 #include "FunctionGenerator.hpp"
 #include "UIUtils.hpp"
+#include "KeyInterruption.hpp"
 
 
 
@@ -61,7 +62,7 @@
 	LCD_2		P1_5/RXD0/(TRAIO)/(INT1)(íç2)
 	LCD_3		P1_6/CLK0/(SSI)(íç2)
 
-
+	0000 0111
 */
 
 
@@ -153,14 +154,43 @@ void main(void);
 //	}
 //};
 
-class INTRfg : public FunctionGenerator, public INTRbase{
-public:
-	INTRfg(): FunctionGenerator(){};
+//class INTRfg : public FunctionGenerator, public INTRbase{
+//public:
+//	INTRfg(): FunctionGenerator(){};
+//
+//	void op(){
+//		Update();
+//		//p1_0 = !p1_0;
+//	}
+//};
 
-	void op(){
-		Update();
-		//p1_0 = !p1_0;
+class INTRint : public BtnEvent{
+	LCDUtils lcd;
+public:
+	INTRint()
+		:lcd()
+	{
+		lcd.Initialize();
+		lcd.Clear();
+		lcd.WriteLineDown("KIKUTI");
 	}
+
+	void mode(){
+		lcd.WriteLineUp("MODE  ");
+	}
+
+	void select(){
+		lcd.WriteLineUp("SELECT");
+	}
+
+	void up(){
+		lcd.WriteLineUp("UP     ");
+	}
+
+	void down(){
+		lcd.WriteLineUp("DOWN   ");
+	}
+
 };
 
 
@@ -169,6 +199,17 @@ void main(void)
 	
 	ClockSettings clkstg;
 	clkstg.Initialize();
+
+	INTRint ii;
+
+	KeyInterruption ki;
+
+	ki.Initialize();
+	ki.SetEvent(&ii);
+	ki.Enable();
+	
+
+
 
 	//static Dac dac;
 	//Dac::SInitialize();
@@ -195,8 +236,8 @@ void main(void)
 	//pd1_0 = 1;
 	//p1_0 = 0;
 
-	LCDUtils lcd;
-	lcd.Initialize();
+	//LCDUtils lcd;
+	//lcd.Initialize();
 
 	//lcd.Clear();
 
@@ -206,8 +247,8 @@ void main(void)
 
 	//lcd.Test();
 
-	Timer tim;
-	tim.SetDt(300);
+	//Timer tim;
+	//tim.SetDt(300);
 
 	//UIUtils uiu;
 
@@ -244,15 +285,15 @@ void main(void)
 
 	
 
-	static INTRfg fg;
+	//static INTRfg fg;
 
 	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
-	tim.SetClassInterrupter(&fg);
-	tim.Enable();
+	//tim.SetClassInterrupter(&fg);
+	//tim.Enable();
 
-	fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
-	fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
+	//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+	//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
 
 
 
@@ -272,8 +313,8 @@ void main(void)
 	while(1){
 		for(unsigned long i = 0; i < 1000; ++i);
 		
-		lcd.SetCursor(0,0);
-		lcd.WriteNumber(_j++);
+		//lcd.SetCursor(0,0);
+		//lcd.WriteNumber(_j++);
 
 		//sprintf(tmpp, "aa%d", _j);
 

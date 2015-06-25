@@ -46,8 +46,8 @@ void itoa(int n, char s [])
 
 
 
-#define P_E p1_4
-#define P_RS p1_5
+#define P_E p4_5
+#define P_RS p1_2
 
 void wait_us(unsigned int us){
 	unsigned int tm = us * 20;
@@ -70,23 +70,30 @@ LCDUtils::LCDUtils(){
 void LCDUtils::Initialize() {
 	//pd1 = 1;
 
-	pd1_0 = 1;
-	pd1_1 = 1;
+	//pd1_0 = 1;
+	//pd1_1 = 1;
 	pd1_2 = 1;
 	pd1_3 = 1;
-
 	pd1_4 = 1;
 	pd1_5 = 1;
+	pd1_6 = 1;
 
 	//p1 = 0;
 
-	p1_0 = 0;
-	p1_1 = 0;
+	//p1_0 = 0;
+	//p1_1 = 0;
 	p1_2 = 0;
 	p1_3 = 0;
-
 	p1_4 = 0;
 	p1_5 = 0;
+	p1_6 = 0;
+
+	//pd4 = 1;
+	pd4_5 = 1;
+	//p4_2 = 0;
+	p4_5 = 0;
+
+
 
 	//wait 15ms
 	wait_ms(15);
@@ -147,14 +154,14 @@ void LCDUtils::Clear() {
 void LCDUtils::WriteData(unsigned char in){
 	P_RS = 1;
 
-	p1 &= 0xF0;
-	p1 |= ((in >> 4) & 0x0F);
+	p1 &= 0x87;
+	p1 |= (((in >> 4) & 0x0F) << 3) & 0x78;
 	P_E = 1;
 	asm("nop");
 	P_E = 0;
 
-	p1 &= 0xF0;
-	p1 |= ((in) & 0x0F);
+	p1 &= 0x87;
+	p1 |= (((in) & 0x0F) << 3) & 0x78;
 	P_E = 1;
 	asm("nop");
 	P_E = 0;
@@ -199,15 +206,22 @@ void LCDUtils::WriteCommand(unsigned char in){
 	//tmp |= (((in & 0xF0) >> 4));
 	//p1 = tmp;
 
-	p1 &= 0xF0;
-	p1 |= ((in >> 4) & 0x0F);
+	//p1 &= 0xF0;
+	//p1 |= ((in >> 4) & 0x0F);
+
+	p1 &= 0x87;
+	p1 |= (((in >> 4) & 0x0F) << 3) & 0x78;
 
 	P_E = 1;
 	asm("nop");
 	P_E = 0;
 
-	p1 &= 0xF0;
-	p1 |= ((in) & 0x0F);
+	//p1 &= 0xF0;
+	//p1 |= ((in) & 0x0F);
+
+	p1 &= 0x87;
+	p1 |= (((in) & 0x0F) << 3) & 0x78;
+
 	//tmp = 0;
 
 	//tmp |= (0 << 5);
@@ -223,8 +237,12 @@ void LCDUtils::WriteCommand(unsigned char in){
 void LCDUtils::WriteInit(unsigned char in){
 	P_RS = 0;
 
-	p1 &= 0xF0;
-	p1 |= ((in >> 4) & 0x0F);
+	//p1 &= 0xF0;
+	//p1 |= ((in >> 4) & 0x0F);
+
+	p1 &= 0x87;
+	p1 |= (((in >> 4) & 0x0F) << 3) & 0x78;
+
 	P_E = 1;
 	asm("nop");
 	P_E = 0;

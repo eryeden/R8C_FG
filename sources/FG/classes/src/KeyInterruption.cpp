@@ -11,7 +11,6 @@
 
 
 #include "KeyInterruption.hpp"
-#include "Timer.hpp"
 #include "sfr_r829.h"
 
 #define BUTTON_PULLUP
@@ -31,18 +30,41 @@ void _wait_ms(unsigned int ms){
 }
 
 
-class INTRclass{
+//class INTRclass{
+//public:
+//	INTRbase *ib;
+//	void run(){
+//		ib->op();
+//	}
+//};
+
+class INTRbuttons{
 public:
-	INTRbase *ib;
-	void run(){
-		ib->op();
+	BtnEvent *be;
+	void mode(){
+		be->mode();
+	}
+	void select(){
+		be->select();
+	}
+	void up(){
+		be->up();
+	}
+	void down(){
+		be->down();
 	}
 };
 
-INTRclass int_mode;
-INTRclass int_sel;
-INTRclass int_up;
-INTRclass int_down;
+//INTRclass int_mode;
+//INTRclass int_sel;
+//INTRclass int_up;
+//INTRclass int_down;
+
+INTRbuttons int_btn;
+
+KeyInterruption::KeyInterruption(){
+	;
+}
 
 void KeyInterruption::Initialize(){
 	//äÑÇËçûÇ›ã÷é~
@@ -176,20 +198,24 @@ void KeyInterruption::Enable(){
 	asm("FSET I");
 }
 
-void KeyInterruption::SetEventMode(INTRbase * pib){
-	int_mode.ib = pib;	
-}
+//void KeyInterruption::SetEventMode(INTRbase * pib){
+//	int_mode.ib = pib;	
+//}
+//
+//void KeyInterruption::SetEventSelect(INTRbase * pib){
+//	int_sel.ib = pib;
+//}
+//
+//void KeyInterruption::SetEventUp(INTRbase * pib){
+//	int_up.ib = pib;
+//}
+//
+//void KeyInterruption::SetEventDown(INTRbase * pib){
+//	int_down.ib = pib;
+//}
 
-void KeyInterruption::SetEventSelect(INTRbase * pib){
-	int_sel.ib = pib;
-}
-
-void KeyInterruption::SetEventUp(INTRbase * pib){
-	int_up.ib = pib;
-}
-
-void KeyInterruption::SetEventDown(INTRbase * pib){
-	int_down.ib = pib;
+void KeyInterruption::SetEvent(BtnEvent * be){
+	int_btn.be = be;
 }
 
 #pragma INTERRUPT t_intr_mode (vect=25)
@@ -198,7 +224,8 @@ void t_intr_mode(){
 	int1en = 0;
 
 	_wait_ms(10);
-	int_mode.run();
+	//int_mode.run();
+	int_btn.mode();
 
 	//ì¸óÕãñâ¬
 	int1en = 1;
@@ -210,7 +237,8 @@ void t_intr_sel(){
 	int3en = 0;
 
 	_wait_ms(10);
-	int_sel.run();
+	//int_sel.run();
+	int_btn.select();
 
 	//ì¸óÕãñâ¬
 	int3en = 1;
@@ -221,18 +249,25 @@ void t_intr_sel(){
 #pragma INTERRUPT t_intr_key (vect=13)
 void t_intr_key(){
 	//ì¸óÕã÷é~
-	ki0en = 0;
-	ki1en = 0;
+	//ki0en = 0;
+	//ki1en = 0;
 #ifdef BUTTON_PULLUP
 
-	_wait_ms(10);
 	if (p1_0 == 0){
-		int_up.run();
+		_wait_ms(10);
+		//int_up.run();
+		int_btn.up();
 		return;
 	} else if (p1_1 == 0){
-		int_down.run();
+		_wait_ms(10);
+		//int_down.run();
+		int_btn.down();
+		return;
+	}else{
+		//int_btn.down();
 		return;
 	}
+
 
 #else
 
@@ -263,8 +298,8 @@ void t_intr_key(){
 	//}
 
 	//ì¸óÕãñâ¬
-	ki0en = 1;
-	ki1en = 1;
+	//ki0en = 1;
+	//ki1en = 1;
 }
 
 

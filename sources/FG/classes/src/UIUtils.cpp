@@ -162,6 +162,14 @@ void UIUtils::WriteFrequency(unsigned int f){
 	}
 }
 
+void UIUtils::WriteFrequency2(unsigned int f, unsigned char scale){
+	
+}
+
+void UIUtils::WriteGain2(unsigned int gain, unsigned char scale){
+	
+}
+
 void UIView::Set(AWave *w, unsigned char slotnum){
 	m_awave = w; m_slotnum = slotnum;
 }
@@ -177,6 +185,7 @@ AWave * UIView::GetWave(){
 
 void UISet::Set(AWave *w, unsigned char slotnum, unsigned char ui_mode){
 	m_awave = w; m_slotnum = slotnum; m_ui_mode = ui_mode;
+	m_scale = 0;
 }
 
 unsigned char UISet::GetSlotNumber(){

@@ -9,8 +9,15 @@
 //
 //
 
-
+#include "Settings.hpp"
 #include "FGManager.hpp"
+
+FGManager::FGManager(){
+	m_mode = UIUtils::UI_MODE_VIEW;	
+	m_slot = 0;
+	m_pool = 0;
+	m_scale = 0;
+}
 
 void FGManager::InsertWaveFromPoolToSlot(unsigned char slot_idx, unsigned char pool_idx) {
 
@@ -20,7 +27,7 @@ void FGManager::ConfigureWaveGain(unsigned char slot_idx, float gain_in) {
 
 }
 
-void FGManager::ConfigureWaveFrequencyOrDuty(unsigned char slot_idx, unsiged int freq_in) {
+void FGManager::ConfigureWaveFrequencyOrDuty(unsigned char slot_idx, unsigned int freq_in){
 
 }
 
@@ -36,15 +43,108 @@ void FGManager::GetWaveStatus(unsigned char slot_idx) {
 
 }
 
-void() FGManager::ButtonPresseMode() {
+
+void FGManager::Select(){
+	switch (m_mode)
+	{
+	case UIUtils::UI_MODE_VIEW:
+		break;
+	case UIUtils::UI_MODE_GAIN:
+		ChangeScaleGain();
+		break;
+	case UIUtils::UI_MODE_FREQUENCY:
+		ChangeScaleFrequency();
+		break;
+	case UIUtils::UI_MODE_INSERTION:
+		fg->InsertWaveFromPoolToSlotMasterIndex(m_slot, m_pool);
+		break;
+	default:
+		break;
+	}
+}
+
+void FGManager::Mode() {
+	m_mode++;
+	if (m_mode > UIUtils::UI_MODE_INSERTION){
+		m_mode = UIUtils::UI_MODE_VIEW;
+	}
+	switch (m_mode)
+	{
+	case UIUtils::UI_MODE_VIEW:
+		break;
+	case UIUtils::UI_MODE_GAIN:
+		m_scale = 0;
+		break;
+	case UIUtils::UI_MODE_FREQUENCY:
+		m_scale = 0;
+		break;
+	case UIUtils::UI_MODE_INSERTION:
+		break;
+	default:
+		break;
+	}
 
 }
 
 void FGManager::Up() {
-
+	switch (m_mode)
+	{
+	case UIUtils::UI_MODE_VIEW:
+		m_mode--;
+		if (m_mode < 0){
+			m_mode = Settings::SLOT_SIZE_MAX -1 ;
+		}
+		break;
+	case UIUtils::UI_MODE_GAIN:
+		IncrementGain(1);
+		break;
+	case UIUtils::UI_MODE_FREQUENCY:
+		IncrementFrequency(1);
+		break;
+	case UIUtils::UI_MODE_INSERTION:
+		m_pool--;
+		if (m_pool < 0){
+			m_pool = Settings::FG_MAX_POOL - 1;
+		}
+		break;
+	default:
+		break;
+	}
 }
 
 void FGManager::Down() {
-
+	switch (m_mode)
+	{
+	case UIUtils::UI_MODE_VIEW:
+		m_mode++;
+		if (m_mode > (Settings::SLOT_SIZE_MAX - 1)){
+			m_mode = 0;
+		}
+		break;
+	case UIUtils::UI_MODE_GAIN:
+		IncrementGain(0);
+		break;
+	case UIUtils::UI_MODE_FREQUENCY:
+		IncrementFrequency(0);
+		break;
+	case UIUtils::UI_MODE_INSERTION:
+		m_pool++;
+		if (m_pool > (Settings::FG_MAX_POOL - 1)){
+			m_pool = 0;
+		}
+		break;
+	default:
+		break;
+	}
 }
+
+void FGManager::SetFunctionGenerator(FunctionGenerator *pfg){
+	fg = pfg;
+}
+
+
+
+
+
+
 

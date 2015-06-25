@@ -33,6 +33,7 @@ public:
 	AWave * GetWave();
 	unsigned char GetSlotNumber();
 	unsigned char GetMode();
+	unsigned char m_scale;
 private:
 	AWave *m_awave;
 	unsigned char m_slotnum;
@@ -83,6 +84,8 @@ private:
 	const char * GetTextFromID(unsigned char ID);
 
 	void WriteFrequency(unsigned int f);
+	void WriteFrequency2(unsigned int f, unsigned char scale);
+	void WriteGain2(unsigned int gain, unsigned char scale);
 
 };
 
