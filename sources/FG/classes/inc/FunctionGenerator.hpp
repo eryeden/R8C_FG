@@ -36,6 +36,7 @@ public:
 	void DeleteWaveFromSlotMasterIndex(unsigned char idx);
 	unsigned char GetIdFromSlotMasterIndex(unsigned char idx);
 	Wave* GetWaveFromSlotMasterIndex(unsigned char idx);
+	Wave* GetWaveFromPoolMasterIndex(unsigned char idx);
 	unsigned char GetAWaveSlotSize();
 	unsigned char GetBWaveSlotSize();
 private:

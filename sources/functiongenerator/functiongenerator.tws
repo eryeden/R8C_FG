@@ -9,9 +9,11 @@
 [OPEN_WORKSPACE_FILES]
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\ASine.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\FGManager.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\UIUtils.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ANone.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 
@@ -38,9 +40,11 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 125 125 1193 460 0 3 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\ASine.hpp" 175 175 1193 460 0 16 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" 175 175 1193 460 0 6 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\FGManager.hpp" 150 150 1193 460 0 26 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" 200 200 1193 460 0 7 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" 225 225 1193 460 0 8 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 125 125 1193 460 0 13 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\UIUtils.hpp" -8 -30 1434 723 1 27 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ANone.cpp" 75 75 1218 455 0 21 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 0 0 1434 723 0 14 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 200 200 1193 460 0 17 
@@ -55,7 +59,7 @@
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 0 0 1434 723 0 12 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\UIUtils.cpp" 100 100 1193 460 0 24 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" 100 100 1218 455 0 22 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" -8 -30 1434 723 1 20 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 0 0 1434 723 0 20 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 25 25 1189 456 0 0 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 0 0 1434 723 0 2 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 0 0 1434 723 0 1 

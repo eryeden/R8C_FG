@@ -43,7 +43,10 @@ public:
 	void Test();
 	void SetCursor(unsigned char x, unsigned char y);
 	void WriteNumber(unsigned int num);
+	void WriteNumber2(unsigned int num, unsigned char scale);
+	void WriteNumber6(unsigned int num);
 	void WriteString(const char *in);
+	void EnableCursor(bool is_cursor_on);
 private:
 
 	void WriteData(unsigned char in);

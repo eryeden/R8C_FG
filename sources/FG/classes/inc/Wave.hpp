@@ -20,6 +20,8 @@ public:
 	unsigned char m_is_inserted;
 	virtual void SetFrequency(unsigned int fin) = 0;
 	virtual unsigned int GetFrequency() = 0;
+	virtual void SetGain(unsigned char gin) = 0;
+	virtual unsigned int GetGain() = 0;
 	virtual unsigned int GetValueNow() = 0;
 	virtual unsigned char GetId() = 0;
 	virtual unsigned int Out();

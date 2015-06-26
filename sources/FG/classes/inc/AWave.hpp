@@ -30,7 +30,7 @@ public:
 
 	unsigned int Out();
 
-
+	//  0 '0'
 protected:
 	Clock m_clk;
 private:

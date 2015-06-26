@@ -200,13 +200,13 @@ void main(void)
 	ClockSettings clkstg;
 	clkstg.Initialize();
 
-	INTRint ii;
+	//INTRint ii;
 
-	KeyInterruption ki;
+	//KeyInterruption ki;
 
-	ki.Initialize();
-	ki.SetEvent(&ii);
-	ki.Enable();
+	//ki.Initialize();
+	//ki.SetEvent(&ii);
+	//ki.Enable();
 	
 
 
@@ -222,6 +222,8 @@ void main(void)
 	//UIView uiv;
 	//UISet uis;
 	//UIInsertion uii;
+
+	//uiu.WriteFrequency2(23321, 3);
 
 	//ASine anoise(1233, 0, 100);
 	//ATriangle atr(3245, 0, 50);
@@ -241,6 +243,11 @@ void main(void)
 
 	//lcd.Clear();
 
+	//lcd.WriteLineUp("KIKUTI1111111111");
+
+	//lcd.SetCursor(0,1);
+	//lcd.WriteNumber6(12345);
+	
 	//lcd.WriteLineUp("KIKUTI1111111111");
 	//lcd.WriteLineDown("KIKUTI2222");
 

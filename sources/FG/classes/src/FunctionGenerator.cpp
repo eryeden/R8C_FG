@@ -133,6 +133,21 @@ Wave* FunctionGenerator::GetWaveFromSlotMasterIndex(unsigned char idx) {
 	}
 }
 
+Wave* FunctionGenerator::GetWaveFromPoolMasterIndex(unsigned char idx) {
+	//if ((idx) <= Settings::FG_MAX_POOL){
+	//	if (idx == Settings::FG_MAX_POOL){
+	//		return m_pool_wave[Settings::FG_MAX_POOL - 1];
+	//	}
+	//	else{
+	//		return m_pool_wave[idx];
+	//	}
+	//}
+	//else{
+	//	return 0;
+	//}
+	return m_pool_wave[idx];
+}
+
 unsigned char FunctionGenerator::GetAWaveSlotSize() {
 	return Settings::FG_MAX_SLOT;
 }

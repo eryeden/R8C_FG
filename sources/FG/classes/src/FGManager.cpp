@@ -71,14 +71,32 @@ void FGManager::Mode() {
 	switch (m_mode)
 	{
 	case UIUtils::UI_MODE_VIEW:
+		uiv.Set((fg->GetWaveFromSlotMasterIndex(m_slot)), m_slot);
+		uiu.Output(&uiv);
+
 		break;
 	case UIUtils::UI_MODE_GAIN:
 		m_scale = 0;
+		uis.Set(fg->GetWaveFromSlotMasterIndex(m_slot), UIUtils::UI_MODE_GAIN, m_scale);
+		uiu.Output(&uis);
+
 		break;
 	case UIUtils::UI_MODE_FREQUENCY:
 		m_scale = 0;
+		uis.Set(fg->GetWaveFromSlotMasterIndex(m_slot), UIUtils::UI_MODE_FREQUENCY, m_scale);
+		uiu.Output(&uis);
+
 		break;
 	case UIUtils::UI_MODE_INSERTION:
+		if (m_pool == (Settings::FG_MAX_POOL - 1)){
+			uii.Set(fg->GetWaveFromPoolMasterIndex(m_pool), 
+					fg->GetWaveFromPoolMasterIndex(0));
+		} else{
+			uii.Set(fg->GetWaveFromPoolMasterIndex(m_pool),
+					fg->GetWaveFromPoolMasterIndex(m_pool + 1));
+		}
+		uiu.Output(&uii);
+
 		break;
 	default:
 		break;
@@ -90,22 +108,38 @@ void FGManager::Up() {
 	switch (m_mode)
 	{
 	case UIUtils::UI_MODE_VIEW:
-		m_mode--;
-		if (m_mode < 0){
-			m_mode = Settings::SLOT_SIZE_MAX -1 ;
+		m_slot--;
+		if (m_slot < 0){
+			m_slot = Settings::SLOT_SIZE_MAX -1 ;
 		}
+		uiv.Set((fg->GetWaveFromSlotMasterIndex(m_slot)), m_slot);
+		uiu.Output(&uiv);
 		break;
 	case UIUtils::UI_MODE_GAIN:
-		IncrementGain(1);
+		IncrementGain();
+		uis.Set(fg->GetWaveFromSlotMasterIndex(m_slot), UIUtils::UI_MODE_GAIN, m_scale);
+		uiu.Output(&uis);
 		break;
 	case UIUtils::UI_MODE_FREQUENCY:
-		IncrementFrequency(1);
+		IncrementFrequency();
+		uis.Set(fg->GetWaveFromSlotMasterIndex(m_slot), UIUtils::UI_MODE_FREQUENCY, m_scale);
+		uiu.Output(&uis);
 		break;
 	case UIUtils::UI_MODE_INSERTION:
 		m_pool--;
 		if (m_pool < 0){
 			m_pool = Settings::FG_MAX_POOL - 1;
 		}
+
+		if (m_pool == (Settings::FG_MAX_POOL - 1)){
+			uii.Set(fg->GetWaveFromPoolMasterIndex(m_pool),
+				fg->GetWaveFromPoolMasterIndex(0));
+		}
+		else{
+			uii.Set(fg->GetWaveFromPoolMasterIndex(m_pool),
+				fg->GetWaveFromPoolMasterIndex(m_pool + 1));
+		}
+		uiu.Output(&uii);
 		break;
 	default:
 		break;
@@ -117,21 +151,37 @@ void FGManager::Down() {
 	{
 	case UIUtils::UI_MODE_VIEW:
 		m_mode++;
-		if (m_mode > (Settings::SLOT_SIZE_MAX - 1)){
-			m_mode = 0;
+		if (m_slot > (Settings::SLOT_SIZE_MAX - 1)){
+			m_slot = 0;
 		}
+		uiv.Set((fg->GetWaveFromSlotMasterIndex(m_slot)), m_slot);
+		uiu.Output(&uiv);
 		break;
 	case UIUtils::UI_MODE_GAIN:
-		IncrementGain(0);
+		DecrementGain();
+		uis.Set(fg->GetWaveFromSlotMasterIndex(m_slot), UIUtils::UI_MODE_GAIN, m_scale);
+		uiu.Output(&uis);
 		break;
 	case UIUtils::UI_MODE_FREQUENCY:
-		IncrementFrequency(0);
+		DecrementFrequency();
+		uis.Set(fg->GetWaveFromSlotMasterIndex(m_slot), UIUtils::UI_MODE_FREQUENCY, m_scale);
+		uiu.Output(&uis);
 		break;
 	case UIUtils::UI_MODE_INSERTION:
 		m_pool++;
 		if (m_pool > (Settings::FG_MAX_POOL - 1)){
 			m_pool = 0;
 		}
+
+		if (m_pool == (Settings::FG_MAX_POOL - 1)){
+			uii.Set(fg->GetWaveFromPoolMasterIndex(m_pool),
+				fg->GetWaveFromPoolMasterIndex(0));
+		}
+		else{
+			uii.Set(fg->GetWaveFromPoolMasterIndex(m_pool),
+				fg->GetWaveFromPoolMasterIndex(m_pool + 1));
+		}
+		uiu.Output(&uii);
 		break;
 	default:
 		break;
@@ -142,8 +192,90 @@ void FGManager::SetFunctionGenerator(FunctionGenerator *pfg){
 	fg = pfg;
 }
 
+/*
+	1 2 3 êîéö
+	2 1 0 åÖñ⁄
+*/
+
+unsigned char GetDigit(unsigned int num ,unsigned char scl){
+	unsigned int add = 1;
+	for (int i = 0; i < scl; i++){
+		add *= 10;
+	}
+	return (num / add) % 10;
+}
+
+void FGManager::IncrementFrequency(){
+	unsigned int freq = fg->GetWaveFromSlotMasterIndex(m_slot)->GetFrequency();
+	unsigned int add = 1;
+	for (int i = 0; i < m_scale; i++){
+		add *= 10;
+	}
+	if (GetDigit(freq, m_scale) == 9){
+		freq -= (9 * add);
+	} else{
+		freq += add;
+	}
+	fg->GetWaveFromSlotMasterIndex(m_slot)->SetFrequency(freq);
+}
 
 
+void FGManager::DecrementFrequency(){
+	unsigned int freq = fg->GetWaveFromSlotMasterIndex(m_slot)->GetFrequency();
+	unsigned int add = 1;
+	for (int i = 0; i < m_scale; i++){
+		add *= 10;
+	}
+	if (GetDigit(freq, m_scale) == 0){
+		freq += (9 * add);
+	}
+	else{
+		freq -= add;
+	}
+	fg->GetWaveFromSlotMasterIndex(m_slot)->SetFrequency(freq);
+}
+
+void FGManager::IncrementGain(){
+	unsigned int gain = fg->GetWaveFromSlotMasterIndex(m_slot)->GetGain();
+	unsigned int add = 1;
+	for (int i = 0; i < m_scale; i++){
+		add *= 10;
+	}
+	if (GetDigit(gain, m_scale) == 9){
+		gain -= (9 * add);
+	}
+	else{
+		gain += add;
+	}
+	fg->GetWaveFromSlotMasterIndex(m_slot)->SetGain(gain);
+}
+
+void FGManager::IncrementGain(){
+	unsigned int gain = fg->GetWaveFromSlotMasterIndex(m_slot)->GetGain();
+	unsigned int add = 1;
+	for (int i = 0; i < m_scale; i++){
+		add *= 10;
+	}
+	if (GetDigit(gain, m_scale) == 0){
+		gain += (9 * add);
+	}
+	else{
+		gain -= add;
+	}
+	fg->GetWaveFromSlotMasterIndex(m_slot)->SetGain(gain);
+}
+
+#define MAX_SCL_FREQ 4
+void FGManager::ChangeScaleFrequency(){
+	m_scale++;
+	if (m_scale > MAX_SCL_FREQ) m_scale = 0;
+}
+
+#define MAX_SCL_GAIN 2
+void FGManager::ChangeScaleGain(){
+	m_scale++;
+	if (m_scale > MAX_SCL_GAIN) m_scale = 0;
+}
 
 
 

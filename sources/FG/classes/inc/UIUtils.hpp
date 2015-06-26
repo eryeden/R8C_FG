@@ -13,47 +13,48 @@
 #if !defined(_UIUTILS_H)
 #define _UIUTILS_H
 
-#include "FGManager.hpp"
+//#include "FGManager.hpp"
 #include "LCDUtils.hpp"
 #include "AWave.hpp"
 
 class UIView{
 public:
-	void Set(AWave *w, unsigned char slotnum);
-	AWave * GetWave();
+	void Set(Wave *w, unsigned char slotnum);
+	Wave * GetWave();
 	unsigned char GetSlotNumber();
 private:
-	AWave *m_awave;
+	Wave *m_awave;
 	unsigned char m_slotnum;
 };
 
 class UISet{
 public:
-	void Set(AWave *w, unsigned char slotnum, unsigned char ui_mode);
-	AWave * GetWave();
+	void Set(Wave *w, unsigned char slotnum, unsigned char ui_mode);
+	void Set(Wave *w, unsigned char slotnum, unsigned char ui_mode, unsigned char scl);
+	Wave * GetWave();
 	unsigned char GetSlotNumber();
 	unsigned char GetMode();
 	unsigned char m_scale;
 private:
-	AWave *m_awave;
+	Wave *m_awave;
 	unsigned char m_slotnum;
 	unsigned char m_ui_mode;
 };
 
 class UIInsertion{
 public:
-	void Set(AWave *w_selected, AWave *w);
-	AWave * GetWaveSelected();
-	AWave * GetWave();
+	void Set(Wave *w_selected, Wave *w);
+	Wave * GetWaveSelected();
+	Wave * GetWave();
 private:
-	AWave *m_w_selected, *m_w;
+	Wave *m_w_selected, *m_w;
 };
 
 
 class UIUtils {
 public:
 	UIUtils();
-	void Show(FGManager fgm);
+	//void Show(FGManager fgm);
 
 	void Output(UIView * ui);
 	void Output(UISet * ui);
@@ -64,6 +65,8 @@ public:
 	static const unsigned char UI_MODE_FREQUENCY = 0x02;
 	static const unsigned char UI_MODE_GAIN = 0x03;
 	static const unsigned char UI_MODE_INSERTION = 0x04;
+
+	void WriteFrequency2(unsigned int f, unsigned char scale);
 
 private:
 
@@ -84,7 +87,7 @@ private:
 	const char * GetTextFromID(unsigned char ID);
 
 	void WriteFrequency(unsigned int f);
-	void WriteFrequency2(unsigned int f, unsigned char scale);
+	//void WriteFrequency2(unsigned int f, unsigned char scale);
 	void WriteGain2(unsigned int gain, unsigned char scale);
 
 };

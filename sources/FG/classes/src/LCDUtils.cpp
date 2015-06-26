@@ -304,6 +304,72 @@ void LCDUtils::WriteNumber(unsigned int num){
 	}
 }
 
+unsigned char _GetScale(unsigned int in){
+	unsigned int scl = 1;
+	unsigned int tmp = in;
+	while (1){
+		tmp /= 10;
+		if (tmp != 0) scl++;
+		else break;
+	}
+	return scl;
+}
+
+/*
+00123
+
+*/
+
+void LCDUtils::WriteNumber2(unsigned int num, unsigned char scale){
+	char buff[16];
+	unsigned char scl;
+	if (scale < _GetScale(num)){
+		scl = _GetScale(num);
+	} else{
+		scl = scale;
+	}
+
+	for (int i = 0; i < scl; i++){
+		buff[i] = '0';
+	}
+	itoa(num, &(buff[scl - _GetScale(num)]));
+	unsigned char i = 0;
+	while (buff[i] != '\0'){
+		WriteData(buff[i++]);
+		wait_us(40);
+	}
+}
+
+
+void LCDUtils::WriteNumber6(unsigned int num){
+	char buff[16];
+	unsigned char scl = 6;
+	int i = 0;
+	if (scl < _GetScale(num)){
+		//WriteString("FT");
+		return;
+	}
+
+	for (i = 0; i < 14; i++){
+		buff[i] = '0';
+	}
+	buff[++i] = '\0';
+
+	itoa(num, &(buff[scl - _GetScale(num)]));
+	//itoa(num, &(buff[0]));
+	//unsigned char i = 0;
+	i = 0;
+	while (buff[i] != '\0'){
+		if ((i % 3 == 0) && (i != 0)) { 
+			WriteData(','); 
+			wait_us(40); 
+		}
+		WriteData(buff[i++]);
+		wait_us(40);
+	}
+
+}
+
 void LCDUtils::WriteString(const char *in){
 	unsigned int i = 0;
 	while (in[i] != '\0'){
@@ -328,4 +394,15 @@ void LCDUtils::Test(){
 	WriteData(0x33);
 	wait_us(40);
 
+}
+
+void LCDUtils::EnableCursor(bool is_cursor_on){
+	if (is_cursor_on){
+		//ディスプレイON、カーソルON、ブリンクONにする
+		WriteCommand(0x0E);
+	} else{
+		//ディスプレイON、カーソルOFF、ブリンクOFF 丸パクリはだめだぞ！！！！
+		WriteCommand(0x0C);
+	}
+	wait_us(40);
 }

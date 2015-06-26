@@ -37,14 +37,24 @@ public:
 
 
 private:
+
+	UIUtils uiu;
+	UISet uis;
+	UIView uiv;
+	UIInsertion uii;
+
+
+
 	FunctionGenerator *fg;
 	unsigned char m_mode;
 	unsigned char m_slot;
 	unsigned char m_pool;
 	unsigned char m_scale;
 
-	void IncrementGain(unsigned char is_increment);
-	void IncrementFrequency(unsigned char is_increment);
+	void IncrementGain();
+	void DecrementGain();
+	void IncrementFrequency();
+	void DecrementFrequency();
 	void ChangeScaleGain();
 	void ChangeScaleFrequency();
 
