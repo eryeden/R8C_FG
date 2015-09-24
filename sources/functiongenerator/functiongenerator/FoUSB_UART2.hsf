@@ -125,9 +125,11 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\UIUtils.hpp" 
+"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\FGManager.hpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\UIUtils.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\KeyInterruption.cpp" 
 "C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Clock.cpp" 
@@ -197,8 +199,8 @@
 [FLASH_DETAILS]
 "" 0 0 "" 0 "" 0 0 "" 0 0 0 0 0 0 0 "" "" "" "" "" 
 [BREAKPOINTS]
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 220 53051 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 226 53058 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 83 53650 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 220 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 226 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 83 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
 "c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 90 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
 [END]

@@ -27,6 +27,8 @@
     <ClCompile Include="..\..\sources\FG\classes\src\Dac.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\FGManager.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\FGManager2.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\FGState.cpp" />
+    <ClCompile Include="..\..\sources\FG\classes\src\FGStateMachine.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\FixedPoint.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\FunctionGenerator.cpp" />
     <ClCompile Include="..\..\sources\FG\classes\src\KeyInterruption.cpp" />
@@ -56,6 +58,8 @@
     <ClInclude Include="..\..\sources\FG\classes\inc\Dac.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\FGManager.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\FGManager2.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\FGState.hpp" />
+    <ClInclude Include="..\..\sources\FG\classes\inc\FGStateMachine.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\FixedPoint.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\FunctionGenerator.hpp" />
     <ClInclude Include="..\..\sources\FG\classes\inc\KeyInterruption.hpp" />

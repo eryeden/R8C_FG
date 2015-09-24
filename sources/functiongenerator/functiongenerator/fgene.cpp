@@ -154,15 +154,15 @@ void main(void);
 //	}
 //};
 
-//class INTRfg : public FunctionGenerator, public INTRbase{
-//public:
-//	INTRfg(): FunctionGenerator(){};
-//
-//	void op(){
-//		Update();
-//		//p1_0 = !p1_0;
-//	}
-//};
+class INTRfg : public FunctionGenerator, public INTRbase{
+public:
+	INTRfg(): FunctionGenerator(){};
+
+	void op(){
+		Update();
+		//p1_0 = !p1_0;
+	}
+};
 
 class INTRint : public BtnEvent{
 	LCDUtils lcd;
@@ -200,13 +200,15 @@ void main(void)
 	ClockSettings clkstg;
 	clkstg.Initialize();
 
-	//INTRint ii;
 
-	//KeyInterruption ki;
+	//ここからFGステートマシンの制御指令を出力
+	INTRint ii;
 
-	//ki.Initialize();
-	//ki.SetEvent(&ii);
-	//ki.Enable();
+	KeyInterruption ki;
+
+	ki.Initialize();
+	ki.SetEvent(&ii);
+	ki.Enable();
 	
 
 
@@ -254,8 +256,8 @@ void main(void)
 
 	//lcd.Test();
 
-	//Timer tim;
-	//tim.SetDt(300);
+	Timer tim;
+	tim.SetDt(300);
 
 	//UIUtils uiu;
 
@@ -292,14 +294,14 @@ void main(void)
 
 	
 
-	//static INTRfg fg;
+	static INTRfg fg;
 
 	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
-	//tim.SetClassInterrupter(&fg);
-	//tim.Enable();
+	tim.SetClassInterrupter(&fg);
+	tim.Enable();
 
-	//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+	fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
 	//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
 
 

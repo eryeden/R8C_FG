@@ -16,7 +16,7 @@
 
 class ButtonManager {
 public:
-	void ButtonPresseMode(): void();
+	void ButtonPresseMode();
 	void Up();
 	void Down();
 };
