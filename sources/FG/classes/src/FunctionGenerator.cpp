@@ -11,10 +11,31 @@
 
 
 #include "FunctionGenerator.hpp"
+#include "Wave.hpp"
 #include "AWave.hpp"
 #include "BWave.hpp"
 #include "Settings.hpp"
 
+#include "ASawtooth.hpp"
+#include "ASine.hpp"
+#include "ATriangle.hpp"
+#include "APWM.hpp"
+#include "ANoise.hpp"
+#include "ANone.hpp"
+
+//static ANone m_anone;
+//static ASawtooth m_asawtooth(100, 0, 50);
+//static ASine m_asine(100, 0, 50);
+//static ATriangle m_atriangle(200, 0, 10);
+//static APWM m_apwm(100, 0, 50);
+//static ANoise m_anoise(100, 0, 10);
+
+//ANone m_anone;
+//ASawtooth m_asawtooth(100, 0, 50);
+//ASine m_asine(100, 0, 50);
+//ATriangle m_atriangle(200, 0, 10);
+//APWM m_apwm(100, 0, 50);
+//ANoise m_anoise(100, 0, 10);
 
 FunctionGenerator::FunctionGenerator()
 	: m_dac()
@@ -26,14 +47,17 @@ FunctionGenerator::FunctionGenerator()
 	, m_anoise(100, 0, 10)
 
 {
+
+	
+
 	m_apwm.SetDuty(0.5);
 
 	m_pool_wave[0] = &m_anone;
-	m_pool_wave[1] = &m_anone;
-	m_pool_wave[2] = &m_anone;
-	m_pool_wave[3] = &m_anone;
-	m_pool_wave[4] = &m_anone;
-	m_pool_wave[5] = &m_anone;
+	//m_pool_wave[1] = &m_anone;
+	//m_pool_wave[2] = &m_anone;
+	//m_pool_wave[3] = &m_anone;
+	//m_pool_wave[4] = &m_anone;
+	//m_pool_wave[5] = &m_anone;
 
 	m_pool_wave[1] = &m_asawtooth;
 	m_pool_wave[2] = &m_asine;
@@ -41,15 +65,24 @@ FunctionGenerator::FunctionGenerator()
 	m_pool_wave[4] = &m_apwm;
 	m_pool_wave[5] = &m_anoise;
 
-	m_aslot[0] = (AWave *) m_pool_wave[0];
-	m_aslot[1] = (AWave *) m_pool_wave[0];
-	m_aslot[2] = (AWave *) m_pool_wave[0];
-	m_aslot[3] = (AWave *) m_pool_wave[0];
-	m_aslot[4] = (AWave *) m_pool_wave[0];
+	ss = &m_atriangle;
+
+	m_aslot[0] = (AWave *) m_pool_wave[1];
+	m_aslot[1] = (AWave *) m_pool_wave[2];
+	m_aslot[2] = (AWave *) m_pool_wave[3];
+	m_aslot[3] = (AWave *) m_pool_wave[3];
+	m_aslot[4] = (AWave *) m_pool_wave[4];
+
+	//m_aslot[0] = &m_anone;
+	//m_aslot[1] = &m_anone;
+	//m_aslot[2] = &m_anone;
+	//m_aslot[3] = &m_anone;
+	//m_aslot[4] = &m_anone;
 
 	for (int i = 0; i < Settings::FG_MAX_POOL; ++i){
 		m_pool_wave[i]->Enable();
 	}
+
 
 
 }
@@ -129,7 +162,8 @@ Wave* FunctionGenerator::GetWaveFromSlotMasterIndex(unsigned char idx) {
 			return m_aslot[idx];
 		}
 	} else{
-		return 0;
+		
+		return m_aslot[0];
 	}
 }
 

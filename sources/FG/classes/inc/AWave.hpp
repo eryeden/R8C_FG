@@ -19,16 +19,19 @@
 class AWave : public Wave {
 public:
 	AWave();
+	AWave(unsigned char id);
 	void SetFrequency(unsigned int fin);
 	unsigned int GetFrequency();
 	void SetGain(unsigned char gain);
 	unsigned int GetGain();
 	void SetPhase(float phain);
 	float GetPhase();
-	unsigned int GetValueNow();
-	unsigned char GetId();
 
 	unsigned int Out();
+
+	unsigned char ID;
+
+	
 
 	//  0 '0'
 protected:

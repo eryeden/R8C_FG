@@ -228,6 +228,22 @@ void UIUtils::WriteFrequency2(unsigned int f, unsigned char scale){
 
 }
 
+void UIUtils::WriteWaveNameFromID(const unsigned char ID){
+	lcd.WriteString(GetTextFromID(ID));
+	return;
+}
+
+void UIUtils::WriteWaveNameFromSelectedID(const unsigned char ID){
+	lcd.Write('#');
+	lcd.WriteString(GetTextFromID(ID));
+	lcd.Write('#');
+	return;
+}
+
+LCDUtils * UIUtils::GetHundleLCD(){
+	return &lcd;
+}
+
 void UIUtils::WriteGain2(unsigned int gain, unsigned char scale){
 
 }

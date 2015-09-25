@@ -17,8 +17,16 @@ AWave::AWave()
 	: m_A(100)
 
 {
-
+	;
 }
+
+AWave::AWave(unsigned char id)
+	: m_A(100), ID(id)
+
+{
+	;
+}
+
 
 // 0 ~ 100
 void AWave::SetGain(unsigned char gain) {
@@ -47,14 +55,6 @@ void AWave::SetFrequency(unsigned int fin) {
 
 unsigned int AWave::GetFrequency() {
 	return m_clk.GetFreq();
-}
-
-unsigned int AWave::GetValueNow() {
-	;
-}
-
-unsigned char AWave::GetId() {
-	;
 }
 
 unsigned int AWave::Out() {

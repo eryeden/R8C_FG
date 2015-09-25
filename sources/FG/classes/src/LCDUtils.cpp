@@ -89,8 +89,11 @@ void LCDUtils::Initialize() {
 	p1_6 = 0;
 
 	//pd4 = 1;
+	
 	pd4_5 = 1;
+	
 	//p4_2 = 0;
+	
 	p4_5 = 0;
 
 

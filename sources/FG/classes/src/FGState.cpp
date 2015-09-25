@@ -10,6 +10,21 @@
 //
 
 #include "FGState.hpp"
+#include "Wave.hpp"
+#include "AWave.hpp"
+#include "BWave.hpp"
+#include "Settings.hpp"
+
+#include "ASawtooth.hpp"
+#include "ASine.hpp"
+#include "ATriangle.hpp"
+#include "APWM.hpp"
+#include "ANoise.hpp"
+#include "ANone.hpp"
+
+FGState::FGState(){
+	;
+}
 
 void FGState::SetIndexSelected(unsigned char idx){
 	idx_selected = idx;
@@ -23,7 +38,7 @@ void FGState::SetUIUtils(UIUtils *uiu){
 	ui_utils = uiu;
 }
 //###########SLOTS################################
-StateSlots::StateSlots(){
+StateSlots::StateSlots(): FGState(){
 	idx_show1 = 0;
 	idx_show2 = 1;
 	idx_selected = 0;
@@ -34,13 +49,13 @@ void StateSlots::Initialize(){
 void StateSlots::Up(){
 	if (idx_selected == idx_show1){
 		if (idx_show1 == 0){
-			idx_show1 = no_slots_max - 1;
+			idx_show1 = 0;
 		}
 		else{
 			idx_show1--;
 		}
-		if (idx_show2 == 0){
-			idx_show2 = no_slots_max - 1;
+		if (idx_show2 == 1){
+			idx_show2 = 1;
 		}
 		else{
 			idx_show2--;
@@ -50,33 +65,35 @@ void StateSlots::Up(){
 	else{
 		idx_selected = idx_show1;
 	}
-	
+	Output();
 }
 void StateSlots::Down(){
 	if (idx_selected == idx_show2){
-		if (idx_show1 == (no_slots_max - 1)){
-			idx_show1 = 0;
+		if (idx_show1 == (no_slots_max - 2)){
+			idx_show1 = (no_slots_max - 2);
 		}
 		else{
 			idx_show1++;
 		}
 		if (idx_show2 == (no_slots_max - 1)){
-			idx_show2 = 0;
+			idx_show2 = (no_slots_max - 1);
 		}
 		else{
 			idx_show2++;
 		}
+		idx_selected = idx_show2;
 	}
 	else{
 		idx_selected = idx_show2;
 	}
-
+	Output();
 }
 void StateSlots::Select(){
 
 }
 void StateSlots::Mode(){
-
+	ui_utils->GetHundleLCD()->Clear();
+	ui_utils->GetHundleLCD()->WriteLineUp("SLOT");
 }
 
 
@@ -90,11 +107,59 @@ unsigned char StateSlots::GetIndexShow1(){
 unsigned char StateSlots::GetIndexShow2(){
 	return idx_show2;
 }
+
+void StateSlots::Output(){
+	AWave * sss;
+	unsigned char s;
+
+	ui_utils->GetHundleLCD()->Clear();
+
+	if (idx_selected == idx_show1){
+		ui_utils->GetHundleLCD()->SetCursor(0, 0);
+		//ui_utils->WriteWaveNameFromSelectedID(((AWave *)(fg->GetWaveFromSlotMasterIndex(idx_show1)))->ID);
+		//ui_utils->WriteWaveNameFromSelectedID(fg->GetWaveFromPoolMasterIndex(idx_show1)->GetId());
+
+		ui_utils->WriteWaveNameFromSelectedID(fg->GetIdFromSlotMasterIndex(idx_show1));
+		//ui_utils->WriteWaveNameFromSelectedID((m_anoise).GetId());
+
+		ui_utils->GetHundleLCD()->SetCursor(0, 1);
+		//ui_utils->WriteWaveNameFromID(((AWave *) (fg->GetWaveFromSlotMasterIndex(idx_show2)))->ID);
+		//ui_utils->WriteWaveNameFromID(fg->GetWaveFromPoolMasterIndex(idx_show2)->GetId());
+
+		ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_show2));
+		//ui_utils->WriteWaveNameFromID((m_asawtooth).GetId());
+
+	} else{
+		ui_utils->GetHundleLCD()->SetCursor(0, 0);
+		//ui_utils->WriteWaveNameFromID(fg->GetWaveFromSlotMasterIndex(idx_show1)->GetId());
+		//ui_utils->WriteWaveNameFromID(((AWave *)(fg->GetWaveFromSlotMasterIndex(idx_show1)))->ID);
+		//s = ((AWave *) (fg->GetWaveFromSlotMasterIndex(idx_show1)))->ID;
+		ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_show1));
+		//ui_utils->WriteWaveNameFromID(m_anone.ID);
+		//ui_utils->WriteWaveNameFromID((fg->ss)->GetId());
+
+		ui_utils->GetHundleLCD()->SetCursor(0, 1);
+		//ui_utils->WriteWaveNameFromSelectedID(((AWave *) (fg->GetWaveFromSlotMasterIndex(idx_show2)))->ID);
+		//ui_utils->WriteWaveNameFromSelectedID(fg->GetWaveFromPoolMasterIndex(idx_show2)->GetId());
+
+		ui_utils->WriteWaveNameFromSelectedID(fg->GetIdFromSlotMasterIndex(idx_show2));
+
+		//ui_utils->WriteWaveNameFromSelectedID(sss->ID);
+		//ui_utils->WriteWaveNameFromSelectedID((fg->ss)->GetId());
+	}
+
+	//ui_utils->GetHundleLCD()->SetCursor(0, 0);
+	//ui_utils->WriteWaveNameFromID(Settings::WAVE_ID_ASAWTOOTH);
+	//ui_utils->GetHundleLCD()->SetCursor(0, 1);
+	//ui_utils->WriteWaveNameFromID(Settings::WAVE_ID_APWM);
+
+
+}
 //###########SLOTS################################
 
 //###########FREQUENCY################################
 void StateFrequency::Up(){
-
+	
 }
 void StateFrequency::Down(){
 
@@ -103,7 +168,8 @@ void StateFrequency::Select(){
 
 }
 void StateFrequency::Mode(){
-
+	ui_utils->GetHundleLCD()->Clear();
+	ui_utils->GetHundleLCD()->WriteLineUp("FREQUENCY");
 }
 //###########FREQUENCY################################
 
@@ -118,7 +184,8 @@ void StatePhase::Select(){
 
 }
 void StatePhase::Mode(){
-
+	ui_utils->GetHundleLCD()->Clear();
+	ui_utils->GetHundleLCD()->WriteLineUp("PHASE");
 }
 //###########PHASE################################
 
@@ -133,7 +200,8 @@ void StateGain::Select(){
 
 }
 void StateGain::Mode(){
-
+	ui_utils->GetHundleLCD()->Clear();
+	ui_utils->GetHundleLCD()->WriteLineUp("GAIN");
 }
 //###########GAIN################################
 
@@ -148,7 +216,8 @@ void StateDutyRatio::Select(){
 
 }
 void StateDutyRatio::Mode(){
-
+	ui_utils->GetHundleLCD()->Clear();
+	ui_utils->GetHundleLCD()->WriteLineUp("DUTYRATIO");
 }
 //###########DUTYRATIO################################
 
@@ -163,7 +232,8 @@ void StateInsertion::Select(){
 
 }
 void StateInsertion::Mode(){
-
+	ui_utils->GetHundleLCD()->Clear();
+	ui_utils->GetHundleLCD()->WriteLineUp("INSERTION");
 }
 //###########INSERTION################################
 

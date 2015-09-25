@@ -12,7 +12,7 @@
 
 #include "ButtonManager.hpp"
 
-void ButtonManager::ButtonPresseMode(): void() {
+void ButtonManager::ButtonPresseMode(){
 
 }
 

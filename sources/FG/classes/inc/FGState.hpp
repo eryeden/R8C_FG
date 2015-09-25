@@ -26,11 +26,12 @@ static const unsigned char ID_STATE_INSERTION = 0x06;
 
 class FGState {
 public:
+	FGState();
 	virtual void Up() = 0;
 	virtual void Down() = 0;
 	virtual void Select() = 0;
 	virtual void Mode() = 0;
-	virtual unsigned char GetID();
+	virtual unsigned char GetID() = 0;
 	void SetIndexSelected(unsigned char idx);
 	void SetFunctionGenerator(FunctionGenerator * fg);
 	void SetUIUtils(UIUtils * uiu);
@@ -65,11 +66,13 @@ private:
 	unsigned char idx_show2;
 	unsigned char no_slots_max;
 
+	void Output();
 
 };
 
 class StateFrequency : public FGState{
 public:
+	StateFrequency() :FGState(){;}
 	void Up();
 	void Down();
 	void Select();
@@ -83,6 +86,7 @@ private:
 
 class StatePhase : public FGState{
 public:
+	StatePhase() : FGState(){;}
 	void Up();
 	void Down();
 	void Select();
@@ -97,6 +101,7 @@ private:
 
 class StateGain : public FGState{
 public:
+	StateGain() : FGState(){;}
 	void Up();
 	void Down();
 	void Select();
@@ -111,6 +116,7 @@ private:
 
 class StateDutyRatio : public FGState{
 public:
+	StateDutyRatio() : FGState(){;}
 	void Up();
 	void Down();
 	void Select();
@@ -125,6 +131,7 @@ private:
 
 class StateInsertion : public FGState{
 public:
+	StateInsertion() : FGState(){;}
 	void Up();
 	void Down();
 	void Select();

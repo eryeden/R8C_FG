@@ -13,8 +13,8 @@
 #include "ANone.hpp"
 #include "Settings.hpp"
 
-ANone::ANone(){
-	;
+ANone::ANone() :AWave(0xA0){
+	//ID = Settings::WAVE_ID_ANONE;
 }
 
 unsigned int ANone::GetValueNow() {

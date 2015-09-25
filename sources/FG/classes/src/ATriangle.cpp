@@ -16,6 +16,7 @@
 #define SCL_TR 10
 
 ATriangle::ATriangle(unsigned int freq, float phase, unsigned int gain)
+	:AWave(0xA2)
 {
 
 	SetGain(gain);
@@ -27,6 +28,8 @@ ATriangle::ATriangle(unsigned int freq, float phase, unsigned int gain)
 	}
 
 	m_dv_fp = (unsigned long) ((double) 0xFFF / ((double) m_clk.GetNop() / 2.0) * (double) tmp);
+
+	ID = Settings::WAVE_ID_ATRIANGLE;
 
 }
 

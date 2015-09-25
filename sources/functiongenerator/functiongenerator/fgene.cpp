@@ -20,11 +20,33 @@
 #include "ATriangle.hpp"
 #include "APWM.hpp"
 #include "ANoise.hpp"
+
+
 #include "FunctionGenerator.hpp"
+
+
+
 #include "UIUtils.hpp"
+
+
 #include "KeyInterruption.hpp"
 
 
+#include "FGStateMachine.hpp"
+
+//extern ANone m_anone;
+//extern ASawtooth m_asawtooth(100, 0, 50);
+//extern ASine m_asine(100, 0, 50);
+//extern ATriangle m_atriangle(200, 0, 10);
+//extern APWM m_apwm(100, 0, 50);
+//extern ANoise m_anoise(100, 0, 10);
+//
+//extern ANone * p_anone = &m_anone;
+//extern ASawtooth * p_asawtooth = &m_asawtooth;
+//extern ASine * p_asine = &m_asine;
+//extern ATriangle * p_atriangle = &m_atriangle;
+//extern APWM * p_apwm = &m_apwm;
+//extern ANoise * p_anoise = &m_anoise;
 
 /*
 
@@ -154,45 +176,104 @@ void main(void);
 //	}
 //};
 
-class INTRfg : public FunctionGenerator, public INTRbase{
-public:
-	INTRfg(): FunctionGenerator(){};
+//class INTRfg : public FunctionGenerator, public INTRbase{
+//public:
+//	INTRfg(): FunctionGenerator(){};
+//
+//	void op(){
+//		Update();
+//		//p1_0 = !p1_0;
+//	}
+//};
 
-	void op(){
-		Update();
-		//p1_0 = !p1_0;
-	}
-};
+//class INTRint : public BtnEvent{
+//	LCDUtils lcd;
+//public:
+//	INTRint()
+//		:lcd()
+//	{
+//		lcd.Initialize();
+//		lcd.Clear();
+//		lcd.WriteLineDown("KIKUTI");
+//	}
+//
+//	void mode(){
+//		lcd.WriteLineUp("MODE  ");
+//	}
+//
+//	void select(){
+//		lcd.WriteLineUp("SELECT");
+//	}
+//
+//	void up(){
+//		lcd.WriteLineUp("UP     ");
+//	}
+//
+//	void down(){
+//		lcd.WriteLineUp("DOWN   ");
+//	}
+//
+//};
+
+
+//class INTRint : public BtnEvent{
+//	
+//public:
+//	FGStateMachine FGM;
+//
+//	INTRint(INTRfg * ffg)
+//		:FGM(ffg)
+//	{
+//		;
+//	}
+//
+//	void mode(){
+//		FGM.Mode();
+//	}
+//
+//	void select(){
+//		FGM.Select();
+//	}
+//
+//	void up(){
+//		FGM.Up();
+//	}
+//
+//	void down(){
+//		FGM.Down();
+//	}
+//
+//};
+
 
 class INTRint : public BtnEvent{
-	LCDUtils lcd;
+
 public:
+	FGStateMachine FGM;
+
 	INTRint()
-		:lcd()
+		:FGM()
 	{
-		lcd.Initialize();
-		lcd.Clear();
-		lcd.WriteLineDown("KIKUTI");
+		;
 	}
 
 	void mode(){
-		lcd.WriteLineUp("MODE  ");
+		FGM.Mode();
 	}
 
 	void select(){
-		lcd.WriteLineUp("SELECT");
+		FGM.Select();
 	}
 
 	void up(){
-		lcd.WriteLineUp("UP     ");
+		FGM.Up();
 	}
 
 	void down(){
-		lcd.WriteLineUp("DOWN   ");
+		FGM.Down();
 	}
 
 };
-
 
 void main(void)
 {
@@ -202,7 +283,10 @@ void main(void)
 
 
 	//ここからFGステートマシンの制御指令を出力
-	INTRint ii;
+	//static INTRfg fg;
+	INTRint ii;//(&fg);
+	
+
 
 	KeyInterruption ki;
 
@@ -210,7 +294,7 @@ void main(void)
 	ki.SetEvent(&ii);
 	ki.Enable();
 	
-
+	ii.down();
 
 
 	//static Dac dac;
@@ -256,8 +340,8 @@ void main(void)
 
 	//lcd.Test();
 
-	Timer tim;
-	tim.SetDt(300);
+	//Timer tim;
+	//tim.SetDt(300);
 
 	//UIUtils uiu;
 
@@ -294,14 +378,14 @@ void main(void)
 
 	
 
-	static INTRfg fg;
+	//static INTRfg fg;
 
 	//tim.SetClassInterrupter(&swave);
 	//tim.SetClassInterrupter(&intr);
-	tim.SetClassInterrupter(&fg);
-	tim.Enable();
+	//tim.SetClassInterrupter(&fg);
+	//tim.Enable();
 
-	fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+	//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
 	//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
 
 

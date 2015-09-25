@@ -20,6 +20,7 @@ public:
 	ANone();
 	unsigned int GetValueNow();
 	unsigned char GetId();
+
 };
 
 #endif  //_ANONE_H

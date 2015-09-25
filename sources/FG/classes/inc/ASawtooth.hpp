@@ -20,6 +20,7 @@ public:
 	ASawtooth(unsigned int freq, float phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
+
 private:
 	//float m_dv;
 

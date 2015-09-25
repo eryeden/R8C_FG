@@ -14,10 +14,11 @@
 #include "Settings.hpp"
 
 APWM::APWM(unsigned int freq, float phase, unsigned int gain) 
-	: m_thre_point(0)
+	: m_thre_point(0), AWave(0xA4)
 {
 	SetGain(gain);
 	m_clk.Set(freq, 100, phase);
+	ID = Settings::WAVE_ID_APWM;
 }
 
 void APWM::SetDuty(float d){

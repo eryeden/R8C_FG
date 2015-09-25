@@ -29,13 +29,20 @@ public:
 	}
 };
 
+static INTRfg fg;
+
+
 class FGStateMachine{
 public:
+	
 	FGStateMachine();
+	//FGStateMachine(INTRfg *ffg);
 	void Up();
 	void Down();
 	void Select();
 	void Mode();
+
+	
 private:
 	unsigned char idx_selected;
 	FGState * state_now;
@@ -47,11 +54,11 @@ private:
 	StateInsertion state_insertion;
 
 	Timer tim;
-	static INTRfg fg;
 
 	UIUtils ui_utils;
 
 	void TransitState();
 };
+
 
 #endif  //_FGSTATEMACHINE_H

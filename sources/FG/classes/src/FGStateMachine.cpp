@@ -11,17 +11,12 @@
 
 
 #include "FGStateMachine.hpp"
-
+//
 FGStateMachine::FGStateMachine()
 	:tim(), ui_utils()
 {
 	state_now = &state_slots;
 	idx_selected = 0;
-
-	//Fgene‰Šú‰»
-	tim.SetDt(300);
-	tim.SetClassInterrupter(&fg);	
-	tim.Enable();
 
 	state_slots.SetFunctionGenerator(&fg);
 	state_freq.SetFunctionGenerator(&fg);
@@ -29,7 +24,66 @@ FGStateMachine::FGStateMachine()
 	state_gain.SetFunctionGenerator(&fg);
 	state_dutyratio.SetFunctionGenerator(&fg);
 	state_insertion.SetFunctionGenerator(&fg);
+
+	state_slots.SetUIUtils(&ui_utils);
+	state_freq.SetUIUtils(&ui_utils);
+	state_phase.SetUIUtils(&ui_utils);
+	state_gain.SetUIUtils(&ui_utils);
+	state_dutyratio.SetUIUtils(&ui_utils);
+	state_insertion.SetUIUtils(&ui_utils);
+
+	//Fgene‰Šú‰»
+	tim.SetDt(300);
+	tim.SetClassInterrupter(&fg);	
+	//tim.Enable();
+
+	state_now->Mode();
+
 }
+//
+//FGStateMachine::FGStateMachine(INTRfg *ffg)
+//	:tim(), ui_utils()
+//{
+//	fg = ffg;
+//
+//	state_now = &state_slots;
+//	idx_selected = 0;
+//
+//	
+//
+//	state_slots.SetFunctionGenerator(fg);
+//	state_freq.SetFunctionGenerator(fg);
+//	state_phase.SetFunctionGenerator(fg);
+//	state_gain.SetFunctionGenerator(fg);
+//	state_dutyratio.SetFunctionGenerator(fg);
+//	state_insertion.SetFunctionGenerator(fg);
+//
+//	
+//
+//	state_slots.SetUIUtils(&ui_utils);
+//	state_freq.SetUIUtils(&ui_utils);
+//	state_phase.SetUIUtils(&ui_utils);
+//	state_gain.SetUIUtils(&ui_utils);
+//	state_dutyratio.SetUIUtils(&ui_utils);
+//	state_insertion.SetUIUtils(&ui_utils);
+//
+//	//ui_utils.GetHundleLCD()->WriteLineUp("TST");
+//	
+//	//Fgene‰Šú‰»
+//	tim.SetDt(300);
+//	tim.SetClassInterrupter(fg);
+//	//tim.Enable();
+//
+//
+//	//fg->InsertWaveFromPoolToSlotMasterIndex(1, 1);
+//	//fg->InsertWaveFromPoolToSlotMasterIndex(2, 2);
+//	//fg->InsertWaveFromPoolToSlotMasterIndex(3, 3);
+//	//fg->InsertWaveFromPoolToSlotMasterIndex(4, 4);
+//
+//	state_now->Mode();
+//
+//}
+
 
 void FGStateMachine::Up(){
 	state_now->Up();
@@ -55,20 +109,22 @@ void FGStateMachine::TransitState(){
 		
 		idx_selected = state_slots.GetIndexSelected();
 
-		if (fg.GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_APWM){
-			
-			state_dutyratio.SetIndexSelected(idx_selected);
+		//if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_APWM){
+		//	
+		//	state_dutyratio.SetIndexSelected(idx_selected);
 
-		}else if (fg.GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_ANOISE){
-			
-			state_now = &state_insertion;
+		//}else if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_ANOISE){
+		//	
+		//	state_now = &state_insertion;
+		//
+		//}else{
+		//	
+		//	state_now = &state_freq;
+		//
+		//}
 		
-		}else{
-			
-			state_now = &state_freq;
-		
-		}
-		
+		state_now = &state_freq;
+
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
 

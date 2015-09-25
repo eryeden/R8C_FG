@@ -60,6 +60,11 @@ public:
 	void Output(UISet * ui);
 	void Output(UIInsertion * ui);
 
+	void WriteWaveNameFromID(const unsigned char ID);
+	void WriteWaveNameFromSelectedID(const unsigned char ID);
+
+	LCDUtils * GetHundleLCD();
+
 	static const unsigned char UI_MODE_UNDEFINED = 0x00;
 	static const unsigned char UI_MODE_VIEW = 0x01;
 	static const unsigned char UI_MODE_FREQUENCY = 0x02;
@@ -67,7 +72,7 @@ public:
 	static const unsigned char UI_MODE_INSERTION = 0x04;
 
 	void WriteFrequency2(unsigned int f, unsigned char scale);
-
+	
 private:
 
 	LCDUtils lcd;

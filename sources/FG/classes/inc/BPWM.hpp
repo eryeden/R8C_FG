@@ -20,8 +20,7 @@ public:
 	unsigned int GetValueNow();
 	unsigned char GetId();
 	unsigned int GetFrequency();
-	unsigned int GetValueNow();
-	unsigned char GetId();
+
 };
 
 #endif  //_BPWM_H

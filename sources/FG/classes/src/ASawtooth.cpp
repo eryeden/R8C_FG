@@ -15,7 +15,9 @@
 
 #define SCL_AS 10
 
-ASawtooth::ASawtooth(unsigned int freq, float phase, unsigned int gain) {
+ASawtooth::ASawtooth(unsigned int freq, float phase, unsigned int gain)
+	:AWave(0xA3)
+{
 	SetGain(gain);
 	m_clk.Set(freq, 64, phase);
 
@@ -28,6 +30,9 @@ ASawtooth::ASawtooth(unsigned int freq, float phase, unsigned int gain) {
 	//m_dv = (float) 0xFFF / (float)m_clk.GetNop();
 	//m_dv_fp = ((unsigned long) (0xFFF << SCL_AS) / ((unsigned long)m_clk.GetNop()));
 	m_dv_fp = (unsigned long) ((double) 0xFFF / (double) m_clk.GetNop() * (double)tmp);
+
+	ID = Settings::WAVE_ID_ASAWTOOTH;
+
 }
 
 unsigned int ASawtooth::GetValueNow() {

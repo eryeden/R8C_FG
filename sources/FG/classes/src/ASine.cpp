@@ -80,9 +80,14 @@ static const unsigned int sines[64] = {
 	2048
 };
 
-ASine::ASine(unsigned int freq, unsigned int phase, unsigned int gain) {
+ASine::ASine(unsigned int freq, unsigned int phase, unsigned int gain)
+	:AWave(0xA1)
+{
 	SetGain(gain);
 	m_clk.Set(freq, 64, phase);
+
+	ID = Settings::WAVE_ID_ASINE;
+
 }
 
 unsigned int ASine::GetValueNow() {

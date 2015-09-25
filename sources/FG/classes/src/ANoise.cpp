@@ -16,7 +16,7 @@
 #define TAPPING_LOCATION 0xB400 
 #define LFSR_OUT_NOB 12 
 ANoise::ANoise(unsigned int freq, unsigned int phase, unsigned int gain)
-	:lfsr(0)
+	:lfsr(0), AWave(0xA5)
 {
 	SetGain(gain);
 	//‰Šú’l
@@ -36,4 +36,3 @@ unsigned int ANoise::GetValueNow() {
 unsigned char ANoise::GetId() {
 	return Settings::WAVE_ID_ANOISE;
 }
-

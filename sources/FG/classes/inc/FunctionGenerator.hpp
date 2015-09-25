@@ -26,6 +26,27 @@
 #include "ANoise.hpp"
 #include "ANone.hpp"
 
+//ANone m_anone;
+//ASawtooth m_asawtooth(100, 0, 50);
+//ASine m_asine(100, 0, 50);
+//ATriangle m_atriangle(200, 0, 10);
+//APWM m_apwm(100, 0, 50);
+//ANoise m_anoise(100, 0, 10);
+
+//static ANone m_anone;
+//static ASawtooth m_asawtooth(100, 0, 50);
+//static ASine m_asine(100, 0, 50);
+//static ATriangle m_atriangle(200, 0, 10);
+//static APWM m_apwm(100, 0, 50);
+//static ANoise m_anoise(100, 0, 10);
+//
+//static ANone * p_anone = &m_anone;
+//static ASawtooth * p_asawtooth = &m_asawtooth;
+//static ASine * p_asine = &m_asine;
+//static ATriangle * p_atriangle = &m_atriangle;
+//static APWM * p_apwm = &m_apwm;
+//static ANoise * p_anoise = &m_anoise;
+
 class FunctionGenerator {
 public:
 	FunctionGenerator();
@@ -39,7 +60,6 @@ public:
 	Wave* GetWaveFromPoolMasterIndex(unsigned char idx);
 	unsigned char GetAWaveSlotSize();
 	unsigned char GetBWaveSlotSize();
-private:
 
 	ANone m_anone;
 	ASawtooth m_asawtooth;
@@ -48,10 +68,19 @@ private:
 	APWM m_apwm;
 	ANoise m_anoise;
 
+	AWave * ss;
+
+	AWave * GetNone(){
+		return &m_anone;
+	}
+
+private:
+
 
 	Dac m_dac;
 	//Timer m_tim;
 	AWave* m_aslot[Settings::FG_MAX_SLOT];
+	
 	BWave* m_bslot;
 	Wave* m_pool_wave[Settings::FG_MAX_POOL];
 	void AUpdate();

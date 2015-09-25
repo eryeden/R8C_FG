@@ -20,6 +20,7 @@ public:
 	ATriangle(unsigned int freq, float phase, unsigned int gain);
 	unsigned int GetValueNow();
 	unsigned char GetId();
+
 private:
 	unsigned long m_dv_fp;
 };
