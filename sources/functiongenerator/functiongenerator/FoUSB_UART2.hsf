@@ -21,7 +21,9 @@
 "{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineCtrlBrowseDirectory" "" 
 "{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineCtrlLogFileName" "" 
 "{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineCtrlSplitterPosition" "242" 
-"{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineCtrlViews" "0" 
+"{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineCtrlViews" "1" 
+"{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineCtrlWindowProperties" "17" 
+"{313F4FC1-6566-11D5-8BBE-0004E2013C71}CmdLineWndInstanceKey0" "{WK_00000001_CmdLine}" 
 "{313F4FC1-6566-11D5-8BBE-0004E2013C71}TclTkCtrlLogFileName" "" 
 "{313F4FC2-6566-11D5-8BBE-0004E2013C71}ECX_MEMORY_COMPARE_END_ADDRESS" "" 
 "{313F4FC2-6566-11D5-8BBE-0004E2013C71}ECX_MEMORY_COMPARE_START_ADDRESS" "" 
@@ -71,6 +73,9 @@
 "{C62E6398-F79C-4FAB-801E-8B1A464777C3}CWatchWnd_InitialRadix" "Default" 
 "{C62E6398-F79C-4FAB-801E-8B1A464777C3}CWatchWnd_TAB" "Global,File Local,Local," 
 "{C77C320F-80F8-4674-A01F-AA85C5172BC8}MR30DXCtrlViews" "0" 
+"{CBEBB610-1516-11D4-8F2D-00409545B67B}ElfDwarf2Objects" "1" 
+"{CBEBB610-1516-11D4-8F2D-00409545B67B}LoadModule0OBJ_ELFDWARF2_ARRAY_EXPAND_LIMIT" "-1" 
+"{CBEBB610-1516-11D4-8F2D-00409545B67B}LoadModule0OBJ_ELFDWARF2_STATIC_MEM_EXPAND" "1" 
 "{D465B72E-4328-4D5D-B49F-992C2C8B1EE9}ASMWatchCtrlViews" "0" 
 "{D465B72E-4328-4D5D-B49F-992C2C8B1EE9}ASMWatchWnd_AddressArea" "1" 
 "{D465B72E-4328-4D5D-B49F-992C2C8B1EE9}ASMWatchWnd_PointNum" "0" 
@@ -87,7 +92,7 @@
 [LANGUAGE]
 "Japanese" 
 [CONFIG_INFO_VD1]
-1 
+0 
 [CONFIG_INFO_VD2]
 0 
 [CONFIG_INFO_VD3]
@@ -95,6 +100,7 @@
 [CONFIG_INFO_VD4]
 0 
 [WINDOW_POSITION_STATE_DATA_VD1]
+"{WK_00000001_CmdLine}" "WINDOW" 59422 0 1 "0.33" 180 376 100 350 200 17 0 "32771|32772|32778|<<separator>>|32773|32774|<<separator>>|32820|<<separator>>|32801|32824" "0.0" 
 "{WK_00000001_OUTPUT}" "WINDOW" 59422 0 0 "1.00" 180 560 337 350 200 18 0 "36756|36757|36758|36759|<<separator>>|36746|36747|<<separator>>|39531|<<separator>>|39500|39534|<<separator>>|36687" "0.0" 
 "{WK_00000001_RAMMONITOR}functiongeneratorFoUSB_UART20" "WINDOW" 59422 0 0 "0.50" 180 0 0 350 200 2065 0 "45930|45931|<<separator>>|42302|42303|42300|<<separator>>|42202|42203|42204|42233|<<separator>>|42206|42205|42230|42229|42207|<<separator>>|42208|42209|42210|42227|42228|42231|42232|<<separator>>" "0.0" 
 "{WK_00000001_RAMMONITOR}functiongeneratorFoUSB_UART21" "WINDOW" 59422 0 0 "0.50" 180 0 0 350 200 2065 0 "45930|45931|<<separator>>|42302|42303|42300|<<separator>>|42202|42203|42204|42233|<<separator>>|42206|42205|42230|42229|42207|<<separator>>|42208|42209|42210|42227|42228|42231|42232|<<separator>>" "0.0" 
@@ -125,35 +131,6 @@
 [WINDOW_POSITION_STATE_DATA_VD3]
 [WINDOW_POSITION_STATE_DATA_VD4]
 [WINDOW_Z_ORDER]
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FGStateMachine.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\UIUtils.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\FGManager.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\UIUtils.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\KeyInterruption.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Clock.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\AWave.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sect30.inc" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASawtooth.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ANone.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Wave.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ASine.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\ASine.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\nc_define.inc" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\Dac.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\FG.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\functiongenerator\functiongenerator\sfr_r829.h" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\SSUbus.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\src\ClockSettings.cpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Dac.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\SSUbus.hpp" 
-"C:\Users\B4\Source\Repos\r8c_29_fg\sources\FG\classes\inc\Settings.hpp" 
 [TARGET_NAME]
 "M16C R8C FoUSB/UART" "" 0 
 [STATUSBAR_STATEINFO_VD1]
@@ -200,8 +177,8 @@
 [FLASH_DETAILS]
 "" 0 0 "" 0 "" 0 0 "" 0 0 0 0 0 0 0 "" "" "" "" "" 
 [BREAKPOINTS]
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 220 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 226 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 83 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
-"c:\users\b4\source\repos\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 90 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 220 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 226 183121620 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 83 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\functiongenerator.cpp" 90 0 1 "{00000000-0000-0000-C000-000000000046}" "" 
 [END]
