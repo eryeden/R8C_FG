@@ -13,33 +13,75 @@
 #include "FGStateMachine.hpp"
 //
 FGStateMachine::FGStateMachine()
-	:tim(), ui_utils()
+	:state_slots()
+	, state_dutyratio()
+	, state_freq()
+	, state_gain()
+	, state_insertion()
+	, state_phase()
 {
+	;
+}
+
+FGStateMachine::FGStateMachine(INTRFG *_fg, UIUtils *_uiu)
+	:state_slots()
+	, state_dutyratio()
+	, state_freq()
+	, state_gain()
+	, state_insertion()
+	, state_phase()
+{
+	//fg = _fg;
+	//ui_utils = _uiu;
+
+	//state_now = &state_slots;
+	//idx_selected = 0;
+
+	//state_slots.SetFunctionGenerator(fg);
+	//state_freq.SetFunctionGenerator(fg);
+	//state_phase.SetFunctionGenerator(fg);
+	//state_gain.SetFunctionGenerator(fg);
+	//state_dutyratio.SetFunctionGenerator(fg);
+	//state_insertion.SetFunctionGenerator(fg);
+
+	//state_slots.SetUIUtils(ui_utils);
+	//state_freq.SetUIUtils(ui_utils);
+	//state_phase.SetUIUtils(ui_utils);
+	//state_gain.SetUIUtils(ui_utils);
+	//state_dutyratio.SetUIUtils(ui_utils);
+	//state_insertion.SetUIUtils(ui_utils);
+
+	//state_now->Mode();
+	Initialize(_fg, _uiu);
+}
+
+void FGStateMachine::Initialize(INTRFG *_fg, UIUtils *_uiu) {
+	fg = _fg;
+	ui_utils = _uiu;
+
 	state_now = &state_slots;
 	idx_selected = 0;
 
-	state_slots.SetFunctionGenerator(&fg);
-	state_freq.SetFunctionGenerator(&fg);
-	state_phase.SetFunctionGenerator(&fg);
-	state_gain.SetFunctionGenerator(&fg);
-	state_dutyratio.SetFunctionGenerator(&fg);
-	state_insertion.SetFunctionGenerator(&fg);
+	state_slots.SetFunctionGenerator(fg);
+	state_freq.SetFunctionGenerator(fg);
+	state_phase.SetFunctionGenerator(fg);
+	state_gain.SetFunctionGenerator(fg);
+	state_dutyratio.SetFunctionGenerator(fg);
+	state_insertion.SetFunctionGenerator(fg);
 
-	state_slots.SetUIUtils(&ui_utils);
-	state_freq.SetUIUtils(&ui_utils);
-	state_phase.SetUIUtils(&ui_utils);
-	state_gain.SetUIUtils(&ui_utils);
-	state_dutyratio.SetUIUtils(&ui_utils);
-	state_insertion.SetUIUtils(&ui_utils);
+	state_slots.SetUIUtils(ui_utils);
+	state_freq.SetUIUtils(ui_utils);
+	state_phase.SetUIUtils(ui_utils);
+	state_gain.SetUIUtils(ui_utils);
+	state_dutyratio.SetUIUtils(ui_utils);
+	state_insertion.SetUIUtils(ui_utils);
 
-	//Fgene初期化
-	tim.SetDt(300);
-	tim.SetClassInterrupter(&fg);	
-	//tim.Enable();
+	state_slots.Initialize();
+	state_insertion.Initialize();
 
 	state_now->Mode();
-
 }
+
 //
 //FGStateMachine::FGStateMachine(INTRfg *ffg)
 //	:tim(), ui_utils()
@@ -85,56 +127,67 @@ FGStateMachine::FGStateMachine()
 //}
 
 
-void FGStateMachine::Up(){
+void FGStateMachine::Up() {
 	state_now->Up();
 }
 
-void FGStateMachine::Down(){
+void FGStateMachine::Down() {
 	state_now->Down();
 }
 
-void FGStateMachine::Select(){
+void FGStateMachine::Select() {
 	state_now->Select();
 }
 
-void FGStateMachine::Mode(){
+void FGStateMachine::Mode() {
 	TransitState();
 }
 
 //ステートマシンもどき
-void FGStateMachine::TransitState(){
+void FGStateMachine::TransitState() {
 	switch (state_now->GetID())
 	{
 	case ID_STATE_SLOTS:
-		
+
 		idx_selected = state_slots.GetIndexSelected();
 
-		//if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_APWM){
-		//	
-		//	state_dutyratio.SetIndexSelected(idx_selected);
+		if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_APWM) {
 
-		//}else if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_ANOISE){
-		//	
-		//	state_now = &state_insertion;
-		//
-		//}else{
-		//	
-		//	state_now = &state_freq;
-		//
-		//}
-		
-		state_now = &state_freq;
+			state_dutyratio.SetIndexSelected(idx_selected);
+			state_now = &state_freq;
+
+		}
+		else if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_ANOISE) {
+
+			state_now = &state_insertion;
+
+		}
+		else {
+
+			state_now = &state_freq;
+
+		}
+
+		//state_now = &state_freq;
 
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
+
+		//ui_utils->GetHundleLCD()->WriteLineUp("SLOTS");
 
 		break;
 
 	case ID_STATE_FREQ:
-
-		state_now = &state_phase;
-		state_now->SetIndexSelected(idx_selected);
-		state_now->Mode();
+		if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_APWM) {
+			state_now = &state_gain;
+			state_now->SetIndexSelected(idx_selected);
+			state_now->Mode();
+		}else {
+			state_now = &state_phase;
+			state_now->SetIndexSelected(idx_selected);
+			state_now->Mode();
+		}
+		//ui_utils->GetHundleLCD()->WriteLineUp("FREQ");
 		break;
 
 	case ID_STATE_PHASE:
@@ -142,13 +195,22 @@ void FGStateMachine::TransitState(){
 		state_now = &state_gain;
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
+
+		//ui_utils->GetHundleLCD()->WriteLineUp("PHASE");
 		break;
 
 	case ID_STATE_GAIN:
-
-		state_now = &state_insertion;
-		state_now->SetIndexSelected(idx_selected);
-		state_now->Mode();
+		if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_APWM) {
+			state_now = &state_dutyratio;
+			state_now->SetIndexSelected(idx_selected);
+			state_now->Mode();
+		}
+		else {
+			state_now = &state_insertion;
+			state_now->SetIndexSelected(idx_selected);
+			state_now->Mode();
+		}
+		//ui_utils->GetHundleLCD()->WriteLineUp("GAIN");
 		break;
 
 	case ID_STATE_DUTYRATIO:
@@ -156,6 +218,7 @@ void FGStateMachine::TransitState(){
 		state_now = &state_insertion;
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
+		//ui_utils->GetHundleLCD()->WriteLineUp("DR");
 		break;
 
 	case ID_STATE_INSERTION:
@@ -163,6 +226,7 @@ void FGStateMachine::TransitState(){
 		state_now = &state_slots;
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
+		//ui_utils->GetHundleLCD()->WriteLineUp("INS");
 		break;
 
 	default:
@@ -170,6 +234,7 @@ void FGStateMachine::TransitState(){
 		state_now = &state_slots;
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
+		//ui_utils->GetHundleLCD()->WriteLineUp("DF");
 		break;
 	}
 }

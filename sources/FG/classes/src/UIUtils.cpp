@@ -29,7 +29,7 @@ UIUtils::UIUtils()
 	, WAVE_TEXT_ASINE("SINE")
 	, WAVE_TEXT_ATRIANGLE("TRIA")
 	, WAVE_TEXT_ASAWTOOTH("SAWT")
-	, WAVE_TEXT_APWM("PWM ")
+	, WAVE_TEXT_APWM("PWM")
 	, WAVE_TEXT_ANOISE("NOIS")
 	, WAVE_TEXT_GAIN("GAIN")
 	, WAVE_TEXT_FREQ("FREQ")
@@ -234,9 +234,9 @@ void UIUtils::WriteWaveNameFromID(const unsigned char ID){
 }
 
 void UIUtils::WriteWaveNameFromSelectedID(const unsigned char ID){
-	lcd.Write('#');
+	//lcd.Write('#');
 	lcd.WriteString(GetTextFromID(ID));
-	lcd.Write('#');
+	lcd.Write('<'); lcd.Write('<');
 	return;
 }
 

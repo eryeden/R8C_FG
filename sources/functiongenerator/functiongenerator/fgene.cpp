@@ -176,17 +176,17 @@ void main(void);
 //	}
 //};
 
-//class INTRfg : public FunctionGenerator, public INTRbase{
+//class INTRfg2 : public FunctionGenerator, public INTRbase {
 //public:
-//	INTRfg(): FunctionGenerator(){};
+//	INTRfg2() : FunctionGenerator() {};
 //
-//	void op(){
+//	void op() {
 //		Update();
 //		//p1_0 = !p1_0;
 //	}
 //};
-
-//class INTRint : public BtnEvent{
+//
+//class INTRint : public BtnEvent {
 //	LCDUtils lcd;
 //public:
 //	INTRint()
@@ -197,24 +197,24 @@ void main(void);
 //		lcd.WriteLineDown("KIKUTI");
 //	}
 //
-//	void mode(){
+//	void mode() {
 //		lcd.WriteLineUp("MODE  ");
 //	}
 //
-//	void select(){
+//	void select() {
 //		lcd.WriteLineUp("SELECT");
 //	}
 //
-//	void up(){
+//	void up() {
 //		lcd.WriteLineUp("UP     ");
 //	}
 //
-//	void down(){
+//	void down() {
 //		lcd.WriteLineUp("DOWN   ");
 //	}
 //
 //};
-
+//
 
 //class INTRint : public BtnEvent{
 //	
@@ -245,7 +245,7 @@ void main(void);
 //
 //};
 
-
+/*
 class INTRint : public BtnEvent{
 
 public:
@@ -273,122 +273,189 @@ public:
 		FGM.Down();
 	}
 
-};
+};*/
+
+
+//
+//class INTRint2 : public BtnEvent {
+//	//LCDUtils lcd;
+//	UIUtils uiu;
+//public:
+//	INTRint2(INTRfg2 * _fg2)
+//		:uiu()
+//	{
+//		uiu.GetHundleLCD()->WriteLineUp("KIKUTI");
+//		fg2 = _fg2;
+//	}
+//
+//	void mode() {
+//
+//		uiu.GetHundleLCD()->WriteLineUp("MODE  ");
+//		uiu.GetHundleLCD()->WriteLineDown(
+//			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(0))
+//			);
+//	}
+//
+//	void select() {
+//		uiu.GetHundleLCD()->WriteLineUp("SELECT");
+//		uiu.GetHundleLCD()->WriteLineDown(
+//			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(1))
+//			);
+//	}
+//
+//	void up() {
+//		uiu.GetHundleLCD()->WriteLineUp("UP     ");
+//		uiu.GetHundleLCD()->WriteLineDown(
+//			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(2))
+//			);
+//	}
+//
+//	void down() {
+//		uiu.GetHundleLCD()->WriteLineUp("DOWN   ");
+//		uiu.GetHundleLCD()->WriteLineDown(
+//			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(3))
+//			);
+//	}
+//
+//	INTRfg2 * fg2;
+//};
+
+/*
+	FGのなぞについて
+	MAIN中に定義すると問題なく動作する。
+	これよりメイン中にFGを生成し、これのインスタンスを取得、ステートマシンに渡すことでFGの制御を行う
+	FGは外部より制御されなければならない
+	MAIN中よりの制御は信号送信は問題ない
+
+*/
 
 void main(void)
 {
-	
+
 	ClockSettings clkstg;
 	clkstg.Initialize();
 
 
 	//ここからFGステートマシンの制御指令を出力
 	//static INTRfg fg;
-	INTRint ii;//(&fg);
-	
 
 
-	KeyInterruption ki;
+	Timer tim;
+	tim.SetDt(300);
+
+	static INTRFG fg;
+	static UIUtils uiu;
+	static FGStateMachine fgm;
+
+	INTRSM ii(&fg, &fgm, &uiu);//(&fg
+
+	static KeyInterruption ki;
 
 	ki.Initialize();
 	ki.SetEvent(&ii);
 	ki.Enable();
-	
-	ii.down();
 
 
-	//static Dac dac;
-	//Dac::SInitialize();
-	//Dac dac;
+	tim.SetClassInterrupter(&fg);
+	tim.Enable();
 
-	//INTRtest intr;
-
-	//UIUtils uiu;
-	//
-	//UIView uiv;
-	//UISet uis;
-	//UIInsertion uii;
-
-	//uiu.WriteFrequency2(23321, 3);
-
-	//ASine anoise(1233, 0, 100);
-	//ATriangle atr(3245, 0, 50);
-	//uiv.Set(&anoise, 3);
-	//uis.Set(&anoise, 4, UIUtils::UI_MODE_GAIN);
-	//uii.Set(&anoise, &atr);
-
-	//pd1_1 = 1;
-	//p1drr1 = 1;
-	//p1_1 = 0;
-
-	//pd1_0 = 1;
-	//p1_0 = 0;
-
-	//LCDUtils lcd;
-	//lcd.Initialize();
-
-	//lcd.Clear();
-
-	//lcd.WriteLineUp("KIKUTI1111111111");
-
-	//lcd.SetCursor(0,1);
-	//lcd.WriteNumber6(12345);
-	
-	//lcd.WriteLineUp("KIKUTI1111111111");
-	//lcd.WriteLineDown("KIKUTI2222");
+	//ii.mode();
 
 
-	//lcd.Test();
+	{
 
-	//Timer tim;
-	//tim.SetDt(300);
+		//static Dac dac;
+		//Dac::SInitialize();
+		//Dac dac;
 
-	//UIUtils uiu;
+		//INTRtest intr;
 
-	//UIView uiv;
-	//UISet uis;
-	//UIInsertion uii;
+		//UIUtils uiu;
+		//
+		//UIView uiv;
+		//UISet uis;
+		//UIInsertion uii;
 
-	//ASine anoise(1233, 0, 100);
-	//ATriangle atr(3245, 0, 50);
-	//uiv.Set(&anoise, 3);
-	//uis.Set(&anoise, 4, UIUtils::UI_MODE_GAIN);
-	//uii.Set(&anoise, &atr);
+		//uiu.WriteFrequency2(23321, 3);
 
+		//ASine anoise(1233, 0, 100);
+		//ATriangle atr(3245, 0, 50);
+		//uiv.Set(&anoise, 3);
+		//uis.Set(&anoise, 4, UIUtils::UI_MODE_GAIN);
+		//uii.Set(&anoise, &atr);
 
-	//INTRsawave intsawave(200, 0, 1);
-	//intsawave.Enable();
+		//pd1_1 = 1;
+		//p1drr1 = 1;
+		//p1_1 = 0;
 
-	//INTRsinewave swave(100, 0, 50);
-	//swave.Enable();
+		//pd1_0 = 1;
+		//p1_0 = 0;
 
-	//INTRtriwave trwave(100, 0, 1);
-	//trwave.Enable();
+		//LCDUtils lcd;
+		//lcd.Initialize();
 
-	//INTRpwmwave pwmwave(100, 0, 1);
-	//pwmwave.SetDuty(0.3);
-	//pwmwave.Enable();
+		//lcd.Clear();
 
-	//INTRnoisewave nwave(100, 0, 10);
-	//nwave.Enable();
+		//lcd.WriteLineUp("KIKUTI1111111111");
 
+		//lcd.SetCursor(0,1);
+		//lcd.WriteNumber6(12345);
 
-	//ASawtooth m_asawtooth(100, 0, 10);
-	//ASine m_asine(100, 0, 10);
-
-	
-
-	//static INTRfg fg;
-
-	//tim.SetClassInterrupter(&swave);
-	//tim.SetClassInterrupter(&intr);
-	//tim.SetClassInterrupter(&fg);
-	//tim.Enable();
-
-	//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
-	//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
+		//lcd.WriteLineUp("KIKUTI1111111111");
+		//lcd.WriteLineDown("KIKUTI2222");
 
 
+		//lcd.Test();
+
+		//Timer tim;
+		//tim.SetDt(300);
+
+		//UIUtils uiu;
+
+		//UIView uiv;
+		//UISet uis;
+		//UIInsertion uii;
+
+		//ASine anoise(1233, 0, 100);
+		//ATriangle atr(3245, 0, 50);
+		//uiv.Set(&anoise, 3);
+		//uis.Set(&anoise, 4, UIUtils::UI_MODE_GAIN);
+		//uii.Set(&anoise, &atr);
+
+
+		//INTRsawave intsawave(200, 0, 1);
+		//intsawave.Enable();
+
+		//INTRsinewave swave(100, 0, 50);
+		//swave.Enable();
+
+		//INTRtriwave trwave(100, 0, 1);
+		//trwave.Enable();
+
+		//INTRpwmwave pwmwave(100, 0, 1);
+		//pwmwave.SetDuty(0.3);
+		//pwmwave.Enable();
+
+		//INTRnoisewave nwave(100, 0, 10);
+		//nwave.Enable();
+
+
+		//ASawtooth m_asawtooth(100, 0, 10);
+		//ASine m_asine(100, 0, 10);
+
+
+
+		//static INTRfg2 fg;
+
+		////tim.SetClassInterrupter(&swave);
+		////tim.SetClassInterrupter(&intr);
+		//tim.SetClassInterrupter(&fg);
+		//tim.Enable();
+
+		//fg.InsertWaveFromPoolToSlotMasterIndex(0, 2);
+		//fg.InsertWaveFromPoolToSlotMasterIndex(1, 5);
+
+	}
 
 	//Clock clk;
 	//clk.Set(500, 100, 0);
@@ -403,9 +470,9 @@ void main(void)
 	//uiu.Output(&uis);
 	//uiu.Output(&uii);
 
-	while(1){
-		for(unsigned long i = 0; i < 1000; ++i);
-		
+	while (1) {
+		for (unsigned long i = 0; i < 1000; ++i);
+
 		//lcd.SetCursor(0,0);
 		//lcd.WriteNumber(_j++);
 
@@ -418,5 +485,5 @@ void main(void)
 
 
 
-	
+
 }

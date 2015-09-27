@@ -72,7 +72,7 @@ public:
 	static const unsigned char UI_MODE_INSERTION = 0x04;
 
 	void WriteFrequency2(unsigned int f, unsigned char scale);
-	
+	const char * GetTextFromID(unsigned char ID);
 private:
 
 	LCDUtils lcd;
@@ -89,7 +89,7 @@ private:
 	const char * WAVE_TEXT_SLOT;
 	const char * WAVE_TEXT_SET;
 
-	const char * GetTextFromID(unsigned char ID);
+	
 
 	void WriteFrequency(unsigned int f);
 	//void WriteFrequency2(unsigned int f, unsigned char scale);

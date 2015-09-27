@@ -42,7 +42,7 @@ protected:
 	UIUtils * ui_utils;
 };
 
-class StateSlots : public FGState{
+class StateSlots : public FGState {
 public:
 	StateSlots();
 
@@ -70,9 +70,9 @@ private:
 
 };
 
-class StateFrequency : public FGState{
+class StateFrequency : public FGState {
 public:
-	StateFrequency() :FGState(){;}
+	StateFrequency();
 	void Up();
 	void Down();
 	void Select();
@@ -81,12 +81,15 @@ public:
 	unsigned char GetID();
 
 private:
+	void Output();
+
+	unsigned char scale;
 
 };
 
-class StatePhase : public FGState{
+class StatePhase : public FGState {
 public:
-	StatePhase() : FGState(){;}
+	StatePhase() : FGState() { ; }
 	void Up();
 	void Down();
 	void Select();
@@ -95,13 +98,14 @@ public:
 	unsigned char GetID();
 
 private:
-
+	void Output();
+	unsigned char scale;
 
 };
 
-class StateGain : public FGState{
+class StateGain : public FGState {
 public:
-	StateGain() : FGState(){;}
+	StateGain();
 	void Up();
 	void Down();
 	void Select();
@@ -110,13 +114,15 @@ public:
 	unsigned char GetID();
 
 private:
-
+	void Output();
+	unsigned char scale;
+	int gain;
 
 };
 
-class StateDutyRatio : public FGState{
+class StateDutyRatio : public FGState {
 public:
-	StateDutyRatio() : FGState(){;}
+	StateDutyRatio() : FGState() { ; }
 	void Up();
 	void Down();
 	void Select();
@@ -126,12 +132,14 @@ public:
 
 private:
 
-
+	void Output();
+	unsigned char scale;
 };
 
-class StateInsertion : public FGState{
+class StateInsertion : public FGState {
 public:
-	StateInsertion() : FGState(){;}
+	StateInsertion();
+	void Initialize();
 	void Up();
 	void Down();
 	void Select();
@@ -141,9 +149,12 @@ public:
 
 private:
 
-	unsigned char idx_inserion_show_1;
-	unsigned char idx_inserion_show_2;
+	unsigned char iidx_show1;
+	unsigned char iidx_show2;
+	unsigned char idx_insert;
+	unsigned char no_slots_max;
 
+	void Output();
 };
 
 #endif  //_FGSTATE_H

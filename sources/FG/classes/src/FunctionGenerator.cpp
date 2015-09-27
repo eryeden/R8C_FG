@@ -67,11 +67,17 @@ FunctionGenerator::FunctionGenerator()
 
 	ss = &m_atriangle;
 
-	m_aslot[0] = (AWave *) m_pool_wave[1];
-	m_aslot[1] = (AWave *) m_pool_wave[2];
-	m_aslot[2] = (AWave *) m_pool_wave[3];
-	m_aslot[3] = (AWave *) m_pool_wave[3];
-	m_aslot[4] = (AWave *) m_pool_wave[4];
+	//m_aslot[0] = (AWave *) m_pool_wave[1];
+	//m_aslot[1] = (AWave *) m_pool_wave[2];
+	//m_aslot[2] = (AWave *) m_pool_wave[3];
+	//m_aslot[3] = (AWave *) m_pool_wave[3];
+	//m_aslot[4] = (AWave *) m_pool_wave[4];
+
+	m_aslot[0] = &m_anone;
+	m_aslot[1] = &m_asawtooth;
+	m_aslot[2] = &m_atriangle;
+	m_aslot[3] = &m_asine;
+	m_aslot[4] = &m_apwm;
 
 	//m_aslot[0] = &m_anone;
 	//m_aslot[1] = &m_anone;
@@ -149,6 +155,14 @@ unsigned char FunctionGenerator::GetIdFromSlotMasterIndex(unsigned char idx) {
 			return m_aslot[idx]->GetId();
 		}
 	} else{
+		return -1;
+	}
+}
+
+unsigned char FunctionGenerator::GetIdFromPoolMasterIndex(unsigned char idx) {
+	if ((idx) <= Settings::FG_MAX_POOL) {
+		return m_pool_wave[idx]->GetId();
+	}else {
 		return -1;
 	}
 }

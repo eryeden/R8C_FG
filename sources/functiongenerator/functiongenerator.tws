@@ -7,7 +7,29 @@
 [GENERAL_DATA]
 [BREAKPOINTS]
 [OPEN_WORKSPACE_FILES]
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc\ANoise.hpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc\FGStateMachine.hpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\FGState.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\FGStateMachine.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\UIUtils.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 
 [WORKSPACE_FILE_STATES]
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc\ANoise.hpp" 0 0 1114 482 0 0 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc\FGStateMachine.hpp" 26 26 476 643 0 1 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc\Timer.hpp" 104 104 207 585 0 4 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\FGState.cpp" -8 -31 778 968 1 8 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\FGStateMachine.cpp" 182 182 207 585 0 7 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\FunctionGenerator.cpp" 78 78 207 585 0 3 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\LCDUtils.cpp" 260 260 207 585 0 10 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\Timer.cpp" 156 156 207 585 0 6 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\src\UIUtils.cpp" 234 234 207 585 0 9 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\fgene.cpp" 130 130 207 585 0 5 
+"C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\functiongenerator\functiongenerator\ncrt0.a30" 52 52 207 585 0 2 
 [LOADED_PROJECTS]
 "functiongenerator" 
 [END]

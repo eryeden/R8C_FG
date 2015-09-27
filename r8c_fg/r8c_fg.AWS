@@ -1,0 +1,29 @@
+[HIMDBVersion]
+2.0
+[DATABASE_VERSION]
+"5.0" 
+[WORKSPACE_DETAILS]
+"r8c_fg" "C:\Users\ery\Documents\local_devel\r8c_29_fg\r8c_fg" "C:\Users\ery\Documents\local_devel\r8c_29_fg\r8c_fg\r8c_fg.AWS" "All Flash Devices" "" 
+[SHARED_WORKSPACE_CONTROL_STATUS]
+"" "" "" 
+"" "" "" 
+[PROJECTS]
+"r8c_fg" "C:\Users\ery\Documents\local_devel\r8c_29_fg\r8c_fg\r8c_fg" "C:\Users\ery\Documents\local_devel\r8c_29_fg\r8c_fg\r8c_fg\r8c_fg.FWP" 0 
+[INFORMATION]
+"No workspace information available" 
+[SCRAP]
+[PROJECT_DEPENDENCY]
+[WORKSPACE_PROPERTIES]
+[VCS]
+"" "" "" 0 
+[VCS_PROJECT]
+[HELP_FILES]
+[GENERAL_DATA_PROJECT]
+[SYSMENUTOOLS]
+[USERMENUTOOLS]
+[CUSTOMPLACEHOLDERS]
+[MAKEFILE_BUILD_INFO]
+"$(WORKSPDIR)\make\$(PROJECTNAME).mak" "" 0 0 
+[VD_CONFIGURATION_OPTIONS]
+[VD_CONFIGURATIONS]
+[END]

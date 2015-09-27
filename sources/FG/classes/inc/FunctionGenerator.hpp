@@ -56,6 +56,7 @@ public:
 	void InsertWaveFromPoolToSlotMasterIndex(unsigned char slot_idx, unsigned char pool_idx);
 	void DeleteWaveFromSlotMasterIndex(unsigned char idx);
 	unsigned char GetIdFromSlotMasterIndex(unsigned char idx);
+	unsigned char GetIdFromPoolMasterIndex(unsigned char idx);
 	Wave* GetWaveFromSlotMasterIndex(unsigned char idx);
 	Wave* GetWaveFromPoolMasterIndex(unsigned char idx);
 	unsigned char GetAWaveSlotSize();

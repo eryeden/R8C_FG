@@ -20,28 +20,27 @@
 #include "UIUtils.hpp"
 //#include "LCDUtils.hpp"
 
-class INTRfg : public FunctionGenerator, public INTRbase{
-public:
-	INTRfg() : FunctionGenerator(){};
 
-	void op(){
+class INTRFG : public FunctionGenerator, public INTRbase {
+public:
+	INTRFG() : FunctionGenerator() {};
+
+	void op() {
 		Update();
+		//p1_0 = !p1_0;
 	}
 };
 
-static INTRfg fg;
-
-
 class FGStateMachine{
 public:
-	
 	FGStateMachine();
-	//FGStateMachine(INTRfg *ffg);
+	FGStateMachine(INTRFG *_fg, UIUtils *_uiu);
 	void Up();
 	void Down();
 	void Select();
 	void Mode();
 
+	void Initialize(INTRFG *_fg, UIUtils *_uiu);
 	
 private:
 	unsigned char idx_selected;
@@ -53,12 +52,72 @@ private:
 	StateDutyRatio state_dutyratio;
 	StateInsertion state_insertion;
 
-	Timer tim;
-
-	UIUtils ui_utils;
+	
+	UIUtils *ui_utils;
+	INTRFG *fg;
 
 	void TransitState();
 };
 
+
+
+
+
+class INTRSM : public BtnEvent {
+private:
+	//LCDUtils lcd;
+	//UIUtils uiu;
+	//FGStateMachine fgm;
+public:
+	INTRFG * fg2;
+	FGStateMachine *fgm;
+	UIUtils * uiu;
+
+	INTRSM(INTRFG * _fg2, FGStateMachine *_fgm, UIUtils *_uiu)
+		//: uiu()
+		//, fgm()
+	{
+		uiu = _uiu;
+		uiu->GetHundleLCD()->WriteLineUp("HELLO KIKUTI");
+		fg2 = _fg2;
+		fgm = _fgm;
+		
+		fgm->Initialize(fg2, uiu);
+	}
+
+	void mode() {
+		fgm->Mode();
+		//uiu->GetHundleLCD()->WriteLineUp("MODE  ");
+		/*uiu.GetHundleLCD()->WriteLineDown(
+			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(0))
+			);*/
+	}
+
+	void select() {
+		fgm->Select();
+		//uiu->GetHundleLCD()->WriteLineUp("SELECT");
+		/*uiu.GetHundleLCD()->WriteLineDown(
+			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(1))
+			);*/
+	}
+
+	void up() {
+		fgm->Up();
+		//uiu->GetHundleLCD()->WriteLineUp("UP     ");
+		/*uiu.GetHundleLCD()->WriteLineDown(
+			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(2))
+			);*/
+	}
+
+	void down() {
+		fgm->Down();
+		//uiu->GetHundleLCD()->WriteLineUp("DOWN   ");
+		/*uiu.GetHundleLCD()->WriteLineDown(
+			(char *)uiu.GetTextFromID(fg2->GetIdFromSlotMasterIndex(3))
+			);*/
+	}
+
+
+};
 
 #endif  //_FGSTATEMACHINE_H
