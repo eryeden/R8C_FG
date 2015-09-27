@@ -68,6 +68,7 @@ private:
 
 	void Output();
 
+
 };
 
 class StateFrequency : public FGState {
@@ -89,7 +90,7 @@ private:
 
 class StatePhase : public FGState {
 public:
-	StatePhase() : FGState() { ; }
+	StatePhase();
 	void Up();
 	void Down();
 	void Select();
@@ -100,6 +101,7 @@ public:
 private:
 	void Output();
 	unsigned char scale;
+	int phase;
 
 };
 
@@ -122,7 +124,7 @@ private:
 
 class StateDutyRatio : public FGState {
 public:
-	StateDutyRatio() : FGState() { ; }
+	StateDutyRatio();
 	void Up();
 	void Down();
 	void Select();
@@ -134,6 +136,7 @@ private:
 
 	void Output();
 	unsigned char scale;
+	int duty; //duty‚Ì•S”{‚ª“ü‚é‚Â‚Ü‚èÅ‘å’l‚Í100
 };
 
 class StateInsertion : public FGState {

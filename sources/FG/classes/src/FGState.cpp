@@ -115,17 +115,25 @@ void StateSlots::Output() {
 
 	if (idx_selected == idx_show1) {
 		ui_utils->GetHundleLCD()->SetCursor(0, 0);
+		ui_utils->GetHundleLCD()->WriteNumber(idx_show1);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->WriteWaveNameFromSelectedID(fg->GetIdFromSlotMasterIndex(idx_show1));
 
 		ui_utils->GetHundleLCD()->SetCursor(0, 1);
+		ui_utils->GetHundleLCD()->WriteNumber(idx_show2);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_show2));
 
 	}
 	else {
 		ui_utils->GetHundleLCD()->SetCursor(0, 0);
+		ui_utils->GetHundleLCD()->WriteNumber(idx_show1);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_show1));
 
 		ui_utils->GetHundleLCD()->SetCursor(0, 1);
+		ui_utils->GetHundleLCD()->WriteNumber(idx_show2);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->WriteWaveNameFromSelectedID(fg->GetIdFromSlotMasterIndex(idx_show2));
 	}
 }
@@ -194,17 +202,55 @@ void StateFrequency::Output() {
 //###########FREQUENCY################################
 
 //###########PHASE################################
+StatePhase::StatePhase()
+	:FGState()
+{
+	scale = 0;
+	phase = 0;
+}
+
 void StatePhase::Up() {
 	//選択されている桁の値を一つ増やす桁上がりも許可
+	int p = phase;
+	int pm = 1;
+	for (int i = 0; i < scale; i++) {
+		pm *= 10;
+	}
 
+	p += pm;
+	if (p <= 100) {
+		((AWave *) (fg->GetWaveFromSlotMasterIndex(idx_selected)))->SetPhase((float)p * 0.01);
+		phase = p;
+		Output();
+	}
 }
 void StatePhase::Down() {
 	//選択されている桁の値を一つ減らす桁下がりも許可アンダーフローに注意
+	//選択されている桁の値を一つ増やす桁上がりも許可
+	int p = phase;
+	int pm = 1;
+	for (int i = 0; i < scale; i++) {
+		pm *= 10;
+	}
+
+	p -= pm;
+	if (p >= 0) {
+		((AWave *) (fg->GetWaveFromSlotMasterIndex(idx_selected)))->SetPhase((float) p * 0.01);
+		phase = p;
+		Output();
+	}
 }
 void StatePhase::Select() {
 	//選択されている桁を一つ右にずらす。一番右だったら一番左にずらす
+	if (scale == 0) {
+		scale = 2;
+	}
+	scale--;
+
+	Output();
 }
 void StatePhase::Mode() {
+	phase = (int)(((AWave *) (fg->GetWaveFromSlotMasterIndex(idx_selected)))->GetPhase() * 100.0);
 	Output();
 }
 
@@ -212,6 +258,8 @@ void StatePhase::Output() {
 	ui_utils->GetHundleLCD()->Clear();
 	ui_utils->GetHundleLCD()->WriteLineUp("P:");
 	ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_selected));
+	ui_utils->WriteFrequency3((unsigned int) (phase), scale);
+
 }
 
 //###########PHASE################################
@@ -273,22 +321,60 @@ void StateGain::Output() {
 	ui_utils->GetHundleLCD()->Clear();
 	ui_utils->GetHundleLCD()->WriteLineUp("G:");
 	ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_selected)); 
-	ui_utils->WriteFrequency2(g, scale);
+	ui_utils->WriteFrequency3(g, scale);
 }
 
 //###########GAIN################################
 
 //###########DUTYRATIO################################
-void StateDutyRatio::Up() {
+StateDutyRatio::StateDutyRatio()
+	:FGState()
+{
+	scale = 0;
+	duty = 0;
+}
 
+
+void StateDutyRatio::Up() {
+	int d = duty;
+	int pm = 1;
+	for (int i = 0; i < scale; i++) {
+		pm *= 10;
+	}
+
+	d += pm;
+	if (d <= 100) {
+		fg->m_apwm.SetDuty((float)d * 0.01);
+		duty = d;
+		Output();
+	}
 }
 void StateDutyRatio::Down() {
+	int d = duty;
+	int pm = 1;
+	for (int i = 0; i < scale; i++) {
+		pm *= 10;
+	}
 
+	d -= pm;
+	if (d >= 0) {
+		fg->m_apwm.SetDuty((float) d * 0.01);
+		duty = d;
+		Output();
+	}
 }
 void StateDutyRatio::Select() {
+	//選択されている桁を一つ右にずらす。一番右だったら一番左にずらす
+	if (scale == 0) {
+		scale = 2;
+	}
+	scale--;
 
+	Output();
 }
 void StateDutyRatio::Mode() {
+	//duty = ((APWM *) (fg->GetIdFromSlotMasterIndex(idx_selected)))->GetDuty();
+	duty = (int) (fg->m_apwm.GetDuty() * 100.0);
 	Output();
 }
 
@@ -296,6 +382,11 @@ void StateDutyRatio::Output() {
 	ui_utils->GetHundleLCD()->Clear();
 	ui_utils->GetHundleLCD()->WriteLineUp("DR:");
 	ui_utils->WriteWaveNameFromID(fg->GetIdFromSlotMasterIndex(idx_selected));
+//	ui_utils->WriteFrequency2(
+//		(unsigned int)(((APWM *) (fg->GetIdFromSlotMasterIndex(idx_selected)))->GetDuty() * 100.0), scale);
+
+	ui_utils->WriteFrequency3((unsigned int) (duty), scale);
+
 }
 
 //###########DUTYRATIO################################
@@ -368,19 +459,27 @@ void StateInsertion::Output() {
 					  
 	if (idx_insert == iidx_show1) {
 		ui_utils->GetHundleLCD()->SetCursor(0, 0);
+		ui_utils->GetHundleLCD()->WriteNumber(iidx_show1);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->GetHundleLCD()->Write('<');
 		ui_utils->WriteWaveNameFromSelectedID(fg->GetIdFromPoolMasterIndex(iidx_show1));
 
 		ui_utils->GetHundleLCD()->SetCursor(0, 1);
+		ui_utils->GetHundleLCD()->WriteNumber(iidx_show2);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->GetHundleLCD()->Write('<');
 		ui_utils->WriteWaveNameFromID(fg->GetIdFromPoolMasterIndex(iidx_show2));
 	}
 	else {
 		ui_utils->GetHundleLCD()->SetCursor(0, 0);
+		ui_utils->GetHundleLCD()->WriteNumber(iidx_show1);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->GetHundleLCD()->Write('<');
 		ui_utils->WriteWaveNameFromID(fg->GetIdFromPoolMasterIndex(iidx_show1));
 
 		ui_utils->GetHundleLCD()->SetCursor(0, 1);
+		ui_utils->GetHundleLCD()->WriteNumber(iidx_show2);
+		ui_utils->GetHundleLCD()->Write(':');
 		ui_utils->GetHundleLCD()->Write('<');
 		ui_utils->WriteWaveNameFromSelectedID(fg->GetIdFromPoolMasterIndex(iidx_show2));
 	}

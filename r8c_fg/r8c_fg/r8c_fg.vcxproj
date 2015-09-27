@@ -102,7 +102,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\ery\Documents\local_devel\r8c_29_fg\sources\FG\classes\inc;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\kikutikazuki\local_devel\local_devel\r8c_29_fg\sources\FG\classes\inc;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

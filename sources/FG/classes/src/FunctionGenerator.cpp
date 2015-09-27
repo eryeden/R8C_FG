@@ -42,9 +42,9 @@ FunctionGenerator::FunctionGenerator()
 	, m_anone()
 	, m_asawtooth(100, 0, 50)
 	, m_asine(100, 0, 50)
-	, m_atriangle(200, 0, 10)
+	, m_atriangle(100, 0, 50)
 	, m_apwm(100, 0, 50)
-	, m_anoise(100, 0, 10)
+	, m_anoise(100, 0, 50)
 
 {
 
@@ -73,17 +73,17 @@ FunctionGenerator::FunctionGenerator()
 	//m_aslot[3] = (AWave *) m_pool_wave[3];
 	//m_aslot[4] = (AWave *) m_pool_wave[4];
 
-	m_aslot[0] = &m_anone;
-	m_aslot[1] = &m_asawtooth;
-	m_aslot[2] = &m_atriangle;
-	m_aslot[3] = &m_asine;
-	m_aslot[4] = &m_apwm;
-
 	//m_aslot[0] = &m_anone;
-	//m_aslot[1] = &m_anone;
-	//m_aslot[2] = &m_anone;
-	//m_aslot[3] = &m_anone;
-	//m_aslot[4] = &m_anone;
+	//m_aslot[1] = &m_asawtooth;
+	//m_aslot[2] = &m_atriangle;
+	//m_aslot[3] = &m_asine;
+	//m_aslot[4] = &m_apwm;
+
+	m_aslot[0] = &m_anone;
+	m_aslot[1] = &m_anone;
+	m_aslot[2] = &m_anone;
+	m_aslot[3] = &m_anone;
+	m_aslot[4] = &m_anone;
 
 	for (int i = 0; i < Settings::FG_MAX_POOL; ++i){
 		m_pool_wave[i]->Enable();

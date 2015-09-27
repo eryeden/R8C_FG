@@ -19,10 +19,16 @@ APWM::APWM(unsigned int freq, float phase, unsigned int gain)
 	SetGain(gain);
 	m_clk.Set(freq, 100, phase);
 	ID = Settings::WAVE_ID_APWM;
+	duty = 0;
 }
 
 void APWM::SetDuty(float d){
+	duty = d;
 	m_thre_point = (unsigned int)(d * (float) m_clk.GetNop());
+}
+
+float APWM::GetDuty(){
+	return duty;
 }
 
 unsigned int APWM::GetValueNow() {

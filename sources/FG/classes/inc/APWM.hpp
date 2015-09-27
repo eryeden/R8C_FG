@@ -21,9 +21,11 @@ public:
 	unsigned int GetValueNow();
 	unsigned char GetId();
 	void SetDuty(float d);
+	float GetDuty();
 
 private:
 	unsigned int m_thre_point;
+	float duty;
 };
 
 #endif  //_APWM_H

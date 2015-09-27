@@ -145,6 +145,10 @@ void FGStateMachine::Mode() {
 
 //ステートマシンもどき
 void FGStateMachine::TransitState() {
+
+	//カーソルをOFFにする
+	ui_utils->GetHundleLCD()->EnableCursor(false);
+
 	switch (state_now->GetID())
 	{
 	case ID_STATE_SLOTS:
@@ -159,8 +163,11 @@ void FGStateMachine::TransitState() {
 		}
 		else if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_ANOISE) {
 
-			state_now = &state_insertion;
+			state_now = &state_gain;
 
+		}
+		else if (fg->GetIdFromSlotMasterIndex(idx_selected) == Settings::WAVE_ID_ANONE){
+			state_now = &state_insertion;
 		}
 		else {
 
@@ -168,7 +175,8 @@ void FGStateMachine::TransitState() {
 
 		}
 
-		//state_now = &state_freq;
+		//カーソルをOFFにする
+		//ui_utils->GetHundleLCD()->EnableCursor(false);
 
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();
@@ -183,7 +191,8 @@ void FGStateMachine::TransitState() {
 			state_now->SetIndexSelected(idx_selected);
 			state_now->Mode();
 		}else {
-			state_now = &state_phase;
+			//state_now = &state_phase;
+			state_now = &state_gain;
 			state_now->SetIndexSelected(idx_selected);
 			state_now->Mode();
 		}
@@ -225,12 +234,15 @@ void FGStateMachine::TransitState() {
 
 		state_now = &state_slots;
 		state_now->SetIndexSelected(idx_selected);
+		//カーソルをOFFにする
+		//ui_utils->GetHundleLCD()->EnableCursor(false);
 		state_now->Mode();
 		//ui_utils->GetHundleLCD()->WriteLineUp("INS");
 		break;
 
 	default:
-
+		//カーソルをOFFにする
+		//ui_utils->GetHundleLCD()->EnableCursor(false);
 		state_now = &state_slots;
 		state_now->SetIndexSelected(idx_selected);
 		state_now->Mode();

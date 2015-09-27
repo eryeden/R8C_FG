@@ -72,6 +72,8 @@ public:
 	static const unsigned char UI_MODE_INSERTION = 0x04;
 
 	void WriteFrequency2(unsigned int f, unsigned char scale);
+	void WriteFrequency3(unsigned int f, unsigned char scale);
+
 	const char * GetTextFromID(unsigned char ID);
 private:
 

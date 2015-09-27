@@ -73,8 +73,8 @@ void KeyInterruption::Initialize(){
 
 #ifdef BUTTON_PULLUP
 	//INT1, 3èâä˙âª
-	int1pl = 1;
-	int3pl = 1;
+	int1pl = 0;
+	int3pl = 0;
 
 	int1f0 = 1;
 	int1f1 = 1;
@@ -173,8 +173,8 @@ void KeyInterruption::Enable(){
 
 
 #ifdef BUTTON_PULLUP
-	pol_int1ic = 0;
-	pol_int3ic = 0;
+	pol_int1ic = 1;
+	pol_int3ic = 1;
 #else
 	pol_int1ic = 1;
 	pol_int3ic = 1;
@@ -253,6 +253,7 @@ void t_intr_key(){
 	//ki1en = 0;
 #ifdef BUTTON_PULLUP
 
+
 	if (p1_0 == 0){
 		_wait_ms(10);
 		//int_up.run();
@@ -267,6 +268,8 @@ void t_intr_key(){
 		//int_btn.down();
 		return;
 	}
+
+
 
 
 #else

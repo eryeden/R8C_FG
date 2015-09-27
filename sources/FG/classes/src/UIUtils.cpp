@@ -228,6 +228,59 @@ void UIUtils::WriteFrequency2(unsigned int f, unsigned char scale){
 
 }
 
+void UIUtils::WriteFrequency3(unsigned int f, unsigned char scale){
+	unsigned char scl = 0;
+
+	lcd.SetCursor(8, 1);
+
+	if (scale > (5)){
+		scl = 5;
+	}
+	else{
+		scl = scale;
+	}
+
+	lcd.WriteNumber6(f);
+	lcd.WriteString("%");
+	if (scl > 2){
+		//コンマの分も考慮する
+		scl++;
+	}
+	else{
+		//コンマ以右のカーソル
+		;
+	}
+	//ディスプレイON、カーソルON、ブリンクONにする
+	lcd.EnableCursor(true);
+	lcd.SetCursor((15 - 2) - scl, 1);
+
+	//if (scale > (GetScale(f) - 1)){
+	//	scl = GetScale(f) - 1;
+	//} else{
+	//	scl = scale;
+	//}
+	//
+	//if (f < 1000){
+	//	lcd.WriteNumber(f); lcd.WriteString("Hz");
+	//	lcd.SetCursor((15 - 2) - scl, 1);
+	//} else{
+	//	lcd.WriteNumber(f / 1000);
+	//	lcd.WriteString(",");
+	//	lcd.WriteNumber((f - ((f / 1000) * 1000)));
+	//	lcd.WriteString("Hz");
+
+	//	if (scl > 3){
+	//		//コンマの分も考慮する
+	//		scl++;
+	//	} else{
+	//		//コンマ以右のカーソル
+	//		;
+	//	}
+	//	lcd.SetCursor((15 - 2) - scl, 1);
+	//}
+
+}
+
 void UIUtils::WriteWaveNameFromID(const unsigned char ID){
 	lcd.WriteString(GetTextFromID(ID));
 	return;
