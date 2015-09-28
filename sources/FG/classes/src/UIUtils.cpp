@@ -252,7 +252,7 @@ void UIUtils::WriteFrequency3(unsigned int f, unsigned char scale){
 	}
 	//ディスプレイON、カーソルON、ブリンクONにする
 	lcd.EnableCursor(true);
-	lcd.SetCursor((15 - 2) - scl, 1);
+	lcd.SetCursor((15 - 1) - scl, 1);
 
 	//if (scale > (GetScale(f) - 1)){
 	//	scl = GetScale(f) - 1;
